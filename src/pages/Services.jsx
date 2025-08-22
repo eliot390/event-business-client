@@ -6,9 +6,9 @@ import { Link } from "react-router-dom";
 const Services = () => {
   return (
     <div className='flex justify-center h-screen w-full'>
-      <div className='my-auto'>
-        <div className='flex border-solid border-2 rounded p-4 m-6'>
-          <p className='tracking-wide text-lg'>We offer these</p>
+      <div className='flex flex-col justify-start mt-36'>
+        <div className='border-solid border-2 rounded p-4 m-6 w-1/3 mx-auto'>
+          <p className='tracking-wide text-lg text-center'>We offer these</p>
         </div>
         <div className='flex flex-row justify-center w-full'>
           <Link to='/barservice'>
