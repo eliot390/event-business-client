@@ -26,8 +26,8 @@ const FoodService = () => {
               <p className="text-gray-600 dark:text-gray-300">Whipped Cream, Toasted Pepitas, Cranberry Gelee</p>
               <h2 className="text-xl font-semibold mt-6 text-gray-800 dark:text-white">Greek Yogurt Panna Cotta</h2>
               <p className="text-gray-600 dark:text-gray-300">Basil Gelee, Candied Hazelnuts</p>
-              <h2 className="text-xl font-semibold mt-6 text-gray-800 dark:text-white">Mini Angel Food Cakes</h2>
-              <p className="text-gray-600 dark:text-gray-300">Lemon Verbena Cream, Mixed Berries</p>
+              <h2 className="text-xl font-semibold mt-6 text-gray-800 dark:text-white">Dubai Chocolate Parfait</h2>
+              <p className="text-gray-600 dark:text-gray-300">Chocolate Cake, Pistachio Tahini Mousse, Kadayif</p>
             </div>
             }
             pricingText={

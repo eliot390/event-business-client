@@ -1,7 +1,7 @@
 
 const MainSplash = () => {
   return (
-    <div>hello</div>
+    <div className='mx-auto mt-24 mb-8 w-xl text-center'>hello</div>
   )
 }
 

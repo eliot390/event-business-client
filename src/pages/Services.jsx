@@ -7,7 +7,7 @@ const Services = () => {
   return (
     <div className='flex justify-center w-full'>
       <div className='flex flex-col justify-start mt-12'>
-        <div className='border-solid border-2 rounded p-4 m-6 w-1/3 mx-auto'>
+        <div className='border-solid border-2 border-gold rounded p-4 m-6 w-1/3 mx-auto'>
           <p className='tracking-wide text-lg text-center'>We offer these</p>
         </div>
         <div className='flex flex-row justify-center w-full'>
