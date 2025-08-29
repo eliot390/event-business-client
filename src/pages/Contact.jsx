@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
+import minis from '../assets/images/minis2.jpg'
 
 const Contact = () => {
   const faqs = [
@@ -30,41 +31,54 @@ const Contact = () => {
   }
 
   return (
-    <div>
-      <div className='mx-auto mt-24 mb-8 w-xl'>
+    <div>      
+      <div className='mx-auto mb-8 w-xl bg-sage p-4 rounded-sm'>
+        <img src={minis} className='rounded-sm'/>
         <form>        
-          <div className="">
-            <h2 className="text-gray-900 text-center text-3xl">Let's Connect!</h2>
+          <div>
+            <h2 className="text-gray-900 text-center text-3xl mt-4">Let's Connect!</h2>
             <p className="mt-1 text-sm/6 text-gray-600 text-center">We can't wait to help plan an awesome event for you</p>
-            <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+            <div className="mt-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
               <div className="sm:col-span-3">
                 <label for="first-name" className="block text-sm/6 font-medium text-gray-900">First name</label>
                 <div className="mt-2">
-                  <input id="first-name" type="text" name="first-name" autocomplete="given-name" className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" />
+                  <input 
+                    id="first-name" 
+                    type="text" 
+                    name="first-name"
+                    className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 focus:outline-3 focus:outline-dark-sage sm:text-sm/6"/>
                 </div>
               </div>
 
               <div className="sm:col-span-3">
                 <label for="last-name" className="block text-sm/6 font-medium text-gray-900">Last name</label>
                 <div className="mt-2">
-                  <input id="last-name" type="text" name="last-name" autocomplete="family-name" className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" />
+                  <input 
+                    id="last-name" 
+                    type="text" 
+                    name="last-name"
+                    className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 focus:outline-3 focus:outline-dark-sage sm:text-sm/6"/>
                 </div>
               </div>
 
               <div className="sm:col-span-3">
                 <label for="email" className="block text-sm/6 font-medium text-gray-900">Email address</label>
                 <div className="mt-2">
-                  <input id="email" type="email" name="email" autocomplete="email" className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" />
+                  <input
+                    id="email" 
+                    type="email" 
+                    name="email" 
+                    className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 focus:outline-3 focus:outline-dark-sage sm:text-sm/6"/>
                 </div>
               </div>
 
               <div className="sm:col-span-3">
-                <label for="country" className="block text-sm/6 font-medium text-gray-900">Event Type</label>
+                <label for="event-type" className="block text-sm/6 font-medium text-gray-900">Event Type</label>
                 <div className="mt-2 grid grid-cols-1">
-                  <select id="country" name="country" autocomplete="country-name" className="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+                  <select id="event-type" name="event-type" className="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-gray-900 focus:outline-3 focus:outline-dark-sage sm:text-sm/6">
                     <option>Birthday</option>
                     <option>Anniversary</option>
-                    <option>Holiday</option>
+                    <option>Holiday Party</option>
                     <option>Wedding</option>
                     <option>Other</option>
                   </select>
@@ -75,9 +89,9 @@ const Contact = () => {
               </div>
 
               <div className="sm:col-span-2">
-                <label for="country" className="block text-sm/6 font-medium text-gray-900">Number of Guests</label>
+                <label for="guests" className="block text-sm/6 font-medium text-gray-900">Number of Guests</label>
                 <div className="mt-2 grid grid-cols-1">
-                  <select id="country" name="country" autocomplete="country-name" className="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+                  <select id="guests" name="guests" className="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-gray-900 focus:outline-3 focus:outline-dark-sage sm:text-sm/6">
                     <option>Up to 15</option>
                     <option>Up to 30</option>
                     <option>Up to 50</option>
@@ -96,29 +110,37 @@ const Contact = () => {
                   type="date"
                   id="date"
                   name="date"
-                  className="col-start-1 row-start-1 w-full rounded-md bg-white py-1.5 px-3 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"/>
+                  className="col-start-1 row-start-1 w-full rounded-md bg-white py-1.5 px-3 text-base text-gray-900 focus:outline-3 focus:outline-dark-sage sm:text-sm/6"/>
                 </div>              
               </div>
 
               <div className="sm:col-span-2">
-                <label for="postal-code" className="block text-sm/6 font-medium text-gray-900">Location</label>
+                <label for="postal-code" className="block text-sm/6 font-medium text-gray-900">Estimated Budget</label>
                 <div className="mt-2">
-                  <input id="postal-code" type="text" name="postal-code" autocomplete="postal-code" className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" />
+                  <input 
+                    id="budget" 
+                    type="text" 
+                    name="budget" 
+                    className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 focus:outline-3 focus:outline-dark-sage sm:text-sm/6" />
                 </div>
               </div>
 
               <div className="col-span-full">
                 <label for="street-address" className="block text-sm/6 font-medium text-gray-900">Additional Details</label>
                 <div className="mt-2">
-                  <textarea id="street-address" type="text" name="street-address" autocomplete="street-address" className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" />
+                  <textarea 
+                    id="additional-info" 
+                    type="text" 
+                    name="additional-info" 
+                    className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 focus:outline-3 focus:outline-dark-sage sm:text-sm/6" />
                 </div>
               </div>
               
             </div>
           </div>        
           <div className="mt-6 flex items-center justify-end gap-x-6">
-            <button type="button" className="text-sm/6 font-semibold text-gray-900">Cancel</button>
-            <button type="submit" className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Send</button>
+            <button type="button" className="text-sm font-semibold text-sm/6 font-semibold text-gray-900">Cancel</button>
+            <button type="submit" className="rounded-md bg-darker-sage px-3 py-2 text-sm font-semibold text-white hover:bg-dark-sage">Send</button>
           </div>
         </form>
       </div>

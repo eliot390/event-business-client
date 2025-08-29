@@ -1,20 +1,20 @@
 import martini from '../assets/images/martini.jpg'
 import tiki from '../assets/images/tiki.jpg'
 import unique from '../assets/images/molecular.jpg'
-import oldfashioned from '../assets/images/old_fashioneds.jpg'
-import plane from '../assets/images/paper_plane.jpg'
 import grogu from '../assets/images/grogu.jpg'
+import plane from '../assets/images/paper_plane.jpg'
+import pride from '../assets/images/pride.jpg'
 import ServiceCard from '../components/ServiceCard'
 
 const BarService = () => {
   return (
     <div>
       <p className='text-center'>Bar packages are priced 'per person' for larger events and per serving for smaller parties</p>     
-      <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-5">
+      <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-5">
           <ServiceCard
             title="Classic Cocktails"
-            description="Describe here"
+            description="Martinis, Manhattans, Old Fashioneds and more, crafted with timeless technique and style."
             image={martini}
             menuText={
               <div>
@@ -35,19 +35,33 @@ const BarService = () => {
           />
           <ServiceCard
             title="Tiki Madness"
-            description="Want a menu with only Old Fashioned variations? Drinks that aren't too sweet? We'll work with you."
+            description="From Mai Tais to Zombies, we'll bring the island vibes (umbrellas included!)."
             image={tiki}
-            menuText={`Old Fashioned :\n- Classic\n- Maple Bourbon\n- Smoked Cherry`}
+            menuText={
+              <div>
+                <h2 className="text-xl font-semibold text-gray-800 dark:text-white">Jungle Bird</h2>
+                <p className="text-gray-600 dark:text-gray-300">Dark Rum, Campari, Pineapple Juice</p>
+                <h2 className="text-xl font-semibold mt-6 text-gray-800 dark:text-white">Three Dots and a Dash</h2>
+                <p className="text-gray-600 dark:text-gray-300">Rhum Agricole, Aged Rum, Allspice Dram, Falernum, Orange Juice, Lime Juice, Honey, Bitters</p>
+                <h2 className="text-xl font-semibold mt-6 text-gray-800 dark:text-white">Saturn</h2>
+                <p className="text-gray-600 dark:text-gray-300">Gin, Falernum, Orgeat, Passion Fruit</p>
+                <h2 className="text-xl font-semibold mt-6 text-gray-800 dark:text-white">Mai Tai</h2>
+                <p className="text-gray-600 dark:text-gray-300">Aged Rum, Dry Curaçao, Orgeat, Lime Juice</p>
+                <h2 className="text-xl font-semibold mt-6 text-gray-800 dark:text-white">Zombie</h2>
+                <p className="text-gray-600 dark:text-gray-300">Aged Rum, Overproof Rum, Falernum, Grenadine, "Don's Mix", Absinthe</p>
+                <h2 className="text-xl font-semibold mt-6 text-gray-800 dark:text-white">Naked Ape</h2>
+                <p className="text-gray-600 dark:text-gray-300">Overproof Rum, Dark Rum, Banana Liqueur, Cinnamon, Bitters</p>
+              </div>}
           />
           <ServiceCard
             title="Off the Wall"
-            description="Want a menu with only Old Fashioned variations? Drinks that aren't too sweet? We'll work with you."
+            description="Think outside the glass! Unexpected flavors, bold twists, and drinks to keep your tastebuds excited."
             image={unique}
             menuText={`Old  Variations:\n- Classic\n- Maple Bourbon\n- Smoked Cherry`}
           />
           <ServiceCard
             title="New Classics"
-            description="Want a menu with only Old Fashioned variations? Drinks that aren't too sweet? We'll work with you."
+            description="Modern favorites like Paper Planes and Oaxaca Old Fashioned's, sure to become your new go-to."
             image={plane}
             menuText={
               <div>
@@ -68,14 +82,14 @@ const BarService = () => {
           />
           <ServiceCard
             title="Themed Cocktails"
-            description="Want a menu with only Old Fashioned variations? Drinks that aren't too sweet? We'll work with you."
-            image={grogu}
+            description="Having a Star Wars halloween party? An 80's themed birthday party? We'll work with you!"
+            image={pride}
             menuText={`Old Fashioned Variations:\n- Classic\n- Maple Bourbon\n- Smoked Cherry`}
           />
           <ServiceCard
             title="Custom Creations"
-            description="Want a menu with only Old Fashioned variations? Drinks that aren't too sweet? We'll work with you."
-            image={oldfashioned}
+            description="Your vision, our shakers. Let's build a drink package that's uniquely yours."
+            image={grogu}
             menuText={`Old Fashioned Variations:\n- Classic\n- Maple Bourbon\n- Smoked Cherry`}
           />
         </div>

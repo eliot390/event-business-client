@@ -3,10 +3,17 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  /* @apply bg-zinc-900; */
-}
+
 
 @theme {
-  --color-gold: #C4B454
+  --color-gold: #C4B454;
+  --color-sage: #9BB9B7;
+  --color-dark-sage: #64908D;
+  --color-darker-sage: #547876;
+  --color-beige: #F4F1EA;
+  --color-cream: #FAFAF9;
+}
+
+body {
+  @apply bg-cream;
 }
