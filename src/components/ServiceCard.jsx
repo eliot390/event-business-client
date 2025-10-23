@@ -11,7 +11,7 @@ const ServiceCard = ({ title, description, image, menuText, pricingText}) => {
           <img src={image} className="w-full object-contain transition duration-300 ease-in-out hover:scale-105" />.
         </div>
         <div className="p-4 md:p-6">
-          <h3 className="text-xl font-semibold text-gray-800 dark:text-neutral-300 dark:hover:text-white">
+          <h3 className="text-center text-xl font-semibold text-gray-800 dark:text-neutral-300 dark:hover:text-white">
             {title}
           </h3>
           <p className="text-gray-600 dark:text-gray-300">{description}</p>

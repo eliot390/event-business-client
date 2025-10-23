@@ -6,8 +6,7 @@ import pie from '../assets/images/pie.jpeg'
 
 const FoodService = () => {
   return (
-    <div>
-      <p className='text-center'>Bar packages are priced 'per person' for larger events and per serving for smaller parties</p>     
+    <div>    
       <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-5">
           <ServiceCard
@@ -41,49 +40,57 @@ const FoodService = () => {
           />
           <ServiceCard
             title="Cookies & Bars"
-            description="Describe here"
+            description=""
             image={cookies}
             menuText={
             <div>
               <h2 className="text-xl font-semibold text-gray-800 dark:text-white">Levain Style</h2>
               <p className="text-gray-600 dark:text-gray-300">Chocolate Chip | Double Chocolate Chip | Walnut Chocolate Chip</p>
               <h2 className="text-xl font-semibold mt-6 text-gray-800 dark:text-white">Corn Cookies</h2>
-              <p className="text-gray-600 dark:text-gray-300">corn</p>
+              <p className="text-gray-600 dark:text-gray-300">Sweet Corn Sugar Cookies</p>
               <h2 className="text-xl font-semibold mt-6 text-gray-800 dark:text-white">Brownies</h2>
               <p className="text-gray-600 dark:text-gray-300">Plain | Walnut | Cosmic</p>
               <h2 className="text-xl font-semibold mt-6 text-gray-800 dark:text-white">Lemon Tart</h2>
-              <p className="text-gray-600 dark:text-gray-300">lemon</p>
+              <p className="text-gray-600 dark:text-gray-300">Sweet Crust Shell Filled with Tart Lemon Curd</p>
               <h2 className="text-xl font-semibold mt-6 text-gray-800 dark:text-white">S'Mores Bar</h2>
-              <p className="text-gray-600 dark:text-gray-300">marshmallow</p>
+              <p className="text-gray-600 dark:text-gray-300">A classic in bar form! Graham Crust, Chocolate Ganache & Toasted Marshmallow</p>
             </div>
             }
             pricingText={
             <div>
-              <h2 className="text-xl font-semibold text-gray-800 dark:text-white">Cookies</h2>
-              <p className="text-gray-600 dark:text-gray-300">$3/each | $25/dozen </p>
-              <h2 className="text-xl font-semibold mt-6 text-gray-800 dark:text-white">Brownies & Bars</h2>
-              <p className="text-gray-600 dark:text-gray-300">$3/each | $25/quarter sheet</p>
+              <h2 className="text-xl font-semibold text-gray-800 dark:text-white">Cookies & Brownies</h2>
+              <p className="text-gray-600 dark:text-gray-300">$15/Half Dozen | $25/Dozen </p>
+              <h2 className="text-xl font-semibold mt-6 text-gray-800 dark:text-white">Tarts & Bars</h2>
+              <p className="text-gray-600 dark:text-gray-300">$5/Slice | $30/Full Serving</p>
             </div>
             }
           />
           <ServiceCard
             title="Pies"
-            description="Describe here"
+            description=""
             image={pie}
             menuText={
             <div>
-              <h2 className="text-xl font-semibold text-gray-800 dark:text-white">Coconut Cream</h2>
+              {/* <h2 className="text-xl font-semibold text-gray-800 dark:text-white">Coconut Cream</h2>
               <p className="text-gray-600 dark:text-gray-300">Coconut Custard, Whipped Cream, Toasted Coconut</p>
               <h2 className="text-xl font-semibold mt-6 text-gray-800 dark:text-white">Atlantic Beach</h2>
               <p className="text-gray-600 dark:text-gray-300">Saltine Cracker Crust, Lemon-Lime Custard, Whipped Cream</p>
-              <h2 className="text-xl font-semibold mt-6 text-gray-800 dark:text-white">Chcolate Silk</h2>
-              <p className="text-gray-600 dark:text-gray-300">Chocolate Mousse, Whipped Cream</p>
-              <h2 className="text-xl font-semibold mt-6 text-gray-800 dark:text-white">Pumpkin</h2>
-              <p className="text-gray-600 dark:text-gray-300">Plain | Whipped Cream, Toasted Pepitas</p>
+              <h2 className="text-xl font-semibold mt-6 text-gray-800 dark:text-white">Chocolate Silk</h2>
+              <p className="text-gray-600 dark:text-gray-300">Chocolate Mousse, Whipped Cream</p> 
               <h2 className="text-xl font-semibold mt-6 text-gray-800 dark:text-white">Lemon Meringue</h2>
-              <p className="text-gray-600 dark:text-gray-300">Lemon Curd, Toasted Meringue</p>
+              <p className="text-gray-600 dark:text-gray-300">Lemon Curd, Toasted Meringue</p>*/}
+              <h2 className="text-xl font-semibold mt-6 text-gray-800 dark:text-white">Pumpkin</h2>
+              <p className="text-gray-600 dark:text-gray-300">Plain | Toasted Meringue, Pepitas</p>              
+              <h2 className="text-xl font-semibold mt-6 text-gray-800 dark:text-white">Pecan</h2>
+              <p className="text-gray-600 dark:text-gray-300">Brown Butter Bourbon | Classic</p>
               <h2 className="text-xl font-semibold mt-6 text-gray-800 dark:text-white">Dutch Apple</h2>
               <p className="text-gray-600 dark:text-gray-300">Caramelized Apples, Oat Crumble</p>
+            </div>
+            }
+            pricingText={
+            <div>
+              <h2 className="text-xl font-semibold text-gray-800 dark:text-white">Full Pies</h2>
+              <p className="text-gray-600 dark:text-gray-300">$23/each </p>
             </div>
             }
           />
