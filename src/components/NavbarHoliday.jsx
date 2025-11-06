@@ -11,7 +11,8 @@ const NavbarHoliday = () => {
           <div className="md:ml-auto">
             <div className="flex space-x-2 uppercase tracking-tighter text-sm lg:tracking-wide lg:text-lg">
               <Link to="/" className={`lg:pr-4 hover:text-gold ${location.pathname === "/" ? "text-gold" : ""}`}>menu</Link>
-              <Link to="/order" className={`lg:pr-4 hover:text-gold ${location.pathname === "/order" ? "text-gold" : ""}`}>order</Link>
+              {/* <Link to="/order" className={`lg:pr-4 hover:text-gold ${location.pathname === "/order" ? "text-gold" : ""}`}>order</Link> */}
+              <a href="https://forms.gle/2mBXqb2qNJX8QkK5A" target="_blank" className={`lg:pr-4 hover:text-gold`}>order</a>
             </div>
           </div>
         </div>

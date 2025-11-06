@@ -1,6 +1,8 @@
+import { useState } from 'react'
 import pecan from '../assets/images/pecan.png'
 
 const OrderForm = () => {
+  const [number, setNumber] = useState(0);
 
   return (
     <div>
@@ -26,12 +28,11 @@ const OrderForm = () => {
                     id="first-name"
                     type="text" 
                     name="first-name"
-                    placeholder="First"
                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 focus:outline-3 focus:outline-dark-sage sm:text-sm/6"/>
                 </div>
               </div>
 
-              <div className="sm:col-span-3">
+              {/* <div className="sm:col-span-3">
                 <label for="first-name" className="block text-sm/6 font-medium text-transparent">f</label>
                 <div className="mt-2">
                   <input 
@@ -41,7 +42,7 @@ const OrderForm = () => {
                     placeholder="Last"
                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 focus:outline-3 focus:outline-dark-sage sm:text-sm/6"/>
                 </div>
-              </div>
+              </div> */}
 
               <div className="sm:col-span-3">
                 <label>
@@ -95,10 +96,41 @@ const OrderForm = () => {
 
               <div className="col-span-full col-start-1">
                 <label for="order" className="block text-sm/6 font-semibold text-gray-900">Order</label>
-                <div className="mt-2 grid grid-cols-3  gap-x-4 gap-y-6">
+                <div className='mx-auto mb-8 bg-light-sage text-center border-2 border-solid border-sage p-4 rounded-sm'>
+                  <div className="mt-2 grid grid-cols-2">
+                    <div>
+                      <select id="guests" name="guests" className=" appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-gray-900 focus:outline-3 focus:outline-dark-sage sm:text-sm/6">
+                        <option>Pumpkin</option>
+                        <option>Pumpkin 2</option>
+                        <option>Pecan</option>                    
+                        <option>Pecan 2</option>
+                        <option>Apple</option>
+                      </select>
+                      <svg viewBox="0 0 16 16" fill="currentColor" data-slot="icon" aria-hidden="true" className="pointer-events-none col-start-1 row-start-1 mr-2 size-5 self-center justify-self-end text-gray-500 sm:size-4">
+                        <path d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" fill-rule="evenodd" />
+                      </svg>
+                    </div>
+                    <div>
+                      <select id="guests" name="guests" className=" appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-gray-900 focus:outline-3 focus:outline-dark-sage sm:text-sm/6">
+                        <option>Cookies 1</option>
+                        <option>Cookies 1</option>
+                        <option>Cookies 1</option>                    
+                        <option>Cookies 1</option>
+                        <option>Brownies 1</option>
+                        <option>Brownies 1</option>
+                        <option>Brownies 1</option>
+                      </select>
+                      <svg viewBox="0 0 16 16" fill="currentColor" data-slot="icon" aria-hidden="true" className="pointer-events-none col-start-1 row-start-1 mr-2 size-5 self-center justify-self-end text-gray-500 sm:size-4">
+                        <path d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" fill-rule="evenodd" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* <div className="mt-2 grid grid-cols-3  gap-x-4 gap-y-6">
                   <button className="rounded-md bg-darker-sage px-3 py-2 text-sm font-semibold text-white hover:bg-dark-sage">+ Add Pies</button>
                   <button className="rounded-md bg-darker-sage px-3 py-2 text-sm font-semibold text-white hover:bg-dark-sage">+ Add Cookies</button>
-                </div>
+                </div> */}
               </div>
 
               <div className="col-span-full">
