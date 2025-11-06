@@ -10,7 +10,7 @@ const FoodService = () => {
       <div class="flex justify-center items-center min-h-screen bg-gray-50">
         <div class="grid grid-cols-2 gap-6">
           <ServiceCard
-            title="Cookies & Bars"
+            title="Cookies & Brownies"
             description=""
             image={cookies}
             menuText={
@@ -21,18 +21,18 @@ const FoodService = () => {
               <p className="text-gray-600 dark:text-gray-300">Sweet Corn Sugar Cookies</p>
               <h2 className="text-xl font-semibold mt-6 text-gray-800 dark:text-white">Brownies</h2>
               <p className="text-gray-600 dark:text-gray-300">Plain | Walnut | Cosmic</p>
-              <h2 className="text-xl font-semibold mt-6 text-gray-800 dark:text-white">Lemon Tart</h2>
+              {/* <h2 className="text-xl font-semibold mt-6 text-gray-800 dark:text-white">Lemon Tart</h2>
               <p className="text-gray-600 dark:text-gray-300">Sweet Crust Shell Filled with Tart Lemon Curd</p>
               <h2 className="text-xl font-semibold mt-6 text-gray-800 dark:text-white">S'Mores Bar</h2>
-              <p className="text-gray-600 dark:text-gray-300">A classic in bar form! Graham Crust, Chocolate Ganache & Toasted Marshmallow</p>
+              <p className="text-gray-600 dark:text-gray-300">A classic in bar form! Graham Crust, Chocolate Ganache & Toasted Marshmallow</p> */}
             </div>
             }
             pricingText={
             <div>
               <h2 className="text-xl font-semibold text-gray-800 dark:text-white">Cookies & Brownies</h2>
               <p className="text-gray-600 dark:text-gray-300">$15/Half Dozen | $25/Dozen </p>
-              <h2 className="text-xl font-semibold mt-6 text-gray-800 dark:text-white">Tarts & Bars</h2>
-              <p className="text-gray-600 dark:text-gray-300">$5/Slice | $30/Full Serving</p>
+              {/* <h2 className="text-xl font-semibold mt-6 text-gray-800 dark:text-white">Tarts & Bars</h2>
+              <p className="text-gray-600 dark:text-gray-300">$5/Slice | $30/Full Serving</p> */}
             </div>
             }
           />
@@ -51,9 +51,9 @@ const FoodService = () => {
               <h2 className="text-xl font-semibold mt-6 text-gray-800 dark:text-white">Lemon Meringue</h2>
               <p className="text-gray-600 dark:text-gray-300">Lemon Curd, Toasted Meringue</p>*/}
               <h2 className="text-xl font-semibold mt-6 text-gray-800 dark:text-white">Pumpkin</h2>
-              <p className="text-gray-600 dark:text-gray-300">Plain | Toasted Meringue, Pepitas</p>              
+              <p className="text-gray-600 dark:text-gray-300">Classic | Toasted Meringue, Pepitas</p>              
               <h2 className="text-xl font-semibold mt-6 text-gray-800 dark:text-white">Pecan</h2>
-              <p className="text-gray-600 dark:text-gray-300">Brown Butter Bourbon | Classic</p>
+              <p className="text-gray-600 dark:text-gray-300">Classic | Brown Butter Bourbon</p>
               <h2 className="text-xl font-semibold mt-6 text-gray-800 dark:text-white">Dutch Apple</h2>
               <p className="text-gray-600 dark:text-gray-300">Caramelized Apples, Oat Crumble</p>
             </div>
@@ -61,7 +61,7 @@ const FoodService = () => {
             pricingText={
             <div>
               <h2 className="text-xl font-semibold text-gray-800 dark:text-white">Full Pies</h2>
-              <p className="text-gray-600 dark:text-gray-300">$23/each </p>
+              <p className="text-gray-600 dark:text-gray-300">$20/each </p>
             </div>
             }
           />       
