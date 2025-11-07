@@ -8,7 +8,7 @@ const FoodService = () => {
   return (
     <div>    
       <div class="flex justify-center items-center min-h-screen bg-gray-50">
-        <div class="grid grid-cols-2 gap-6">
+        <div class="grid lg:grid-cols-2 gap-6 w-96 md:w-1/2">
           <ServiceCard
             title="Cookies & Brownies"
             description=""

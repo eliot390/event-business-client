@@ -7,8 +7,8 @@ const ServiceCard = ({ title, description, image, menuText, pricingText}) => {
   return (
     <>
       <div className="group flex flex-col h-full bg-white border border-gray-200 shadow-2xs rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70">
-        <div className="h-52 flex flex-col justify-center items-center bg-green-500 rounded-t-xl overflow-hidden">
-          <img src={image} className="w-full object-contain transition duration-300 ease-in-out hover:scale-105" />.
+        <div className="h-52 flex flex-col justify-center items-center rounded-t-xl overflow-hidden">
+          <img src={image} className="md:w-full object-contain transition duration-300 ease-in-out hover:scale-105" />
         </div>
         <div className="p-4 md:p-6">
           <h3 className="text-center text-xl font-semibold text-gray-800 dark:text-neutral-300 dark:hover:text-white">

@@ -4,7 +4,7 @@ import NavbarHoliday from "../components/NavbarHoliday"
 
 const MainLayout = () => {
   return (
-    <div className='mt-20'>
+    <div>
       {/* <Navbar /> */}
       <NavbarHoliday />
       <Outlet />
