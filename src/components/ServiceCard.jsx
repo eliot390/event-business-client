@@ -11,10 +11,10 @@ const ServiceCard = ({ title, description, image, menuText, pricingText}) => {
           <img src={image} className="md:w-full object-contain transition duration-300 ease-in-out hover:scale-105" />
         </div>
         <div className="p-4 md:p-6">
-          <h3 className="text-center text-xl font-semibold text-gray-800 dark:text-neutral-300 dark:hover:text-white">
+          <h3 className="text-center text-2xl font-semibold text-gray-800 dark:text-neutral-300 dark:hover:text-white">
             {title}
           </h3>
-          <p className="text-gray-600 dark:text-gray-300">{description}</p>
+          <p className="text-center text-sm italic text-gray-600 dark:text-gray-300">{description}</p>
         </div>
         <div className="mt-auto flex border-t border-gray-200 divide-x divide-gray-200 dark:border-neutral-700 dark:divide-neutral-700">
           <button
@@ -22,11 +22,11 @@ const ServiceCard = ({ title, description, image, menuText, pricingText}) => {
             className="cursor-pointer w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-es-xl bg-white text-gray-800 shadow-2xs hover:bg-gray-50 dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800">
             Menu
           </button>
-          <button
+          {/* <button
             onClick={() => setIsOpen('pricing')}
             className="cursor-pointer w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-es-xl bg-white text-gray-800 shadow-2xs hover:bg-gray-50 dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800">
             Pricing
-          </button>
+          </button> */}
         </div>
       </div>
 
