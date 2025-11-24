@@ -1,38 +1,44 @@
 import ServiceCard from '../components/ServiceCard';
-import cake from '../assets/images/cake.jpg'
 import cookies from '../assets/images/cookies.jpg'
-import mini from '../assets/images/mini_cheesecakes.jpg'
+import italian from '../assets/images/italian.jpg'
 import pie from '../assets/images/pie.jpeg'
 
 const FoodService = () => {
   return (
     <div>    
       <div class="flex justify-center items-center min-h-screen bg-gray-50">
-        <div class="grid lg:grid-cols-2 gap-6 w-96 md:w-1/2">
+        <div class="grid justify-items-center content-around sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-5">
           <ServiceCard
-            title="Cookies & Brownies"
-            description="$15/Half Dozen | $25/Dozen"
+            title="Cookies"
+            description=""
             image={cookies}
             menuText={
             <div>
-              <h2 className="text-xl font-semibold text-gray-800 dark:text-white">Levain Style</h2>
-              <p className="text-gray-600 dark:text-gray-300">Chocolate Chip<br/>Double Chocolate Chip<br/>Walnut Chocolate Chip</p>
+              <h2 className="text-xl font-semibold text-gray-800 dark:text-white">Bakery Style</h2>
+              <p className="text-gray-600 dark:text-gray-300">Extra Thick Chocolate Chip<br/>Extra Thick Double Chocolate Chocolate Chip<br/>Extra Thick Walnut Chocolate Chip</p>
+              <p className="text-center text-sm italic text-gray-600 dark:text-gray-300">$15/Half Dozen | $25/Dozen</p>
               <h2 className="text-xl font-semibold mt-6 text-gray-800 dark:text-white">Corn Cookies</h2>
               <p className="text-gray-600 dark:text-gray-300">Sweet Corn Sugar Cookies</p>
-              <h2 className="text-xl font-semibold mt-6 text-gray-800 dark:text-white">Brownies</h2>
-              <p className="text-gray-600 dark:text-gray-300">Plain<br/>Walnut<br/>Cosmic</p>
-              {/* <h2 className="text-xl font-semibold mt-6 text-gray-800 dark:text-white">Lemon Tart</h2>
-              <p className="text-gray-600 dark:text-gray-300">Sweet Crust Shell Filled with Tart Lemon Curd</p>
-              <h2 className="text-xl font-semibold mt-6 text-gray-800 dark:text-white">S'Mores Bar</h2>
-              <p className="text-gray-600 dark:text-gray-300">A classic in bar form! Graham Crust, Chocolate Ganache & Toasted Marshmallow</p> */}
+              <p className="text-center text-sm italic text-gray-600 dark:text-gray-300">$15/Half Dozen | $25/Dozen</p>
             </div>
             }
-            pricingText={
+          />
+          <ServiceCard
+            title="Holiday Specials"
+            description={"Sweeten up your holidays with these limited time specials!"}
+            image={italian}
+            menuText={
             <div>
-              <h2 className="text-xl font-semibold text-gray-800 dark:text-white">Cookies & Brownies</h2>
-              <p className="text-gray-600 dark:text-gray-300">$15/Half Dozen | $25/Dozen </p>
-              {/* <h2 className="text-xl font-semibold mt-6 text-gray-800 dark:text-white">Tarts & Bars</h2>
-              <p className="text-gray-600 dark:text-gray-300">$5/Slice | $30/Full Serving</p> */}
+              <h2 className="text-xl font-semibold text-gray-800 dark:text-white">Gingerbread Tres Leches</h2>
+              <p className="text-gray-600 dark:text-gray-300">Gingerbread spiced cake, tres leches, whipped cream</p>
+              <p className="text-center text-sm italic text-gray-600 dark:text-gray-300">9" by 9" pan - $25</p>
+              <p className="text-center text-sm italic text-gray-600 dark:text-gray-300">13" by 9" pan - $40</p><br/>
+              <h2 className="text-xl font-semibold text-gray-800 dark:text-white">Italian Christmas Cookies</h2>
+              <p className="text-gray-600 dark:text-gray-300">Soft, cakey cookies with a light almond flavor and sugar glaze</p>
+              <p className="text-center text-sm italic text-gray-600 dark:text-gray-300">$15/Two Dozen | $25/Four Dozen</p><br/>
+              <h2 className="text-xl font-semibold text-gray-800 dark:text-white">Oreo Crunch Peppermint Bark</h2>
+              <p className="text-gray-600 dark:text-gray-300">Dark chocolate Oreo base topped with white chocolate and candy cane pieces</p>
+              <p className="text-center text-sm italic text-gray-600 dark:text-gray-300">$15/pound</p>
             </div>
             }
           />

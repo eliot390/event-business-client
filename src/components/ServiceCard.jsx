@@ -6,7 +6,7 @@ const ServiceCard = ({ title, description, image, menuText, pricingText}) => {
 
   return (
     <>
-      <div className="group flex flex-col h-full bg-white border border-gray-200 shadow-2xs rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70">
+      <div className="group flex flex-col h-full w-5/6 bg-white border border-gray-200 shadow-2xs rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70">
         <div className="h-52 flex flex-col justify-center items-center rounded-t-xl overflow-hidden">
           <img src={image} className="md:w-full object-contain transition duration-300 ease-in-out hover:scale-105" />
         </div>
