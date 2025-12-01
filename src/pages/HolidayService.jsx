@@ -1,7 +1,7 @@
 import ServiceCard from '../components/ServiceCard';
 import cookies from '../assets/images/cookies.jpg'
-import italian from '../assets/images/italian.jpg'
 import pie from '../assets/images/pie.jpeg'
+import bark from '../assets/images/bark.jpg'
 
 const FoodService = () => {
   return (
@@ -10,7 +10,7 @@ const FoodService = () => {
         <div class="grid justify-items-center content-around sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-5">
           <ServiceCard
             title="Cookies"
-            description=""
+            description="Get your Claus on these freshly baked cookies!"
             image={cookies}
             menuText={
             <div>
@@ -26,16 +26,13 @@ const FoodService = () => {
           <ServiceCard
             title="Holiday Specials"
             description={"Sweeten up your holidays with these limited time specials!"}
-            image={italian}
+            image={bark}
             menuText={
             <div>
               <h2 className="text-xl font-semibold text-gray-800 dark:text-white">Gingerbread Tres Leches</h2>
               <p className="text-gray-600 dark:text-gray-300">Gingerbread spiced cake, tres leches, whipped cream</p>
-              <p className="text-center text-sm italic text-gray-600 dark:text-gray-300">9" by 9" pan - $25</p>
-              <p className="text-center text-sm italic text-gray-600 dark:text-gray-300">13" by 9" pan - $40</p><br/>
-              <h2 className="text-xl font-semibold text-gray-800 dark:text-white">Italian Christmas Cookies</h2>
-              <p className="text-gray-600 dark:text-gray-300">Soft, cakey cookies with a light almond flavor and sugar glaze</p>
-              <p className="text-center text-sm italic text-gray-600 dark:text-gray-300">$15/Two Dozen | $25/Four Dozen</p><br/>
+              <p className="text-center text-sm italic text-gray-600 dark:text-gray-300">Small - 9" by 9" pan - $25</p>
+              <p className="text-center text-sm italic text-gray-600 dark:text-gray-300">Large - 13" by 9" pan - $40</p><br/>
               <h2 className="text-xl font-semibold text-gray-800 dark:text-white">Oreo Crunch Peppermint Bark</h2>
               <p className="text-gray-600 dark:text-gray-300">Dark chocolate Oreo base topped with white chocolate and candy cane pieces</p>
               <p className="text-center text-sm italic text-gray-600 dark:text-gray-300">$15/pound</p>
@@ -44,7 +41,7 @@ const FoodService = () => {
           />
           <ServiceCard
             title="Pies"
-            description="Pies come in standard 9 inch pie tins"
+            description="Pies come in 9 inch deep dish servings"
             image={pie}
             menuText={
             <div>
