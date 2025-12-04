@@ -41,7 +41,7 @@ const FoodService = () => {
           />
           <ServiceCard
             title="Pies"
-            description={"9\" deep dish servings"}
+            description={"9\" deep dish servings to fit all that flavor!"}
             image={pie}
             menuText={
             <div>
