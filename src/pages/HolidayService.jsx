@@ -1,5 +1,5 @@
 import ServiceCard from '../components/ServiceCard';
-import cookies from '../assets/images/cookies.jpg'
+import cookies from '../assets/images/cookies.png'
 import pie from '../assets/images/pie.jpeg'
 import bark from '../assets/images/bark.jpg'
 

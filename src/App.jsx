@@ -13,7 +13,7 @@ import HolidayService from './pages/HolidayService'
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<MainLayout />}>
-      <Route index element={<HolidayService />} /> {/* change back to homepage later */}
+      <Route index element={<FoodService />} /> {/* change back to homepage later */}
       <Route path='/about' element={<About />} />
       <Route path='/contact' element={<Contact />} />
       <Route path='/services' element={<Services />} />

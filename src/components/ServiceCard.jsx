@@ -16,6 +16,9 @@ const ServiceCard = ({ title, description, image, menuText, pricingText}) => {
           </h3>
           <p className="text-center text-sm italic text-gray-600 dark:text-gray-300">{description}</p>
         </div>
+        <div className="pb-2">
+          <p className="text-center text-sm italic font-semibold text-gray-600 dark:text-gray-300">{pricingText}</p>
+        </div>
         <div className="mt-auto flex border-t border-gray-200 divide-x divide-gray-200 dark:border-neutral-700 dark:divide-neutral-700">
           <button
             onClick={() => setIsOpen('menu')}
@@ -41,7 +44,7 @@ const ServiceCard = ({ title, description, image, menuText, pricingText}) => {
             onClick={() => setIsOpen(null)}
           >
             <motion.div
-              className="bg-white dark:bg-neutral-900 rounded-md p-6 w-80 shadow-lg relative border border-solid text-center w-96"
+              className="bg-white dark:bg-neutral-900 rounded-md p-6 w-80 shadow-lg relative border border-solid text-center w-100"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
