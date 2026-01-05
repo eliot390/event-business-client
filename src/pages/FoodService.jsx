@@ -69,6 +69,8 @@ const FoodService = () => {
             <div>
               <h2 className="text-xl font-semibold text-gray-800 dark:text-white">Ube Custard</h2>
               <p className="text-gray-600 dark:text-gray-300">Ube Custard, Toasted Meringue</p>
+              <h2 className="text-xl font-semibold mt-6 text-gray-800 dark:text-white">French Silk</h2>
+              <p className="text-gray-600 dark:text-gray-300">Oreo Cookie Crust, Chocolate Mousse, Whipped Cream</p>
               <h2 className="text-xl font-semibold mt-6 text-gray-800 dark:text-white">Atlantic Beach</h2>
               <p className="text-gray-600 dark:text-gray-300">Saltine Cracker Crust, Lemon-Lime Custard, Whipped Cream</p>
               <h2 className="text-xl font-semibold mt-6 text-gray-800 dark:text-white">Dutch Apple</h2>
@@ -82,16 +84,14 @@ const FoodService = () => {
             }
           />
           <ServiceCard
-            title="Specials"
-            description="Limited time release items"
+            title="Tres Leches"
+            description="Because it deserves its own spot!"
             image={leches}
             menuText={
             <div>
               <h2 className="text-xl font-semibold text-gray-800 dark:text-white">Eliot's Famous Tres Leches</h2>
-              <p className="text-gray-600 dark:text-gray-300">Fruity Pebbles<br/>Classic Vanilla<br/>Chocolate Hazelnut</p>
-              <h2 className="text-xl font-semibold mt-6 text-gray-800 dark:text-white">Extra Fudgey Brownies</h2>
-              <p className="text-gray-600 dark:text-gray-300">Classic<br/>Dulce de Leche<br/><br/></p>
-              <p className="text-center text-sm italic font-semibold text-gray-600 dark:text-gray-300">All cakes & brownies come in 9" by 9" pan</p>
+              <p className="text-gray-600 dark:text-gray-300">Classic Tres<br/>Fruity Pebbles<br/>Chocolate Hazelnut</p><br/>
+              <p className="text-center text-sm italic font-semibold text-gray-600 dark:text-gray-300">All cakes come in a 9" by 9" pan</p>
             </div>
             }
             pricingText={
