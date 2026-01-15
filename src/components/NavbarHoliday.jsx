@@ -10,8 +10,8 @@ const NavbarHoliday = () => {
           <p className="text-gold uppercase lg:tracking-widest text-sm font-semibold lg:text-2xl">eliot's specialty bakes</p>
           <div className="md:ml-auto">
             <div className="flex space-x-2 uppercase tracking-tighter text-sm lg:tracking-wide lg:text-lg">
-              <Link to="/" className={`lg:pr-4 hover:text-gold ${location.pathname === "/" ? "text-gold" : ""}`}>menu</Link>
-              {/* <Link to="/order" className={`lg:pr-4 hover:text-gold ${location.pathname === "/order" ? "text-gold" : ""}`}>order</Link> */}
+              <Link to="/BarService" className={`lg:pr-4 hover:text-gold ${location.pathname === "/barservice" ? "text-gold" : ""}`}>drinks</Link>
+              <Link to="/" className={`lg:pr-4 hover:text-gold ${location.pathname === "/" ? "text-gold" : ""}`}>desserts</Link>
               <a href="https://forms.gle/zCF2zfdZQGBS5jbv8" target="_blank" className={`lg:pr-4 hover:text-gold`}>order</a>
             </div>
           </div>
