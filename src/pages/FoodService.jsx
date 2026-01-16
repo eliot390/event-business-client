@@ -1,7 +1,5 @@
 import ServiceCard from '../components/ServiceCard';
-import cake from '../assets/images/cake.jpg'
 import cookies from '../assets/images/cookies.png'
-import mini from '../assets/images/mini_cheesecakes.jpg'
 import pie from '../assets/images/atlantic.png'
 import leches from '../assets/images/leches.png'
 

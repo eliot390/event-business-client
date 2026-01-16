@@ -1,16 +1,15 @@
 import martini from '../assets/images/martini.jpg'
 import tiki from '../assets/images/tiki.jpg'
-import unique from '../assets/images/molecular.jpg'
 import tropic from '../assets/images/tropic.png'
-import plane from '../assets/images/paper_plane.jpg'
-import pride from '../assets/images/pride.jpg'
 import ServiceCard from '../components/ServiceCard'
 
 const BarService = () => {
   return (
     <div>     
-      <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-        <p className='text-center'>Batched cocktails come in 33oz. (About 11 servings) or 16oz. (About 5 servings) bottles</p>
+      <div className="flex flex-col justify-center max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+        <p className='mt-8 mx-auto max-w-lg text-center'>Toasted offers handcrafted, pre-batched cocktails in 33 oz (11 servings) 
+          and 16 oz (5 servings) bottles. Easy to serve, perfect for events, and great as gifts. Custom cocktail
+           options are available upon request.</p>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-5 mt-5">
           <ServiceCard
             title="Classic Cocktails"
@@ -61,39 +60,6 @@ const BarService = () => {
               </div>
               }
           />
-          {/* <ServiceCard
-            title="Off the Wall"
-            description="Think outside the glass! Unexpected flavors, bold twists, and drinks to keep your tastebuds excited."
-            image={unique}
-            menuText={`Old  Variations:\n- Classic\n- Maple Bourbon\n- Smoked Cherry`}
-          />
-          <ServiceCard
-            title="New Classics"
-            description="Modern favorites like Paper Planes and Oaxaca Old Fashioned's, sure to become your new go-to."
-            image={plane}
-            menuText={
-              <div>
-                <h2 className="text-xl font-semibold text-gray-800 dark:text-white">Paper Plane</h2>
-                <p className="text-gray-600 dark:text-gray-300">Bourbon, Amaro Nonino, Aperol</p>
-                <h2 className="text-xl font-semibold mt-6 text-gray-800 dark:text-white">Tommy's Margarita</h2>
-                <p className="text-gray-600 dark:text-gray-300">Tequila, Lime Agave</p>
-                <h2 className="text-xl font-semibold mt-6 text-gray-800 dark:text-white">Penicillin</h2>
-                <p className="text-gray-600 dark:text-gray-300">Scotch, Ginger, Honey</p>
-                <h2 className="text-xl font-semibold mt-6 text-gray-800 dark:text-white">Mezcal Mule</h2>
-                <p className="text-gray-600 dark:text-gray-300">Mezcal, Lime, Ginger Beer</p>
-                <h2 className="text-xl font-semibold mt-6 text-gray-800 dark:text-white">Gin Basil Smash</h2>
-                <p className="text-gray-600 dark:text-gray-300">Gin, Basil, Lemon</p>
-                <h2 className="text-xl font-semibold mt-6 text-gray-800 dark:text-white">Oaxaca Old Fashioned</h2>
-                <p className="text-gray-600 dark:text-gray-300">Tequila, Mezcal, Agave, Bitters</p>
-              </div>
-            }
-          />
-          <ServiceCard
-            title="Themed Cocktails"
-            description="Having a Star Wars halloween party? An 80's themed birthday party? We'll work with you!"
-            image={pride}
-            menuText={`Old Fashioned Variations:\n- Classic\n- Maple Bourbon\n- Smoked Cherry`}
-          /> */}
           <ServiceCard
             title="Party Revival"
             description="Tried & true creations from our past parties, sure to be a hit!"
