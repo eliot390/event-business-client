@@ -5,8 +5,12 @@ import { Link } from "react-router-dom";
 
 const Services = () => {
   return (
-    <div className='flex items-center justify-center w-full min-h-screen'>
-      <div className='flex gap-6'>
+    <div>     
+      <div className="flex flex-col justify-center max-w-[85rem] px-4 py-24 lg:px-8 lg:py-14 mx-auto">
+        <p className='mt-8 mx-auto max-w-xl text-center'>Toasted provides personalized additions that elevate any celebration with custom batched cocktails,
+          a selection of home-made desserts, and interactive photobooth experiences. 
+          We're not a full-scale caterer or event planner... We specialize in the extra details that make events unforgettable.</p>
+        <div className="grid grid-cols-1 justify-items-center lg:grid-cols-3 gap-6 mb-5 mt-5">
           <Link to='/barservice'>
             <div className='relative group transition duration-300 ease-in-out hover:-translate-y-4 hover:scale-100'>
               <img src={drink} className='border-solid border-2 border-gold rounded'/>
@@ -26,6 +30,7 @@ const Services = () => {
             </div> 
           </Link>
         </div>
+    </div>
     </div>
   )
 }

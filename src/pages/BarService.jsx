@@ -6,11 +6,11 @@ import ServiceCard from '../components/ServiceCard'
 const BarService = () => {
   return (
     <div>     
-      <div className="flex flex-col justify-center max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-        <p className='mt-8 mx-auto max-w-lg text-center'>Toasted offers handcrafted, pre-batched cocktails in 33 oz (11 servings) 
+      <div className="flex flex-col justify-center max-w-[85rem] px-4 py-24 lg:px-8 lg:py-14 mx-auto">
+        <p className='mt-8 mx-auto max-w-lg h-24 text-center'>Toasted offers handcrafted, pre-batched cocktails in 33 oz (11 servings) 
           and 16 oz (5 servings) bottles. Easy to serve, perfect for events, and great as gifts. Custom cocktail
            options are available upon request.</p>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-5 mt-5">
+        <div className="grid grid-cols-1 justify-items-center lg:grid-cols-3 gap-6 mb-5 mt-5">
           <ServiceCard
             title="Classic Cocktails"
             description="Martinis, Manhattans, Old Fashioneds and more, crafted with timeless technique and style."
