@@ -1,7 +1,7 @@
 import ServiceCard from '../components/ServiceCard';
-import cookies from '../assets/images/cookies.png'
-import pie from '../assets/images/atlantic.png'
-import leches from '../assets/images/leches.png'
+import cookies from '../assets/images/desserts/cookies.png'
+import pie from '../assets/images/desserts/atlantic.png'
+import leches from '../assets/images/desserts/leches.png'
 
 const FoodService = () => {
   return (

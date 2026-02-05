@@ -2,8 +2,24 @@ import martini from '../assets/images/martini.jpg'
 import tiki from '../assets/images/tiki.jpg'
 import tropic from '../assets/images/tropic.png'
 import ServiceCard from '../components/ServiceCard'
+import ProductCard from '../components/ProductCard'
+import daiquiri from '../assets/images/drinks/daiquiri.jpg'
+import manhattan from '../assets/images/drinks/manhattan.jpg'
+import margarita from '../assets/images/drinks/margarita.jpg'
+import limes from '../assets/images/fresh-limes.png'
+import { useState } from 'react'
 
 const BarService = () => {
+  const [counter, setCounter] = useState(0);
+  const increase = () => {
+    setCounter(counter+1)
+  }
+  const decrease = () => {
+    if (counter>0){
+      setCounter(counter-1)
+    }    
+  }
+
   return (
     <div>     
       <div className="flex flex-col justify-center max-w-[85rem] px-4 py-24 lg:px-8 lg:py-14 mx-auto">
@@ -80,6 +96,60 @@ const BarService = () => {
                 <p className="text-gray-600 dark:text-gray-300">16 oz. $30<br/>33 oz. - $60</p>
               </div>
               }
+          />
+          <ProductCard
+            style="classic"
+            name="Daiquiri"
+            image={daiquiri}
+            details={
+              <div className='w-sm text-left'>
+                <img src={limes}/>
+                <p className='text-3xl font-semibold mb-2 text-gold'>Daiquiri</p>
+                <p>White Rum, Lime Juice, Simple Syrup</p>
+                <p className='italic mt-2 mb-2'>Crisp, light and refreshing. Delicately simple yet with perfectly balanced complexity of flavours.</p>
+                <div className='flex flex-row justify-between items-center mt-4'>
+                  <div className='bg-white w-fit text-2xl hover:bg-gray-100 text-gray-800 font-semibold px-3 border border-gray-400 rounded-full shadow' >
+                    <button
+                      className='mr-2 text-2xl' 
+                      onClick={decrease}>-</button>
+                    {counter} 
+                    <button 
+                      className='ml-1 text-2xl'
+                      onClick={increase}>+</button>
+                  </div>
+                  <p>16 oz. Bottle</p>
+                  <button
+                    onClick={() => setIsOpen('details')} 
+                    className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-1 px-3 border border-gray-400 rounded-full shadow">Add to Cart</button>
+                </div>
+                <div className='flex flex-row justify-between items-center mt-4'>
+                  <div className='bg-white w-fit text-2xl hover:bg-gray-100 text-gray-800 font-semibold px-3 border border-gray-400 rounded-full shadow' >
+                    <button
+                      className='mr-2 text-2xl' 
+                      onClick={decrease}>-</button>
+                    {counter} 
+                    <button 
+                      className='ml-1 text-2xl'
+                      onClick={increase}>+</button>
+                  </div>
+                  <p>32 oz. Bottle</p>
+                  <button
+                    onClick={() => setIsOpen('details')} 
+                    className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-1 px-3 border border-gray-400 rounded-full shadow">Add to Cart</button>
+                </div>
+                
+              </div>
+            }
+          />
+          <ProductCard
+            style="classic"
+            name="Manhattan"
+            image={manhattan}
+          />
+          <ProductCard
+            style="classic"
+            name="Margarita"
+            image={margarita}
           />
         </div>
       </div>

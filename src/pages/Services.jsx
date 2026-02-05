@@ -11,7 +11,7 @@ const Services = () => {
           a selection of home-made desserts, and interactive photobooth experiences. 
           We're not a full-scale caterer or event planner... We specialize in the extra details that make events unforgettable.</p>
         <div className="grid grid-cols-1 justify-items-center lg:grid-cols-3 gap-6 mb-5 mt-5">
-          <Link to='/barservice'>
+          <Link to='/collection/barservice'>
             <div className='relative group transition duration-300 ease-in-out hover:-translate-y-4 hover:scale-100'>
               <img src={drink} className='border-solid border-2 border-gold rounded'/>
               <p className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-center">Custom Batched Cocktails</p>

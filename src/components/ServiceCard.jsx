@@ -23,13 +23,13 @@ const ServiceCard = ({ title, description, image, menuText, pricingText}) => {
           <button
             onClick={() => setIsOpen('menu')}
             className="cursor-pointer w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-es-xl bg-white text-gray-800 shadow-2xs hover:bg-gray-50 dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800">
-            Menu
+            Options
           </button>
-          {/* <button
+          <button
             onClick={() => setIsOpen('pricing')}
             className="cursor-pointer w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-es-xl bg-white text-gray-800 shadow-2xs hover:bg-gray-50 dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800">
             Pricing
-          </button> */}
+          </button>
         </div>
       </div>
 
