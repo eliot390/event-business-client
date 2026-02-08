@@ -17,7 +17,7 @@ const Services = () => {
               <p className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-center">Custom Batched Cocktails</p>
             </div>
           </Link>
-          <Link to='/foodservice'>
+          <Link to='/dessertservice'>
             <div className='group mx-1 transition duration-300 ease-in-out hover:-translate-y-4 hover:scale-100'>
               <img src={food} className='border-solid border-2 border-gold rounded'/>
               <p className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-center">Homemade Desserts</p>

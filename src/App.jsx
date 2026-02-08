@@ -4,7 +4,7 @@ import Contact from './pages/Contact'
 import Services from './pages/Services'
 import OrderForm from './pages/OrderForm'
 import BarService from './pages/BarService'
-import FoodService from './pages/FoodService'
+import DessertService from './pages/DessertService'
 import PhotoService from './pages/PhotoService'
 import HolidayService from './pages/HolidayService'
 
@@ -16,7 +16,7 @@ const router = createBrowserRouter(
       <Route path='/services' element={<Services />} />
       <Route path='/order' element={<OrderForm />} />
       <Route path='/collection/barservice' element={<BarService />} />
-      <Route path='/foodservice' element={<FoodService />} />
+      <Route path='/dessertservice' element={<DessertService />} />
       <Route path='/photoservice' element={<PhotoService />} />
       <Route path='/holidayservice' element={<HolidayService />} />
     </Route>
