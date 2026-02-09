@@ -1,16 +1,16 @@
 
 import all from '../assets/images/desserts/mixer.png'
-import cake from '../assets/images/desserts/cake.png'
-import cookie from '../assets/images/desserts/cookie.png'
-import pie from '../assets/images/desserts/pie.png'
+import cakeIcon from '../assets/images/desserts/cake.png'
+import cookieIcon from '../assets/images/desserts/cookie.png'
+import pieIcon from '../assets/images/desserts/pie.png'
 
 const DessertButtonGroup = ({active, onChange}) => {
 
   const buttons = [
     {id: "all", img: all},
-    {id: "cookies", img: cookie},
-    {id: "pies", img: pie},
-    {id: "cakes", img: cake}
+    {id: "cookies", img: cookieIcon},
+    {id: "pies", img: pieIcon},
+    {id: "cakes", img: cakeIcon}
   ]
 
   return (

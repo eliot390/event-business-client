@@ -1,4 +1,4 @@
-import ServiceCard from '../components/ServiceCard';
+
 import cookies from '../assets/images/desserts/cookies.png'
 import pie from '../assets/images/desserts/atlantic.png'
 import leches from '../assets/images/desserts/leches.png'
@@ -26,7 +26,7 @@ const DessertService = () => {
     () => [
       {
         type:"cookies",
-        name:"Cookie",
+        name:"Chocolate Chip",
         image:cookies,
         details: (
           <DessertProductCard
@@ -54,7 +54,7 @@ const DessertService = () => {
       },
       {
         type:"cookies",
-        name:"Cookie",
+        name:"Double Chocolate Chocolate Chip",
         image:cookies,
         details: (
           <DessertProductCard
@@ -82,7 +82,7 @@ const DessertService = () => {
       },
       {
         type:"cookies",
-        name:"Cookie",
+        name:"Walnut Chocolate Chip",
         image:cookies,
         details: (
           <DessertProductCard
@@ -110,7 +110,7 @@ const DessertService = () => {
       },
       {
         type:"cookies",
-        name:"Cookie",
+        name:"Sweet Corn Sugar Cookie",
         image:cookies,
         details: (
           <DessertProductCard
@@ -138,7 +138,7 @@ const DessertService = () => {
       },
       {
         type:"pies",
-        name:"Pie",
+        name:"Atlantic Beach Pie",
         image:pie,
         details: (
           <DessertProductCard
@@ -159,7 +159,7 @@ const DessertService = () => {
       },
       {
         type:"cakes",
-        name:"Tres Leches",
+        name:"Fruity Pebbles Tres Leches",
         image:leches,
         details: (
           <DessertProductCard

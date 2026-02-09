@@ -10,7 +10,7 @@ const Navbar = () => {
         <div className="flex flex-col items-center justify-around my-4">
           <div className="flex flex-col items-center lg:flex-row lg:items-end-safe">
             <img src={disco} className="w-[3rem] lg:mr-2 lg:w-[3rem]"/>
-            <p className="text-gold uppercase mb-1 lg:tracking-widest text-2xl lg:text-4xl">toasted</p>
+            <p className="text-gold font-(family-name:--font-milliard)  mb-1  text-2xl lg:text-4xl">Toasted</p>
           </div>          
           <div className="flex space-x-4 text-white uppercase tracking-tighter text-md lg:tracking-wide lg:text-lg">
             <Link to="/" className={`lg:pr-4 hover:text-gold ${location.pathname === "/" ? "text-gold" : ""}`}>home</Link>              

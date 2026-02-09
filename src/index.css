@@ -1,8 +1,8 @@
+@import url(https://db.onlinewebfonts.com/c/111831f1adf5b66e99ecfe36b9033523?family=Milliard+Heavy); 
 @import "tailwindcss";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 
 
 @theme {
@@ -13,6 +13,8 @@
   --color-darker-sage: #547876;
   --color-beige: #F4F1EA;
   --color-cream: #FAFAF9;
+
+  --font-milliard: "Milliard Heavy"
 }
 
 body {
