@@ -301,8 +301,8 @@ const BarService = () => {
 
   return (
     <div>     
-      <div className="flex flex-col justify-center max-w-[85rem] px-4 py-24 lg:px-8 lg:py-14 mx-auto">
-        <p className='mt-8 mx-auto max-w-lg h-24 text-center'>Toasted offers handcrafted, pre-batched cocktails in 33 oz (11 servings) 
+      <div className="flex flex-col justify-center max-w-[85rem] px-4 py-14 lg:px-8 lg:py-14 mx-auto">
+        <p className='mt-2 mx-auto max-w-lg h-24 text-center'>Toasted offers handcrafted, pre-batched cocktails in 33 oz (11 servings) 
           and 16 oz (5 servings) bottles. Easy to serve, perfect for events, and great as gifts. Custom cocktail
            options are available upon request.</p>
         <CocktailButtonGroup active={filter} onChange={setFilter}/>

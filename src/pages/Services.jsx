@@ -2,6 +2,7 @@ import drink from '../assets/images/batched.png'
 import food from '../assets/images/pie.png'
 import photo from '../assets/images/photo.jpg'
 import { Link } from "react-router-dom";
+import us from '../assets/images/jesm.png'
 
 const Services = () => {
   return (

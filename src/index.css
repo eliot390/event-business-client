@@ -1,4 +1,4 @@
-@import url(https://db.onlinewebfonts.com/c/111831f1adf5b66e99ecfe36b9033523?family=Milliard+Heavy); 
+@import url(https://db.onlinewebfonts.com/c/111831f1adf5b66e99ecfe36b9033523?family=Milliard+Heavy);
 @import "tailwindcss";
 @tailwind base;
 @tailwind components;
@@ -19,7 +19,7 @@
   --color-frozen-water:#CBF3F0;
   --color-sea-green:#2EC4B6;
 
-  --font-milliard: "Milliard Heavy"
+  --font-milliard-heavy: "Milliard Heavy"
 }
 
 body {
