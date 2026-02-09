@@ -6,7 +6,6 @@ import OrderForm from './pages/OrderForm'
 import BarService from './pages/BarService'
 import DessertService from './pages/DessertService'
 import PhotoService from './pages/PhotoService'
-import HolidayService from './pages/HolidayService'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -16,9 +15,8 @@ const router = createBrowserRouter(
       <Route path='/services' element={<Services />} />
       <Route path='/order' element={<OrderForm />} />
       <Route path='/collection/barservice' element={<BarService />} />
-      <Route path='/dessertservice' element={<DessertService />} />
-      <Route path='/photoservice' element={<PhotoService />} />
-      <Route path='/holidayservice' element={<HolidayService />} />
+      <Route path='/collection/dessertservice' element={<DessertService />} />
+      <Route path='/collection/photoservice' element={<PhotoService />} />
     </Route>
   )
 )

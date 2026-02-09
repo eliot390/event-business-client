@@ -14,7 +14,8 @@ const CocktailButtonGroup = ({active, onChange}) => {
   ]
 
   return (
-    <div className="flex flex-row justify-evenly">
+  <div className='flex justify-center'>
+    <div className="flex flex-row w-3/4 justify-evenly bg-light-honey border-honey border-solid border-3 rounded-xl">
       {buttons.map((btn) => (
         <button
           key={btn.id}
@@ -22,21 +23,24 @@ const CocktailButtonGroup = ({active, onChange}) => {
           className={`            
             p-3
             transition
-            ${active === btn.id ? "ring-blue-500" : "bg-none"}
-            hover:bg-blue-100
-            focus:outline-none focus:ring-2 focus:ring-blue-400`}
+            ${active === btn.id ? "ring-blue-500" : "bg-none"}`}
             aria-pressed={active === btn.id}
          >
           <img
             src={btn.img}
-            className="h-22 select-none pointer-events-none"
+            className={`
+            h-22
+            cursor-pointer
+            transition duration-300 ease-in-out hover:scale-105`}
           />
-          <span className="text-xs font-medium capitalize">
+          <span className="text-sm font-medium capitalize">
             {btn.id}
           </span>
-        </button>  
+        </button>
       ))}
     </div>
+  </div>
+    
   )
 }
 

@@ -1,7 +1,11 @@
 
 const PhotoService = () => {
   return (
-    <div>PhotoService</div>
+    <div>     
+      <div className="flex flex-col justify-center items-center max-w-[85rem] px-4 py-24 mx-auto">
+        <p className='text-center font-(family-name:--font-milliard) text-4xl'>Coming Soon! </p>
+      </div>
+    </div>
   )
 }
 

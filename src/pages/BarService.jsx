@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import CocktailProductCard from '../components/CocktailProductCard'
+import CocktailButtonGroup from '../components/CocktailButtonGroup'
 import ProductCard from '../components/ProductCard'
 import daiquiri from '../assets/images/drinks/daiquiri.jpg'
 import manhattan from '../assets/images/drinks/manhattan.jpg'
@@ -10,8 +11,6 @@ import limes from '../assets/images/fresh-limes.png'
 import jungle from '../assets/images/drinks/jungle.jpg'
 import zombie from '../assets/images/drinks/zombie.jpg'
 import maitai from '../assets/images/drinks/maitai.jpg'
-import CocktailButtonGroup from '../components/CocktailButtonGroup'
-
 
 const BarService = () => {
   const [filter, setFilter] = useState("all");
