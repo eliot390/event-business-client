@@ -3,9 +3,9 @@ import cookies from '../assets/images/desserts/cookies.png'
 import pie from '../assets/images/desserts/atlantic.png'
 import leches from '../assets/images/desserts/leches.png'
 import { useMemo, useState } from 'react';
-import DessertProductCard from '../components/DessertProductCard';
+import DessertDetailsCard from '../components/DessertDetailsCard';
 import DessertButtonGroup from '../components/DessertButtonGroup';
-import ProductCard from '../components/ProductCard';
+import DessertProductCard from '../components/DessertProductCard';
 
 const DessertService = () => {
   const [filter, setFilter] = useState("all");
@@ -29,7 +29,7 @@ const DessertService = () => {
         name:"Chocolate Chip",
         image:cookies,
         details: (
-          <DessertProductCard
+          <DessertDetailsCard
             dessertImage={cookies}
             name="Cookie"
             description="Crisp, light and refreshing. Delicately simple yet with perfectly balanced complexity of flavours."
@@ -57,7 +57,7 @@ const DessertService = () => {
         name:"Double Chocolate Chocolate Chip",
         image:cookies,
         details: (
-          <DessertProductCard
+          <DessertDetailsCard
             dessertImage={cookies}
             name="Cookie"
             description="Crisp, light and refreshing. Delicately simple yet with perfectly balanced complexity of flavours."
@@ -85,7 +85,7 @@ const DessertService = () => {
         name:"Walnut Chocolate Chip",
         image:cookies,
         details: (
-          <DessertProductCard
+          <DessertDetailsCard
             dessertImage={cookies}
             name="Cookie"
             description="Crisp, light and refreshing. Delicately simple yet with perfectly balanced complexity of flavours."
@@ -113,7 +113,7 @@ const DessertService = () => {
         name:"Sweet Corn Sugar Cookie",
         image:cookies,
         details: (
-          <DessertProductCard
+          <DessertDetailsCard
             dessertImage={cookies}
             name="Cookie"
             description="Crisp, light and refreshing. Delicately simple yet with perfectly balanced complexity of flavours."
@@ -141,7 +141,7 @@ const DessertService = () => {
         name:"Atlantic Beach Pie",
         image:pie,
         details: (
-          <DessertProductCard
+          <DessertDetailsCard
             dessertImage={pie}
             name="Pie"
             description="Crisp, light and refreshing. Delicately simple yet with perfectly balanced complexity of flavours."
@@ -162,7 +162,7 @@ const DessertService = () => {
         name:"Fruity Pebbles Tres Leches",
         image:leches,
         details: (
-          <DessertProductCard
+          <DessertDetailsCard
             dessertImage={leches}
             name="Tres Leches"
             description="Crisp, light and refreshing. Delicately simple yet with perfectly balanced complexity of flavours."
@@ -194,7 +194,7 @@ const DessertService = () => {
         <DessertButtonGroup active={filter} onChange={setFilter}/>
         <div className="grid grid-cols-1 justify-items-center lg:grid-cols-3 gap-6 mb-5 mt-5">
           {visibleProducts.map((p) => (
-            <ProductCard
+            <DessertProductCard
               key={`${p.type}-${p.name}`}
               type={p.type}
               name={p.name}

@@ -1,8 +1,8 @@
 
-import all from '../assets/images/desserts/mixer.png'
-import cakeIcon from '../assets/images/desserts/cake.png'
-import cookieIcon from '../assets/images/desserts/cookie.png'
-import pieIcon from '../assets/images/desserts/pie.png'
+import all from '../assets/images/desserts/btn-mixer.png'
+import cakeIcon from '../assets/images/desserts/btn-cake.png'
+import cookieIcon from '../assets/images/desserts/btn-cookie.png'
+import pieIcon from '../assets/images/desserts/btn-pie.png'
 
 const DessertButtonGroup = ({active, onChange}) => {
 

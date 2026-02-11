@@ -1,8 +1,8 @@
 
-import all from '../assets/images/drinks/cocktail-all.png'
-import classic from '../assets/images/drinks/cocktail-classic.png'
-import party from '../assets/images/drinks/cocktail-party.png'
-import tiki from '../assets/images/drinks/cocktail-tiki.png'
+import all from '../assets/images/drinks/btn-all.png'
+import classic from '../assets/images/drinks/btn-classic.png'
+import party from '../assets/images/drinks/btn-party.png'
+import tiki from '../assets/images/drinks/btn-tiki.png'
 
 const CocktailButtonGroup = ({active, onChange}) => {
 

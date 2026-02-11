@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
-import CocktailProductCard from '../components/CocktailProductCard'
+import CocktailDetailsCard from '../components/CocktailDetailsCard'
 import CocktailButtonGroup from '../components/CocktailButtonGroup'
-import ProductCard from '../components/ProductCard'
+import CocktailProductCard from '../components/CocktailProductCard'
 import daiquiri from '../assets/images/drinks/daiquiri.jpg'
 import manhattan from '../assets/images/drinks/manhattan.jpg'
 import margarita from '../assets/images/drinks/margarita.jpg'
@@ -34,7 +34,7 @@ const BarService = () => {
         name:"Daiquiri",
         image:daiquiri,
         details: (
-          <CocktailProductCard
+          <CocktailDetailsCard
             cocktailImage={limes}
             name="Daiquiri"
             ingredients="Rum, Lime Juice, Simple Syrup"
@@ -63,7 +63,7 @@ const BarService = () => {
         name:"Manhattan",
         image:manhattan,
         details: (
-          <CocktailProductCard
+          <CocktailDetailsCard
             cocktailImage={limes}
             name="Manhattan"
             ingredients="Bourbon, Sweet Vermouth, Bitters"
@@ -92,7 +92,7 @@ const BarService = () => {
         name:"Margarita",
         image:margarita,
         details: (
-          <CocktailProductCard
+          <CocktailDetailsCard
             cocktailImage={limes}
             name="Margarita"
             ingredients="Tequila, Triple Sec, Agave, Lime"
@@ -121,7 +121,7 @@ const BarService = () => {
         name:"Martini",
         image:martini2,
         details: (
-          <CocktailProductCard
+          <CocktailDetailsCard
             cocktailImage={limes}
             name="Margarita"
             ingredients="Tequila, Triple Sec, Agave, Lime"
@@ -150,7 +150,7 @@ const BarService = () => {
         name:"Negroni",
         image:negroni,
         details: (
-          <CocktailProductCard
+          <CocktailDetailsCard
             cocktailImage={limes}
             name="Manhattan"
             ingredients="Bourbon, Sweet Vermouth, Bitters"
@@ -179,7 +179,7 @@ const BarService = () => {
         name:"Mai Tai",
         image:maitai,
         details: (
-          <CocktailProductCard
+          <CocktailDetailsCard
             cocktailImage={limes}
             name="Mai Tai"
             ingredients="Aged Rum, Orange Curaçao, Lime Juice, Orgeat"
@@ -208,7 +208,7 @@ const BarService = () => {
         name:"Jungle Bird",
         image:jungle,
         details: (
-          <CocktailProductCard
+          <CocktailDetailsCard
             cocktailImage={limes}
             name="Jungle Bird"
             ingredients="Dark Rum, Campari, Pineapple Juice, Lime Juice"
@@ -237,7 +237,7 @@ const BarService = () => {
         name:"Naked Ape",
         image:jungle,
         details: (
-          <CocktailProductCard
+          <CocktailDetailsCard
             cocktailImage={limes}
             name="Naked Ape"
             ingredients="Overproof Rum, Dark Rum, Banana Liqueur, Cinnamon, Bitters"
@@ -266,7 +266,7 @@ const BarService = () => {
         name:"Zombie",
         image:zombie,
         details: (
-          <CocktailProductCard
+          <CocktailDetailsCard
             cocktailImage={limes}
             name="Zombie"
             ingredients={"Aged Rum, Overproof Rum, Falernum, Grenadine, \"Don's Mix\", Absinthe"}
@@ -306,9 +306,9 @@ const BarService = () => {
           and 16 oz (5 servings) bottles. Easy to serve, perfect for events, and great as gifts. Custom cocktail
            options are available upon request.</p>
         <CocktailButtonGroup active={filter} onChange={setFilter}/>
-        <div className="grid grid-cols-1 justify-items-center lg:grid-cols-3 gap-6 mb-5 mt-5">
+        <div className="grid grid-cols-1 justify-items-center lg:grid-cols-4 gap-6 mb-5 mt-5">
           {visibleProducts.map((p) => (
-            <ProductCard
+            <CocktailProductCard
               key={`${p.style}-${p.name}`}
               style={p.style}
               name={p.name}
