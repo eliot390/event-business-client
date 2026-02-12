@@ -6,13 +6,13 @@ const DessertProductCard = ({style, name, image, details}) => {
 
   return (
     <>
-      <div className="relative group flex flex-col w-3/4 bg-white border-3 border-honey shadow-2xs rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70">
-        <div className="flex flex-col justify-center items-center rounded-t-xl overflow-hidden">
+      <div className="relative group flex flex-col w-full bg-white border-3 border-honey shadow-2xs rounded-xl">
+        <div className="flex flex-col justify-center items-center rounded-t-lg overflow-hidden">
           <img src={image} className="md:w-full object-contain transition duration-300 ease-in-out hover:scale-105" />
         </div>
-        <div className="ml-6 mb-8">
-          <p className="italic text-gray-600 dark:text-gray-300">{style}</p>
-          <h3 className="text-2xl font-semibold text-gray-800 dark:text-neutral-300 dark:hover:text-white">{name}</h3>
+        <div className="ml-2 mb-16">
+          <p className="italic text-gray-600">{style}</p>
+          <h3 className="text-2xl font-semibold text-gray-800">{name}</h3>
         </div>
         <div className="absolute bottom-4 right-4 flex justify-end">
           <button
@@ -45,7 +45,7 @@ const DessertProductCard = ({style, name, image, details}) => {
               >
                 ✕
               </button>              
-              <p className="text-gray-600 dark:text-gray-300 whitespace-pre-line">
+              <p className="text-gray-600 whitespace-pre-line">
                 {isOpen === 'details' ? details : null}
               </p>
             </motion.div>

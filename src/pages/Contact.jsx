@@ -32,8 +32,7 @@ const Contact = () => {
 
   return (
     <div>      
-      <div className='mx-auto mb-8 w-xl bg-sage p-4 rounded-sm'>
-        <img src={minis} className='rounded-sm'/>
+      <div className='mx-auto mt-14 w-xl bg-sage p-4 rounded-sm'>
         <form>        
           <div>
             <h2 className="text-gray-900 text-center text-3xl mt-4">Let's Connect!</h2>

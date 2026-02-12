@@ -1,5 +1,6 @@
 
-import cookies from '../assets/images/desserts/cookies.png'
+import chocochip from '../assets/images/desserts/choco-chip.jpg'
+import doublechocolate from '../assets/images/desserts/choco-choco-chip.jpg'
 import pie from '../assets/images/desserts/atlantic.png'
 import leches from '../assets/images/desserts/leches.png'
 import { useMemo, useState } from 'react';
@@ -27,10 +28,10 @@ const DessertService = () => {
       {
         type:"cookies",
         name:"Chocolate Chip",
-        image:cookies,
+        image:chocochip,
         details: (
           <DessertDetailsCard
-            dessertImage={cookies}
+            dessertImage={chocochip}
             name="Cookie"
             description="Crisp, light and refreshing. Delicately simple yet with perfectly balanced complexity of flavours."
             rows={[
@@ -55,10 +56,10 @@ const DessertService = () => {
       {
         type:"cookies",
         name:"Double Chocolate Chocolate Chip",
-        image:cookies,
+        image:doublechocolate,
         details: (
           <DessertDetailsCard
-            dessertImage={cookies}
+            dessertImage={doublechocolate}
             name="Cookie"
             description="Crisp, light and refreshing. Delicately simple yet with perfectly balanced complexity of flavours."
             rows={[
@@ -83,10 +84,10 @@ const DessertService = () => {
       {
         type:"cookies",
         name:"Walnut Chocolate Chip",
-        image:cookies,
+        image:chocochip,
         details: (
           <DessertDetailsCard
-            dessertImage={cookies}
+            dessertImage={chocochip}
             name="Cookie"
             description="Crisp, light and refreshing. Delicately simple yet with perfectly balanced complexity of flavours."
             rows={[
@@ -111,10 +112,10 @@ const DessertService = () => {
       {
         type:"cookies",
         name:"Sweet Corn Sugar Cookie",
-        image:cookies,
+        image:chocochip,
         details: (
           <DessertDetailsCard
-            dessertImage={cookies}
+            dessertImage={chocochip}
             name="Cookie"
             description="Crisp, light and refreshing. Delicately simple yet with perfectly balanced complexity of flavours."
             rows={[
@@ -168,7 +169,7 @@ const DessertService = () => {
             description="Crisp, light and refreshing. Delicately simple yet with perfectly balanced complexity of flavours."
             rows={[
               {
-                orderSize: "1/2 Dozen",
+                orderSize: "9\" x 9\" cake",
                 counter: counter,
                 onDecrease: decrease,
                 onIncrease: increase,

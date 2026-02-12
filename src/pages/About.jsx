@@ -1,7 +1,4 @@
-import drink from '../assets/images/batched.png'
-import food from '../assets/images/pie.png'
-import photo from '../assets/images/photo.jpg'
-import { Link } from "react-router-dom";
+
 import us from '../assets/images/jesm.png'
 
 const About = () => {
@@ -14,7 +11,7 @@ const About = () => {
             We're not a full-scale caterer or event planner... We specialize in the extra details that make events unforgettable.
           </p>
         </div>
-        <img src={us} className='w-2/5'/>
+        <img src={us} className='w-2/5 border-sold border-2 border-honey rounded'/>
       </div>
     </div>
   )

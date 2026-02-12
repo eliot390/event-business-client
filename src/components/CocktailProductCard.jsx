@@ -6,13 +6,13 @@ const CocktailProductCard = ({style, name, image, details}) => {
 
   return (
     <>
-      <div className="relative group flex flex-col w-5/6 bg-white border-3 border-honey shadow-2xs rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70">
+      <div className="relative group flex flex-col w-5/6 bg-white border-3 border-sea-green shadow-2xs rounded-xl">
         <div className="flex flex-col justify-center items-center rounded-t-xl overflow-hidden">
           <img src={image} className="md:w-full m-8 object-contain transition duration-300 ease-in-out hover:scale-105" />
         </div>
-        <div className="ml-6 mb-8">
-          <p className="italic text-gray-600 dark:text-gray-300">{style}</p>
-          <h3 className="text-2xl font-semibold text-gray-800 dark:text-neutral-300 dark:hover:text-white">{name}</h3>
+        <div className="ml-4 mb-16">
+          <p className="italic text-gray-600 capitalize">{style}</p>
+          <h3 className="text-2xl font-semibold text-gray-800">{name}</h3>
         </div>
         <div className="absolute bottom-4 right-4 flex justify-end">
           <button
@@ -32,7 +32,7 @@ const CocktailProductCard = ({style, name, image, details}) => {
             onClick={() => setIsOpen(null)}
           >
             <motion.div
-              className="bg-white dark:bg-neutral-900 rounded-md p-6 w-80 shadow-lg relative border-2 border-sea-green text-center w-fit"
+              className="bg-white rounded-md p-6 w-80 shadow-lg relative border-2 border-sea-green text-center w-fit"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
