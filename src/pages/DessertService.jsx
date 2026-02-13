@@ -3,7 +3,7 @@ import chocochip from '../assets/images/desserts/choco-chip.jpg'
 import doublechocolate from '../assets/images/desserts/choco-choco-chip.jpg'
 import pie from '../assets/images/desserts/atlantic.png'
 import leches from '../assets/images/desserts/leches.png'
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import DessertDetailsCard from '../components/DessertDetailsCard';
 import DessertButtonGroup from '../components/DessertButtonGroup';
 import DessertProductCard from '../components/DessertProductCard';
@@ -11,24 +11,55 @@ import DessertProductCard from '../components/DessertProductCard';
 const DessertService = () => {
   const [filter, setFilter] = useState("all");
 
-  const [counter, setCounter] = useState(0);
+  const [counts, setCounts] = useState({});
 
-  const increase = () => {
-    setCounter(counter+1)
-  }
+  const keyFor = useCallback((productKey, orderSize) => {
+    return `${productKey}|${orderSize}`;
+  }, [])
 
-  const decrease = () => {
-    if (counter>0){
-      setCounter(counter-1)
-    }    
-  }
+  const getCount = useCallback(
+    (productKey, orderSize) => counts[keyFor(productKey, orderSize)] ?? 0,
+    [counts, keyFor]
+  );
 
-  const products = useMemo(
-    () => [
+  const increase = useCallback((productKey, orderSize) => {
+    const k = keyFor(productKey, orderSize);
+    setCounts((prev) => ({...prev, [k]: (prev[k] ?? 0)+1}));
+  },[keyFor]);
+
+  const decrease = useCallback((productKey, orderSize) => {
+    const k = keyFor(productKey, orderSize);
+    setCounts((prev) => {
+      const next = Math.max(0, (prev[k] ?? 0)-1);
+      return {...prev, [k]: next};
+    });
+  },[keyFor]);
+
+  const addToCart = useCallback((product, orderSize) => {
+    const qty = getCount(product.key, orderSize);
+    if (qty <= 0) return;
+    const item = {
+      productKey: product.key,
+      productName: product.name,
+      orderSize,
+      quantity: qty
+    };
+
+    const k = keyFor(product.key, orderSize);
+    setCounts((prev) => ({...prev, [k]: 0}));
+  }, [getCount, keyFor])
+
+  const products = useMemo(() => {
+    const chocolateChip = {
+      key: "chocolateChip",
+      type: "cookies",
+      name: "Chocolate Chip",
+      image: chocochip,
+    };
+
+    return [
       {
-        type:"cookies",
-        name:"Chocolate Chip",
-        image:chocochip,
+        ...chocolateChip,
         details: (
           <DessertDetailsCard
             dessertImage={chocochip}
@@ -37,156 +68,185 @@ const DessertService = () => {
             rows={[
               {
                 orderSize: "1/2 Dozen",
-                counter: counter,
-                onDecrease: decrease,
-                onIncrease: increase,
-                onAdd: null
+                counter: getCount(chocolateChip.key, "1/2 Dozen"),
+                onDecrease: () => decrease(chocolateChip.key, "1/2 Dozen"),
+                onIncrease: () => increase(chocolateChip.key, "1/2 Dozen"),
+                onAdd: () => addToCart(chocolateChip, "1/2 Dozen")
               },
               {
                 orderSize: "1 Dozen",
-                counter: counter,
-                onDecrease: decrease,
-                onIncrease: increase,
-                onAdd: null
+                counter: getCount(chocolateChip.key, "1 Dozen"),
+                onDecrease: () => decrease(chocolateChip.key, "1 Dozen"),
+                onIncrease: () => increase(chocolateChip.key, "1 Dozen"),
+                onAdd: () => addToCart(chocolateChip, "1 Dozen")
               },
             ]}
           />
-        )
+        ),
       },
-      {
-        type:"cookies",
-        name:"Double Chocolate Chocolate Chip",
-        image:doublechocolate,
-        details: (
-          <DessertDetailsCard
-            dessertImage={doublechocolate}
-            name="Cookie"
-            description="Crisp, light and refreshing. Delicately simple yet with perfectly balanced complexity of flavours."
-            rows={[
-              {
-                orderSize: "1/2 Dozen",
-                counter: counter,
-                onDecrease: decrease,
-                onIncrease: increase,
-                onAdd: null
-              },
-              {
-                orderSize: "1 Dozen",
-                counter: counter,
-                onDecrease: decrease,
-                onIncrease: increase,
-                onAdd: null
-              },
-            ]}
-          />
-        )
-      },
-      {
-        type:"cookies",
-        name:"Walnut Chocolate Chip",
-        image:chocochip,
-        details: (
-          <DessertDetailsCard
-            dessertImage={chocochip}
-            name="Cookie"
-            description="Crisp, light and refreshing. Delicately simple yet with perfectly balanced complexity of flavours."
-            rows={[
-              {
-                orderSize: "1/2 Dozen",
-                counter: counter,
-                onDecrease: decrease,
-                onIncrease: increase,
-                onAdd: null
-              },
-              {
-                orderSize: "1 Dozen",
-                counter: counter,
-                onDecrease: decrease,
-                onIncrease: increase,
-                onAdd: null
-              },
-            ]}
-          />
-        )
-      },
-      {
-        type:"cookies",
-        name:"Sweet Corn Sugar Cookie",
-        image:chocochip,
-        details: (
-          <DessertDetailsCard
-            dessertImage={chocochip}
-            name="Cookie"
-            description="Crisp, light and refreshing. Delicately simple yet with perfectly balanced complexity of flavours."
-            rows={[
-              {
-                orderSize: "1/2 Dozen",
-                counter: counter,
-                onDecrease: decrease,
-                onIncrease: increase,
-                onAdd: null
-              },
-              {
-                orderSize: "1 Dozen",
-                counter: counter,
-                onDecrease: decrease,
-                onIncrease: increase,
-                onAdd: null
-              },
-            ]}
-          />
-        )
-      },
-      {
-        type:"pies",
-        name:"Atlantic Beach Pie",
-        image:pie,
-        details: (
-          <DessertDetailsCard
-            dessertImage={pie}
-            name="Pie"
-            description="Crisp, light and refreshing. Delicately simple yet with perfectly balanced complexity of flavours."
-            rows={[
-              {
-                orderSize: "1/2 Dozen",
-                counter: counter,
-                onDecrease: decrease,
-                onIncrease: increase,
-                onAdd: null
-              }
-            ]}
-          />
-        )
-      },
-      {
-        type:"cakes",
-        name:"Fruity Pebbles Tres Leches",
-        image:leches,
-        details: (
-          <DessertDetailsCard
-            dessertImage={leches}
-            name="Tres Leches"
-            description="Crisp, light and refreshing. Delicately simple yet with perfectly balanced complexity of flavours."
-            rows={[
-              {
-                orderSize: "9\" x 9\" cake",
-                counter: counter,
-                onDecrease: decrease,
-                onIncrease: increase,
-                onAdd: null
-              }
-            ]}
-          />
-        )
-      }
-    ],
-    [counter, decrease, increase]
-  )
+      // {
+      //   type:"cookies",
+      //   name:"Chocolate Chip",
+      //   image:chocochip,
+      //   details: (
+      //     <DessertDetailsCard
+      //       dessertImage={chocochip}
+      //       name="Cookie"
+      //       description="Crisp, light and refreshing. Delicately simple yet with perfectly balanced complexity of flavours."
+      //       rows={[
+      //         {
+      //           orderSize: "1/2 Dozen",
+      //           counter: counter,
+      //           onDecrease: decrease,
+      //           onIncrease: increase,
+      //           onAdd: null
+      //         },
+      //         {
+      //           orderSize: "1 Dozen",
+      //           counter: counter,
+      //           onDecrease: decrease,
+      //           onIncrease: increase,
+      //           onAdd: null
+      //         },
+      //       ]}
+      //     />
+      //   )
+      // },
+      // {
+      //   type:"cookies",
+      //   name:"Double Chocolate Chocolate Chip",
+      //   image:doublechocolate,
+      //   details: (
+      //     <DessertDetailsCard
+      //       dessertImage={doublechocolate}
+      //       name="Cookie"
+      //       description="Crisp, light and refreshing. Delicately simple yet with perfectly balanced complexity of flavours."
+      //       rows={[
+      //         {
+      //           orderSize: "1/2 Dozen",
+      //           counter: counter,
+      //           onDecrease: decrease,
+      //           onIncrease: increase,
+      //           onAdd: null
+      //         },
+      //         {
+      //           orderSize: "1 Dozen",
+      //           counter: counter,
+      //           onDecrease: decrease,
+      //           onIncrease: increase,
+      //           onAdd: null
+      //         },
+      //       ]}
+      //     />
+      //   )
+      // },
+      // {
+      //   type:"cookies",
+      //   name:"Walnut Chocolate Chip",
+      //   image:chocochip,
+      //   details: (
+      //     <DessertDetailsCard
+      //       dessertImage={chocochip}
+      //       name="Cookie"
+      //       description="Crisp, light and refreshing. Delicately simple yet with perfectly balanced complexity of flavours."
+      //       rows={[
+      //         {
+      //           orderSize: "1/2 Dozen",
+      //           counter: counter,
+      //           onDecrease: decrease,
+      //           onIncrease: increase,
+      //           onAdd: null
+      //         },
+      //         {
+      //           orderSize: "1 Dozen",
+      //           counter: counter,
+      //           onDecrease: decrease,
+      //           onIncrease: increase,
+      //           onAdd: null
+      //         },
+      //       ]}
+      //     />
+      //   )
+      // },
+      // {
+      //   type:"cookies",
+      //   name:"Sweet Corn Sugar Cookie",
+      //   image:chocochip,
+      //   details: (
+      //     <DessertDetailsCard
+      //       dessertImage={chocochip}
+      //       name="Cookie"
+      //       description="Crisp, light and refreshing. Delicately simple yet with perfectly balanced complexity of flavours."
+      //       rows={[
+      //         {
+      //           orderSize: "1/2 Dozen",
+      //           counter: counter,
+      //           onDecrease: decrease,
+      //           onIncrease: increase,
+      //           onAdd: null
+      //         },
+      //         {
+      //           orderSize: "1 Dozen",
+      //           counter: counter,
+      //           onDecrease: decrease,
+      //           onIncrease: increase,
+      //           onAdd: null
+      //         },
+      //       ]}
+      //     />
+      //   )
+      // },
+      // {
+      //   type:"pies",
+      //   name:"Atlantic Beach Pie",
+      //   image:pie,
+      //   details: (
+      //     <DessertDetailsCard
+      //       dessertImage={pie}
+      //       name="Pie"
+      //       description="Crisp, light and refreshing. Delicately simple yet with perfectly balanced complexity of flavours."
+      //       rows={[
+      //         {
+      //           orderSize: "1/2 Dozen",
+      //           counter: counter,
+      //           onDecrease: decrease,
+      //           onIncrease: increase,
+      //           onAdd: null
+      //         }
+      //       ]}
+      //     />
+      //   )
+      // },
+      // {
+      //   type:"cakes",
+      //   name:"Fruity Pebbles Tres Leches",
+      //   image:leches,
+      //   details: (
+      //     <DessertDetailsCard
+      //       dessertImage={leches}
+      //       name="Tres Leches"
+      //       description="Crisp, light and refreshing. Delicately simple yet with perfectly balanced complexity of flavours."
+      //       rows={[
+      //         {
+      //           orderSize: "9\" x 9\" cake",
+      //           counter: counter,
+      //           onDecrease: decrease,
+      //           onIncrease: increase,
+      //           onAdd: null
+      //         }
+      //       ]}
+      //     />
+      //   )
+      // }
+    ];
+  }, [addToCart, getCount, decrease, increase]);
+  
 
   const visibleProducts = useMemo(() => {
     if (filter === "all") return products;
     return products.filter((p) => p.type === filter);
   }, [filter, products]);
+
 
   return (
     <div>     
@@ -207,7 +267,7 @@ const DessertService = () => {
       </div>
     </div>
   )
-}
+};
 
 
 {/* <ServiceCard

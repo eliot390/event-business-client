@@ -25,8 +25,8 @@ const DessertDetailsCard = ({dessertImage, name, description, rows=[]}) => {
       <img src={dessertImage} className="border-3 border-honey shadow-2xs rounded-xl"/>
       <p className='text-3xl font-semibold my-2 text-amber'>{name}</p>
       <p className='italic mt-2 mb-2'>{description}</p>
-      {rows.map((row, idx) =>
-      <OrderRow key={idx} {...row} />
+      {rows.map((row) =>
+      <OrderRow key={row.orderSize} {...row} />
       )}
       
     </div>
