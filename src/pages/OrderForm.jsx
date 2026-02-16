@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { useCart } from '../context/CartContext';
 
 const OrderForm = () => {
   const minDate = useMemo(() => {
@@ -8,6 +9,9 @@ const OrderForm = () => {
   }, []);
 
   const [deliveryMethod, setDeliveryMethod] = useState("");
+
+  const { items } = useCart();
+
 
   return (
     <div className='flex flex-row justify-center'>
@@ -122,7 +126,24 @@ const OrderForm = () => {
           </div>
         </form>
       </div>
-      <div className='mt-8 h-screen w-screen p-4 border-solid border-l-1 border-sea-green'>checkout</div>
+      <div className='mt-8 h-screen w-screen p-4 border-solid border-l-1 border-sea-green'>
+        {(
+          items.map((it) => (
+            <div
+              key={`${it.productKey}|${it.orderSize}`}
+              className="bg-white/60 rounded-xl p-3 shadow w-2/3">
+              <div className="flex flex-row justify-evenly items-center gap-2">
+                <img src={it.productImg} className="rounded-xl h-20 mr-10"/>
+                <div className='flex flex-col items-center'>
+                  <p className="font-semibold text-gray-800">{it.productName}</p>
+                  <p className="text-gray-700">{it.quantity} x {it.orderSize}</p>
+                </div>
+                <p>$10.00</p>
+              </div>
+            </div>
+          ))
+        )}
+      </div>
     </div>
   )
 }
