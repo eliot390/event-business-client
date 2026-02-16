@@ -5,7 +5,7 @@ const CartContext = createContext(null);
 export const CartProvider =({children}) => {
     const [items, setItems] = useState([]);
 
-    const addItem = ({ productKey, productName, orderSize, quantity }) => {
+    const addItem = ({ productKey, productName, productImg, orderSize, quantity }) => {
     if (!quantity || quantity <= 0) return;
 
     setItems((prev) => {
@@ -21,7 +21,7 @@ export const CartProvider =({children}) => {
       }
 
       // Otherwise add new line item
-      return [...prev, { productKey, productName, orderSize, quantity }];
+      return [...prev, { productKey, productName, productImg, orderSize, quantity }];
     });
   };
 

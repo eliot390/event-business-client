@@ -1,9 +1,10 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useCart } from "../context/CartContext";
 import disco from '../assets/images/disco-ball-gold.png';
 import cart from '../assets/images/shopping-cart.png'
-import { useCart } from "../context/CartContext";
+import trash from '../assets/images/bin.png'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(null);
@@ -48,7 +49,7 @@ const Navbar = () => {
             onClick={() => setIsOpen(false)}
           >
             <motion.div
-              className="h-full w-80 bg-cream shadow-xl p-6 relative border-solid border-l-3 border-honey"
+              className="h-full w-80 flex flex-col bg-cream shadow-xl p-6 relative border-solid border-l-3 border-honey"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
@@ -62,7 +63,7 @@ const Navbar = () => {
               </button>
               <h2 className="text-4xl text-sea-green font-bold mb-4">Your Cart</h2>
               {/* Cart items */}
-              <div className="flex-1 overflow-auto space-y-3">
+              <div className="flex-1 overflow-y-auto space-y-3">
                 {items.length === 0 ? (
                   <p className="text-gray-600 italic">Cart is empty.</p>
                 ) : (
@@ -74,15 +75,15 @@ const Navbar = () => {
                       <div className="flex justify-between items-start gap-2">
                         <div>
                           <p className="font-semibold text-gray-800">{it.productName}</p>
+                          <img src={it.productImg} className="rounded-xl"/>
                           <p className="text-sm text-gray-700">{it.orderSize}</p>
                           <p className="text-sm text-gray-700">Qty: {it.quantity}</p>
                         </div>
 
                         <button
                           className="text-sm text-gray-700 hover:text-gray-900 underline cursor-pointer"
-                          onClick={() => removeItem(it.productKey, it.orderSize)}
-                        >
-                          Remove
+                          onClick={() => removeItem(it.productKey, it.orderSize)}>
+                          <img src={trash} className="w-10"/>
                         </button>
                       </div>
                     </div>
@@ -91,26 +92,21 @@ const Navbar = () => {
               </div>
 
               {/* Footer buttons */}
-              <div className="pt-4 space-y-2">
+              <div className="pt-4">
                 <button
                   onClick={handleCheckoutClick}
                   disabled={items.length === 0}
-                  className="bg-sea-green disabled:opacity-50 text-white font-semibold text-xl px-2 py-2 rounded-xl cursor-pointer w-full"
-                >
+                  className="bg-sea-green disabled:opacity-50 text-white font-semibold text-xl px-2 py-2 rounded-xl cursor-pointer w-full">
                   Checkout
                 </button>
 
                 <button
                   onClick={clearCart}
                   disabled={items.length === 0}
-                  className="bg-light-honey disabled:opacity-50 text-gray-800 font-semibold text-lg px-2 py-2 rounded-xl cursor-pointer w-full border-3 border-honey"
-                >
+                  className="bg-light-honey disabled:opacity-50 text-gray-800 font-semibold text-lg px-2 py-2 rounded-xl cursor-pointer w-full border-3 border-honey">
                   Clear Cart
                 </button>
               </div>
-              {/* <button
-                onClick={handleCheckoutClick}
-                className="bg-sea-green text-white font-semibold text-xl px-2 py-1 rounded-xl cursor-pointer">Checkout</button> */}
             </motion.div>
           </motion.div>
         )}

@@ -47,6 +47,7 @@ const DessertService = () => {
     addItem({
       productKey: product.key,
       productName: product.name,
+      productImg: product.image,
       orderSize,
       quantity: qty,
     });
