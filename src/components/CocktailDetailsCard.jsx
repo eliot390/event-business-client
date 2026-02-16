@@ -1,5 +1,5 @@
 
-const OrderRow = ({bottleSize, counter, onDecrease, onIncrease, onAdd}) => {
+const OrderRow = ({orderSize, counter, onDecrease, onIncrease, onAdd}) => {
   return (
     <div className='flex flex-row justify-between items-center mt-4'>
       <div className='bg-light-frozen hover:bg-frozen-water w-fit text-2xl text-gray-800 font-semibold px-3 border-2 border-sea-green rounded-full shadow' >
@@ -11,7 +11,7 @@ const OrderRow = ({bottleSize, counter, onDecrease, onIncrease, onAdd}) => {
           className='ml-1 text-2xl cursor-pointer'
           onClick={onIncrease}>+</button>
       </div>
-      <p>{bottleSize}</p>
+      <p>{orderSize}</p>
       <button
         onClick={onAdd} 
         className="bg-light-frozen hover:bg-frozen-water text-gray-800 font-semibold py-1 px-3 border-2 border-sea-green rounded-full shadow cursor-pointer">Add to Cart</button>

@@ -10,11 +10,13 @@ import cornCookie from '../assets/images/desserts/cornCookie.jpg'
 import pie from '../assets/images/desserts/atlantic.png'
 import leches from '../assets/images/desserts/leches.png'
 import chocolateLeches from '../assets/images/desserts/choco-leches.jpg'
+import { useCart } from '../context/CartContext';
 
 const DessertService = () => {
   const [filter, setFilter] = useState("all");
-
   const [counts, setCounts] = useState({});
+
+  const { addItem } = useCart();
 
   const keyFor = useCallback((productKey, orderSize) => {
     return `${productKey}|${orderSize}`;
@@ -41,16 +43,19 @@ const DessertService = () => {
   const addToCart = useCallback((product, orderSize) => {
     const qty = getCount(product.key, orderSize);
     if (qty <= 0) return;
-    const item = {
+
+    addItem({
       productKey: product.key,
       productName: product.name,
       orderSize,
-      quantity: qty
-    };
+      quantity: qty,
+    });
 
+    // reset that specific row
     const k = keyFor(product.key, orderSize);
-    setCounts((prev) => ({...prev, [k]: 0}));
-  }, [getCount, keyFor])
+    setCounts((prev) => ({ ...prev, [k]: 0 }));
+  }, [addItem, getCount, keyFor]);
+
 
   {/* Product Card Items */}
   const products = useMemo(() => {

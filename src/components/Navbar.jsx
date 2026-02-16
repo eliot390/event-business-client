@@ -3,6 +3,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import disco from '../assets/images/disco-ball-gold.png';
 import cart from '../assets/images/shopping-cart.png'
+import { useCart } from "../context/CartContext";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(null);
@@ -11,6 +12,9 @@ const Navbar = () => {
     setIsOpen(false);
     navigate('/order');
   }
+
+  const { cartCount, items, removeItem, clearCart } = useCart();
+
   
   return (
     <div>
@@ -28,7 +32,7 @@ const Navbar = () => {
           </div>
           <div className="relative cursor-pointer" onClick={() => setIsOpen(true)}>
             <img src={cart} className="h-10 bg-white border-solid border-2 border-sea-green rounded-full "/>
-            <div className="absolute -top-2 -right-1 w-5 h-5 flex items-center justify-center bg-sea-green rounded-full text-white text-xs font-semibold">0</div>
+            <div className="absolute -top-2 -right-1 w-5 h-5 flex items-center justify-center bg-sea-green rounded-full text-white text-xs font-semibold">{cartCount}</div>
           </div>          
         </div>
       </div>
@@ -57,9 +61,56 @@ const Navbar = () => {
                 ✕
               </button>
               <h2 className="text-4xl text-sea-green font-bold mb-4">Your Cart</h2>
-              <button
+              {/* Cart items */}
+              <div className="flex-1 overflow-auto space-y-3">
+                {items.length === 0 ? (
+                  <p className="text-gray-600 italic">Cart is empty.</p>
+                ) : (
+                  items.map((it) => (
+                    <div
+                      key={`${it.productKey}|${it.orderSize}`}
+                      className="bg-white/60 border-2 border-honey rounded-xl p-3 shadow"
+                    >
+                      <div className="flex justify-between items-start gap-2">
+                        <div>
+                          <p className="font-semibold text-gray-800">{it.productName}</p>
+                          <p className="text-sm text-gray-700">{it.orderSize}</p>
+                          <p className="text-sm text-gray-700">Qty: {it.quantity}</p>
+                        </div>
+
+                        <button
+                          className="text-sm text-gray-700 hover:text-gray-900 underline cursor-pointer"
+                          onClick={() => removeItem(it.productKey, it.orderSize)}
+                        >
+                          Remove
+                        </button>
+                      </div>
+                    </div>
+                  ))
+                )}
+              </div>
+
+              {/* Footer buttons */}
+              <div className="pt-4 space-y-2">
+                <button
+                  onClick={handleCheckoutClick}
+                  disabled={items.length === 0}
+                  className="bg-sea-green disabled:opacity-50 text-white font-semibold text-xl px-2 py-2 rounded-xl cursor-pointer w-full"
+                >
+                  Checkout
+                </button>
+
+                <button
+                  onClick={clearCart}
+                  disabled={items.length === 0}
+                  className="bg-light-honey disabled:opacity-50 text-gray-800 font-semibold text-lg px-2 py-2 rounded-xl cursor-pointer w-full border-3 border-honey"
+                >
+                  Clear Cart
+                </button>
+              </div>
+              {/* <button
                 onClick={handleCheckoutClick}
-                className="bg-sea-green text-white font-semibold text-xl px-2 py-1 rounded-xl cursor-pointer">Checkout</button>
+                className="bg-sea-green text-white font-semibold text-xl px-2 py-1 rounded-xl cursor-pointer">Checkout</button> */}
             </motion.div>
           </motion.div>
         )}

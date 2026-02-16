@@ -1,38 +1,131 @@
-import { useMemo, useState } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 import CocktailDetailsCard from '../components/CocktailDetailsCard'
 import CocktailButtonGroup from '../components/CocktailButtonGroup'
 import CocktailProductCard from '../components/CocktailProductCard'
-import daiquiri from '../assets/images/drinks/daiquiri.jpg'
-import manhattan from '../assets/images/drinks/manhattan.jpg'
-import margarita from '../assets/images/drinks/margarita.jpg'
-import martini2 from '../assets/images/drinks/martini.jpg'
-import negroni from '../assets/images/drinks/negroni.jpg'
+import daiquiriPic from '../assets/images/drinks/daiquiri.jpg'
+import manhattanPic from '../assets/images/drinks/manhattan.jpg'
+import margaritaPic from '../assets/images/drinks/margarita.jpg'
+import martiniPic from '../assets/images/drinks/martini.jpg'
+import negroniPic from '../assets/images/drinks/negroni.jpg'
 import limes from '../assets/images/fresh-limes.png'
-import jungle from '../assets/images/drinks/jungle.jpg'
-import zombie from '../assets/images/drinks/zombie.jpg'
-import maitai from '../assets/images/drinks/maitai.jpg'
+import junglePic from '../assets/images/drinks/jungle.jpg'
+import zombiePic from '../assets/images/drinks/zombie.jpg'
+import maitaiPic from '../assets/images/drinks/maitai.jpg'
+import { useCart } from '../context/CartContext'
 
 const BarService = () => {
   const [filter, setFilter] = useState("all");
+  const [counts, setCounts] = useState({});
 
-  const [counter, setCounter] = useState(0);
+  const { addItem } = useCart();
 
-  const increase = () => {
-    setCounter(counter+1)
-  }
+  const keyFor = useCallback((productKey, orderSize) => {
+    return `${productKey}|${orderSize}`;
+  }, [])
 
-  const decrease = () => {
-    if (counter>0){
-      setCounter(counter-1)
-    }    
-  }
+  const getCount = useCallback(
+    (productKey, orderSize) => counts[keyFor(productKey, orderSize)] ?? 0,
+    [counts, keyFor]
+  );
 
-  const products = useMemo(
-    () => [
+  const increase = useCallback((productKey, orderSize) => {
+    const k = keyFor(productKey, orderSize);
+    setCounts((prev) => ({...prev, [k]: (prev[k] ?? 0)+1}));
+  },[keyFor]);
+
+  const decrease = useCallback((productKey, orderSize) => {
+    const k = keyFor(productKey, orderSize);
+    setCounts((prev) => {
+      const next = Math.max(0, (prev[k] ?? 0)-1);
+      return {...prev, [k]: next};
+    });  
+  }, [keyFor]);
+
+  const addToCart = useCallback((product, orderSize) => {
+    const qty = getCount(product.key, orderSize);
+    if (qty <= 0) return;
+
+    addItem({
+      productKey: product.key,
+      productName: product.name,
+      orderSize,
+      quantity: qty,
+    });
+
+    // reset that specific row
+    const k = keyFor(product.key, orderSize);
+    setCounts((prev) => ({ ...prev, [k]: 0 }));
+  }, [addItem, getCount, keyFor]);
+
+  {/* Product Card Items */}
+  const products = useMemo(() => {
+    const daiquiri = {
+      key: "daiquiri",
+      style:"classic",
+      name:"Daiquiri",
+      image:daiquiriPic
+    };
+
+    const manhattan = {
+      key: "manhattan",
+      style:"classic",
+      name:"Manhattan",
+      image:manhattanPic
+    };
+
+    const margarita = {
+      key: "margarita",
+      style:"classic",
+      name:"Margarita",
+      image:margaritaPic
+    };
+
+    const martini = {
+      key: "martini",
+      style:"classic",
+      name:"Martini",
+      image:martiniPic
+    };
+
+    const negroni = {
+      key: "negroni",
+      style:"classic",
+      name:"Negroni",
+      image:negroniPic
+    };
+
+    const maitai = {
+      key: "maitai",
+      style:"tiki",
+      name:"Mai Tai",
+      image:maitaiPic
+    };
+
+    const jungle = {
+      key: "jungleBird",
+      style:"tiki",
+      name:"Jungle Bird",
+      image:junglePic
+    };
+
+    const nakedApe = {
+      key: "nakedApe",
+      style:"tiki",
+      name:"Naked Ape",
+      image:junglePic
+    };
+
+    const zombie = {
+      key: "zombie",
+      style:"tiki",
+      name:"Zombie",
+      image:zombiePic
+    };
+
+    {/* Detail Card Info */}
+    return [
       {
-        style:"classic",
-        name:"Daiquiri",
-        image:daiquiri,
+        ...daiquiri,
         details: (
           <CocktailDetailsCard
             cocktailImage={limes}
@@ -41,27 +134,25 @@ const BarService = () => {
             description="Crisp, light and refreshing. Delicately simple yet with perfectly balanced complexity of flavours."
             rows={[
               {
-                bottleSize: "16 oz. Bottle",
-                counter: counter,
-                onDecrease: decrease,
-                onIncrease: increase,
-                onAdd: null
+                orderSize: "16 oz. Bottle",
+                counter: getCount(daiquiri.key, "16 oz. Bottle"),
+                onDecrease: () => decrease(daiquiri.key, "16 oz. Bottle"),
+                onIncrease: () => increase(daiquiri.key, "16 oz. Bottle"),
+                onAdd: () => addToCart(daiquiri, "16 oz. Bottle")
               },
               {
-                bottleSize: "32 oz. Bottle",
-                counter: counter,
-                onDecrease: decrease,
-                onIncrease: increase,
-                onAdd: null
+                orderSize: "32 oz. Bottle",
+                counter: getCount(daiquiri.key, "32 oz. Bottle"),
+                onDecrease: () => decrease(daiquiri.key, "32 oz. Bottle"),
+                onIncrease: () => increase(daiquiri.key, "32 oz. Bottle"),
+                onAdd: () => addToCart(daiquiri, "32 oz. Bottle")
               },
             ]}
           />
         )
       },
       {
-        style:"classic",
-        name:"Manhattan",
-        image:manhattan,
+        ...manhattan,
         details: (
           <CocktailDetailsCard
             cocktailImage={limes}
@@ -70,27 +161,25 @@ const BarService = () => {
             description="The Manhattan is complex, challenging and moreish. Best of all, it's available in a style to suit every palate"
             rows={[
               {
-                bottleSize: "16 oz. Bottle",
-                counter: counter,
-                onDecrease: decrease,
-                onIncrease: increase,
-                onAdd: null
+                orderSize: "16 oz. Bottle",
+                counter: getCount(manhattan.key, "16 oz. Bottle"),
+                onDecrease: () => decrease(manhattan.key, "16 oz. Bottle"),
+                onIncrease: () => increase(manhattan.key, "16 oz. Bottle"),
+                onAdd: () => addToCart(manhattan, "16 oz. Bottle")
               },
               {
-                bottleSize: "32 oz. Bottle",
-                counter: counter,
-                onDecrease: decrease,
-                onIncrease: increase,
-                onAdd: null
+                orderSize: "32 oz. Bottle",
+                counter: getCount(manhattan.key, "32 oz. Bottle"),
+                onDecrease: () => decrease(manhattan.key, "32 oz. Bottle"),
+                onIncrease: () => increase(manhattan.key, "32 oz. Bottle"),
+                onAdd: () => addToCart(manhattan, "32 oz. Bottle")
               },
             ]}
           />
         )
       },
       {
-        style:"classic",
-        name:"Margarita",
-        image:margarita,
+        ...margarita,
         details: (
           <CocktailDetailsCard
             cocktailImage={limes}
@@ -99,56 +188,25 @@ const BarService = () => {
             description="Tequila-forward, with tangy citrus, a hint of balancing sweetness and a faint salty undertone."
             rows={[
               {
-                bottleSize: "16 oz. Bottle",
-                counter: counter,
-                onDecrease: decrease,
-                onIncrease: increase,
-                onAdd: null
+                orderSize: "16 oz. Bottle",
+                counter: getCount(margarita.key, "16 oz. Bottle"),
+                onDecrease: () => decrease(margarita.key, "16 oz. Bottle".key, "16 oz. Bottle"),
+                onIncrease: () => increase(margarita.key, "16 oz. Bottle".key, "16 oz. Bottle"),
+                onAdd: () => addToCart(margarita.key, "16 oz. Bottle", "16 oz. Bottle")
               },
               {
-                bottleSize: "32 oz. Bottle",
-                counter: counter,
-                onDecrease: decrease,
-                onIncrease: increase,
-                onAdd: null
+                orderSize: "32 oz. Bottle",
+                counter: getCount(margarita.key, "16 oz. Bottle".key, "32 oz. Bottle"),
+                onDecrease: () => decrease(margarita.key, "16 oz. Bottle".key, "32 oz. Bottle"),
+                onIncrease: () => increase(margarita.key, "16 oz. Bottle".key, "32 oz. Bottle"),
+                onAdd: () => addToCart(margarita.key, "16 oz. Bottle", "32 oz. Bottle")
               },
             ]}
           />
         )
       },
       {
-        style:"classic",
-        name:"Martini",
-        image:martini2,
-        details: (
-          <CocktailDetailsCard
-            cocktailImage={limes}
-            name="Margarita"
-            ingredients="Tequila, Triple Sec, Agave, Lime"
-            description="Tequila-forward, with tangy citrus, a hint of balancing sweetness and a faint salty undertone."
-            rows={[
-              {
-                bottleSize: "16 oz. Bottle",
-                counter: counter,
-                onDecrease: decrease,
-                onIncrease: increase,
-                onAdd: null
-              },
-              {
-                bottleSize: "32 oz. Bottle",
-                counter: counter,
-                onDecrease: decrease,
-                onIncrease: increase,
-                onAdd: null
-              },
-            ]}
-          />
-        )
-      },
-      {
-        style:"classic",
-        name:"Negroni",
-        image:negroni,
+        ...negroni,
         details: (
           <CocktailDetailsCard
             cocktailImage={limes}
@@ -157,27 +215,25 @@ const BarService = () => {
             description="The Manhattan is complex, challenging and moreish. Best of all, it's available in a style to suit every palate"
             rows={[
               {
-                bottleSize: "16 oz. Bottle",
-                counter: counter,
-                onDecrease: decrease,
-                onIncrease: increase,
-                onAdd: null
+                orderSize: "16 oz. Bottle",
+                counter: getCount(negroni.key, "16 oz. Bottle"),
+                onDecrease: () => decrease(negroni.key, "16 oz. Bottle"),
+                onIncrease: () => increase(negroni.key, "16 oz. Bottle"),
+                onAdd: () => addToCart(daiqunegroniiri, "16 oz. Bottle")
               },
               {
-                bottleSize: "32 oz. Bottle",
-                counter: counter,
-                onDecrease: decrease,
-                onIncrease: increase,
-                onAdd: null
+                orderSize: "32 oz. Bottle",
+                counter: getCount(negroni.key, "32 oz. Bottle"),
+                onDecrease: () => decrease(negroni.key, "32 oz. Bottle"),
+                onIncrease: () => increase(negroni.key, "32 oz. Bottle"),
+                onAdd: () => addToCart(negroni, "32 oz. Bottle")
               },
             ]}
           />
         )
       },
       {
-        style:"tiki",
-        name:"Mai Tai",
-        image:maitai,
+        ...maitai,
         details: (
           <CocktailDetailsCard
             cocktailImage={limes}
@@ -186,27 +242,25 @@ const BarService = () => {
             description="The undisputed king of Tiki cocktails and one of the most enduring of all vintage cocktails"
             rows={[
               {
-                bottleSize: "16 oz. Bottle",
-                counter: counter,
-                onDecrease: decrease,
-                onIncrease: increase,
-                onAdd: null
+                orderSize: "16 oz. Bottle",
+                counter: getCount(maitai.key, "16 oz. Bottle"),
+                onDecrease: () => decrease(maitai.key, "16 oz. Bottle"),
+                onIncrease: () => increase(maitai.key, "16 oz. Bottle"),
+                onAdd: () => addToCart(maitai, "16 oz. Bottle")
               },
               {
-                bottleSize: "32 oz. Bottle",
-                counter: counter,
-                onDecrease: decrease,
-                onIncrease: increase,
-                onAdd: null
+                orderSize: "32 oz. Bottle",
+                counter: getCount(maitai.key, "32 oz. Bottle"),
+                onDecrease: () => decrease(maitai.key, "32 oz. Bottle"),
+                onIncrease: () => increase(maitai.key, "32 oz. Bottle"),
+                onAdd: () => addToCart(maitai, "32 oz. Bottle")
               },
             ]}
           />
         )  
       },
       {
-        style:"tiki",
-        name:"Jungle Bird",
-        image:jungle,
+        ...jungle,
         details: (
           <CocktailDetailsCard
             cocktailImage={limes}
@@ -215,27 +269,25 @@ const BarService = () => {
             description="Bittersweet and fruity with pungent rum notes, sipped through crushed ice. Properly Tiki-tastic."
             rows={[
               {
-                bottleSize: "16 oz. Bottle",
-                counter: counter,
-                onDecrease: decrease,
-                onIncrease: increase,
-                onAdd: null
+                orderSize: "16 oz. Bottle",
+                counter: getCount(jungle.key, "16 oz. Bottle"),
+                onDecrease: () => decrease(jungle.key, "16 oz. Bottle"),
+                onIncrease: () => increase(jungle.key, "16 oz. Bottle"),
+                onAdd: () => addToCart(jungle, "16 oz. Bottle")
               },
               {
-                bottleSize: "32 oz. Bottle",
-                counter: counter,
-                onDecrease: decrease,
-                onIncrease: increase,
-                onAdd: null
+                orderSize: "32 oz. Bottle",
+                counter: getCount(jungle.key, "32 oz. Bottle"),
+                onDecrease: () => decrease(jungle.key, "32 oz. Bottle"),
+                onIncrease: () => increase(jungle.key, "32 oz. Bottle"),
+                onAdd: () => addToCart(jungle, "32 oz. Bottle")
               },
             ]}
           />
         )  
       },
       {
-        style:"tiki",
-        name:"Naked Ape",
-        image:jungle,
+        ...nakedApe,
         details: (
           <CocktailDetailsCard
             cocktailImage={limes}
@@ -244,27 +296,25 @@ const BarService = () => {
             description="The undisputed king of Tiki cocktails and one of the most enduring of all vintage cocktails"
             rows={[
               {
-                bottleSize: "16 oz. Bottle",
-                counter: counter,
-                onDecrease: decrease,
-                onIncrease: increase,
-                onAdd: null
+                orderSize: "16 oz. Bottle",
+                counter: getCount(nakedApe.key, "16 oz. Bottle"),
+                onDecrease: () => decrease(nakedApe.key, "16 oz. Bottle"),
+                onIncrease: () => increase(nakedApe.key, "16 oz. Bottle"),
+                onAdd: () => addToCart(nakedApe, "16 oz. Bottle")
               },
               {
-                bottleSize: "32 oz. Bottle",
-                counter: counter,
-                onDecrease: decrease,
-                onIncrease: increase,
-                onAdd: null
+                orderSize: "32 oz. Bottle",
+                counter: getCount(nakedApe.key, "32 oz. Bottle"),
+                onDecrease: () => decrease(nakedApe.key, "32 oz. Bottle"),
+                onIncrease: () => increase(nakedApe.key, "32 oz. Bottle"),
+                onAdd: () => addToCart(nakedApe, "32 oz. Bottle")
               },
             ]}
           />
         )  
       },
       {
-        style:"tiki",
-        name:"Zombie",
-        image:zombie,
+        ...zombie,
         details: (
           <CocktailDetailsCard
             cocktailImage={limes}
@@ -273,26 +323,25 @@ const BarService = () => {
             description="The undisputed king of Tiki cocktails and one of the most enduring of all vintage cocktails"
             rows={[
               {
-                bottleSize: "16 oz. Bottle",
-                counter: counter,
-                onDecrease: decrease,
-                onIncrease: increase,
-                onAdd: null
+                orderSize: "16 oz. Bottle",
+                counter: getCount(zombie.key, "16 oz. Bottle"),
+                onDecrease: () => decrease(zombie.key, "16 oz. Bottle"),
+                onIncrease: () => increase(zombie.key, "16 oz. Bottle"),
+                onAdd: () => addToCart(zombie, "16 oz. Bottle")
               },
               {
-                bottleSize: "32 oz. Bottle",
-                counter: counter,
-                onDecrease: decrease,
-                onIncrease: increase,
-                onAdd: null
+                orderSize: "32 oz. Bottle",
+                counter: getCount(zombie.key, "32 oz. Bottle"),
+                onDecrease: () => decrease(zombie.key, "32 oz. Bottle"),
+                onIncrease: () => increase(zombie.key, "32 oz. Bottle"),
+                onAdd: () => addToCart(zombie, "32 oz. Bottle")
               },
             ]}
           />
-        )  
-      },
-    ],
-    [counter, decrease, increase]
-  )
+        ),
+      }
+    ];
+  }, [addToCart, getCount, decrease, increase]);
 
   const visibleProducts = useMemo(() => {
     if (filter === "all") return products;
