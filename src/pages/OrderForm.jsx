@@ -131,9 +131,9 @@ const OrderForm = () => {
           items.map((it) => (
             <div
               key={`${it.productKey}|${it.orderSize}`}
-              className="bg-white/60 rounded-xl p-3 shadow w-2/3">
-              <div className="flex flex-row justify-evenly items-center gap-2">
-                <img src={it.productImg} className="rounded-xl h-20 mr-10"/>
+              className="bg-white/60 rounded-xl p-3 shadow w-3/5">
+              <div className="flex flex-row justify-between items-center">
+                <img src={it.cartImg} className="rounded-xl h-20 mr-10"/>
                 <div className='flex flex-col items-center'>
                   <p className="font-semibold text-gray-800">{it.productName}</p>
                   <p className="text-gray-700">{it.quantity} x {it.orderSize}</p>

@@ -1,17 +1,25 @@
 import { useCallback, useMemo, useState } from 'react'
+import { useCart } from '../context/CartContext'
 import CocktailDetailsCard from '../components/CocktailDetailsCard'
 import CocktailButtonGroup from '../components/CocktailButtonGroup'
 import CocktailProductCard from '../components/CocktailProductCard'
+import limes from '../assets/images/fresh-limes.png'
 import daiquiriPic from '../assets/images/drinks/daiquiri.jpg'
 import manhattanPic from '../assets/images/drinks/manhattan.jpg'
 import margaritaPic from '../assets/images/drinks/margarita.jpg'
 import martiniPic from '../assets/images/drinks/martini.jpg'
 import negroniPic from '../assets/images/drinks/negroni.jpg'
-import limes from '../assets/images/fresh-limes.png'
 import junglePic from '../assets/images/drinks/jungle.jpg'
 import zombiePic from '../assets/images/drinks/zombie.jpg'
 import maitaiPic from '../assets/images/drinks/maitai.jpg'
-import { useCart } from '../context/CartContext'
+import daiquiriCart from '../assets/images/drinks/daiquiri-sm.jpg'
+import manhattanCart from '../assets/images/drinks/manhattan-sm.jpg'
+import margaritaCart from '../assets/images/drinks/margarita-sm.jpg'
+import martiniCart from '../assets/images/drinks/martini-sm.jpg'
+import negroniCart from '../assets/images/drinks/negroni-sm.jpg'
+import jungleCart from '../assets/images/drinks/jungle-sm.jpg'
+import zombieCart from '../assets/images/drinks/zombie-sm.jpg'
+import maitaiCart from '../assets/images/drinks/maitai-sm.jpg'
 
 const BarService = () => {
   const [filter, setFilter] = useState("all");
@@ -49,6 +57,7 @@ const BarService = () => {
       productKey: product.key,
       productName: product.name,
       productImg: product.image,
+      cartImg: product.cartImg,
       orderSize,
       quantity: qty,
     });
@@ -64,6 +73,7 @@ const BarService = () => {
       key: "daiquiri",
       style:"classic",
       name:"Daiquiri",
+      cartImg:daiquiriCart,
       image:daiquiriPic
     };
 
@@ -71,56 +81,64 @@ const BarService = () => {
       key: "manhattan",
       style:"classic",
       name:"Manhattan",
-      image:manhattanPic
+      image:manhattanPic,
+      cartImg:manhattanCart
     };
 
     const margarita = {
       key: "margarita",
       style:"classic",
       name:"Margarita",
-      image:margaritaPic
+      image:margaritaPic,
+      cartImg:margaritaCart
     };
 
     const martini = {
       key: "martini",
       style:"classic",
       name:"Martini",
-      image:martiniPic
+      image:martiniPic,
+      cartImg:martiniCart
     };
 
     const negroni = {
       key: "negroni",
       style:"classic",
       name:"Negroni",
-      image:negroniPic
+      image:negroniPic,
+      cartImg:negroniCart
     };
 
     const maitai = {
       key: "maitai",
       style:"tiki",
       name:"Mai Tai",
-      image:maitaiPic
+      image:maitaiPic,
+      cartImg:maitaiCart
     };
 
     const jungle = {
       key: "jungleBird",
       style:"tiki",
       name:"Jungle Bird",
-      image:junglePic
+      image:junglePic,
+      cartImg:jungleCart
     };
 
     const nakedApe = {
       key: "nakedApe",
       style:"tiki",
       name:"Naked Ape",
-      image:junglePic
+      image:junglePic,
+      cartImg:jungleCart
     };
 
     const zombie = {
       key: "zombie",
       style:"tiki",
       name:"Zombie",
-      image:zombiePic
+      image:zombiePic,
+      cartImg:zombieCart
     };
 
     {/* Detail Card Info */}
@@ -191,16 +209,43 @@ const BarService = () => {
               {
                 orderSize: "16 oz. Bottle",
                 counter: getCount(margarita.key, "16 oz. Bottle"),
-                onDecrease: () => decrease(margarita.key, "16 oz. Bottle".key, "16 oz. Bottle"),
-                onIncrease: () => increase(margarita.key, "16 oz. Bottle".key, "16 oz. Bottle"),
-                onAdd: () => addToCart(margarita.key, "16 oz. Bottle", "16 oz. Bottle")
+                onDecrease: () => decrease(margarita.key, "16 oz. Bottle"),
+                onIncrease: () => increase(margarita.key, "16 oz. Bottle"),
+                onAdd: () => addToCart(margarita, "16 oz. Bottle", "16 oz. Bottle")
               },
               {
                 orderSize: "32 oz. Bottle",
-                counter: getCount(margarita.key, "16 oz. Bottle".key, "32 oz. Bottle"),
-                onDecrease: () => decrease(margarita.key, "16 oz. Bottle".key, "32 oz. Bottle"),
-                onIncrease: () => increase(margarita.key, "16 oz. Bottle".key, "32 oz. Bottle"),
-                onAdd: () => addToCart(margarita.key, "16 oz. Bottle", "32 oz. Bottle")
+                counter: getCount(margarita.key, "32 oz. Bottle"),
+                onDecrease: () => decrease(margarita.key, "32 oz. Bottle"),
+                onIncrease: () => increase(margarita.key, "32 oz. Bottle"),
+                onAdd: () => addToCart(margarita, "32 oz. Bottle")
+              },
+            ]}
+          />
+        )
+      },
+      {
+        ...martini,
+        details: (
+          <CocktailDetailsCard
+            cocktailImage={limes}
+            name="Martini"
+            ingredients="Tequila, Triple Sec, Agave, Lime"
+            description="Tequila-forward, with tangy citrus, a hint of balancing sweetness and a faint salty undertone."
+            rows={[
+              {
+                orderSize: "16 oz. Bottle",
+                counter: getCount(martini.key, "16 oz. Bottle"),
+                onDecrease: () => decrease(martini.key, "16 oz. Bottle"),
+                onIncrease: () => increase(martini.key, "16 oz. Bottle"),
+                onAdd: () => addToCart(martini, "16 oz. Bottle", "16 oz. Bottle")
+              },
+              {
+                orderSize: "32 oz. Bottle",
+                counter: getCount(martini.key, "32 oz. Bottle"),
+                onDecrease: () => decrease(martini.key, "32 oz. Bottle"),
+                onIncrease: () => increase(martini.key, "32 oz. Bottle"),
+                onAdd: () => addToCart(martini, "32 oz. Bottle")
               },
             ]}
           />
@@ -211,7 +256,7 @@ const BarService = () => {
         details: (
           <CocktailDetailsCard
             cocktailImage={limes}
-            name="Manhattan"
+            name="Negroni"
             ingredients="Bourbon, Sweet Vermouth, Bitters"
             description="The Manhattan is complex, challenging and moreish. Best of all, it's available in a style to suit every palate"
             rows={[
@@ -220,7 +265,7 @@ const BarService = () => {
                 counter: getCount(negroni.key, "16 oz. Bottle"),
                 onDecrease: () => decrease(negroni.key, "16 oz. Bottle"),
                 onIncrease: () => increase(negroni.key, "16 oz. Bottle"),
-                onAdd: () => addToCart(daiqunegroniiri, "16 oz. Bottle")
+                onAdd: () => addToCart(negroni, "16 oz. Bottle")
               },
               {
                 orderSize: "32 oz. Bottle",

@@ -75,7 +75,7 @@ const Navbar = () => {
                       <div className="flex justify-between items-start gap-2">
                         <div>
                           <p className="font-semibold text-gray-800">{it.productName}</p>
-                          <img src={it.productImg} className="rounded-xl"/>
+                          <img src={it.cartImg} className="rounded-xl"/>
                           <p className="text-sm text-gray-700">{it.orderSize}</p>
                           <p className="text-sm text-gray-700">Qty: {it.quantity}</p>
                         </div>

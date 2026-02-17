@@ -10,6 +10,13 @@ import cornCookie from '../assets/images/desserts/cornCookie.jpg'
 import pie from '../assets/images/desserts/atlantic.png'
 import leches from '../assets/images/desserts/leches.png'
 import chocolateLeches from '../assets/images/desserts/choco-leches.jpg'
+import chocochipcart from '../assets/images/desserts/choco-chip-sm.jpg'
+import doublechocolatecart from '../assets/images/desserts/choco-choco-chip-sm.jpg'
+import bananaSplitCookiecart from '../assets/images/desserts/bananaSplit-sm.jpg'
+import cornCookiecart from '../assets/images/desserts/cornCookie-sm.jpg'
+import piecart from '../assets/images/desserts/atlantic-sm.png'
+import lechescart from '../assets/images/desserts/leches-sm.png'
+import chocolateLechescart from '../assets/images/desserts/choco-leches-sm.jpg'
 import { useCart } from '../context/CartContext';
 
 const DessertService = () => {
@@ -48,6 +55,7 @@ const DessertService = () => {
       productKey: product.key,
       productName: product.name,
       productImg: product.image,
+      cartImg: product.cartImg,
       orderSize,
       quantity: qty,
     });
@@ -65,6 +73,7 @@ const DessertService = () => {
       type: "cookies",
       name: "Chocolate Chip",
       image: chocochip,
+      cartImg: chocochipcart
     };
 
     const doubleChocoChip = {
@@ -72,13 +81,15 @@ const DessertService = () => {
       type: "cookies",
       name: "Double Chocolate Chocolate Chip",
       image: doublechocolate,
+      cartImg: doublechocolatecart
     };
 
     const walnutChocoChip = {
-      key: "doubleChocoChip",
+      key: "walnutChocoChip",
       type: "cookies",
       name: "Walnut Chocolate Chip",
       image: chocochip,
+      cartImg: chocochipcart
     };
 
     const corn = {
@@ -86,6 +97,7 @@ const DessertService = () => {
       type: "cookies",
       name: "Sweet Corn Sugar Cookie",
       image: cornCookie,
+      cartImg: cornCookiecart
     };
 
     const bananaSplit = {
@@ -93,6 +105,7 @@ const DessertService = () => {
       type: "cookies",
       name: "Banana Split Cookie",
       image: bananaSplitCookie,
+      cartImg: bananaSplitCookiecart
     };
 
     const atlantic = {
@@ -100,6 +113,7 @@ const DessertService = () => {
       type: "pies",
       name: "Atlantic Beach Pie",
       image: pie,
+      cartImg: piecart
     };
 
     const fruityLeches = {
@@ -107,6 +121,7 @@ const DessertService = () => {
       type: "cakes",
       name: "Fruity Pebbles Tres Leches",
       image: leches,
+      cartImg: lechescart
     };
 
     const chocoLeches = {
@@ -114,6 +129,7 @@ const DessertService = () => {
       type: "cakes",
       name: "Chocolate Hazelnut Tres Leches",
       image: chocolateLeches,
+      cartImg: chocolateLechescart
     };
 
     {/* Detail Card Info */}
