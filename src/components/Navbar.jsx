@@ -14,7 +14,7 @@ const Navbar = () => {
     navigate('/order');
   }
 
-  const { cartCount, items, removeItem, clearCart } = useCart();
+  const { cartCount, items, removeItem, clearCart, cartTotal } = useCart();
 
   
   return (
@@ -65,7 +65,7 @@ const Navbar = () => {
               {/* Cart items */}
               <div className="flex-1 overflow-y-auto space-y-3">
                 {items.length === 0 ? (
-                  <p className="text-gray-600 italic">Cart is empty.</p>
+                  <p className="text-gray-600 italic">...it's empty!</p>
                 ) : (
                   items.map((it) => (
                     <div
@@ -75,20 +75,28 @@ const Navbar = () => {
                       <div className="flex justify-between items-start gap-2">
                         <div>
                           <p className="font-semibold text-gray-800">{it.productName}</p>
+                          <p className="text-sm font-semibold text-gray-700">{it.orderSize}</p>
                           <img src={it.cartImg} className="rounded-xl"/>
-                          <p className="text-sm text-gray-700">{it.orderSize}</p>
-                          <p className="text-sm text-gray-700">Qty: {it.quantity}</p>
+                          <p>${it.orderCost.toFixed(2)} × {it.quantity}</p>
+                          <p>${(it.orderCost * it.quantity).toFixed(2)}</p>
+                          
                         </div>
 
                         <button
                           className="text-sm text-gray-700 hover:text-gray-900 underline cursor-pointer"
                           onClick={() => removeItem(it.productKey, it.orderSize)}>
-                          <img src={trash} className="w-10"/>
+                          <img src={trash} className="h-6 w-6"/>
                         </button>
                       </div>
                     </div>
                   ))
                 )}
+              </div>
+              <div className="border-t-2 border-honey pt-3 mt-3">
+                <div className="flex justify-between text-xl font-bold text-sea-green">
+                  <span>Total:</span>
+                  <span>${cartTotal.toFixed(2)}</span>
+                </div>
               </div>
 
               {/* Footer buttons */}
@@ -96,7 +104,7 @@ const Navbar = () => {
                 <button
                   onClick={handleCheckoutClick}
                   disabled={items.length === 0}
-                  className="bg-sea-green disabled:opacity-50 text-white font-semibold text-xl px-2 py-2 rounded-xl cursor-pointer w-full">
+                  className="bg-sea-green disabled:opacity-50 text-white font-semibold text-xl px-2 py-2 mb-1 rounded-xl cursor-pointer w-full">
                   Checkout
                 </button>
 

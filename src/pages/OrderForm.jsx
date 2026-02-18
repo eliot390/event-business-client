@@ -10,7 +10,7 @@ const OrderForm = () => {
 
   const [deliveryMethod, setDeliveryMethod] = useState("");
 
-  const { items } = useCart();
+  const { items, cartTotal } = useCart();
 
 
   return (
@@ -138,12 +138,19 @@ const OrderForm = () => {
                   <p className="font-semibold text-gray-800">{it.productName}</p>
                   <p className="text-gray-700">{it.quantity} x {it.orderSize}</p>
                 </div>
-                <p>$10.00</p>
+                <p>${it.orderCost.toFixed(2)}</p>
               </div>
             </div>
           ))
         )}
+        <div className="border-t-2 border-honey pt-3 mt-20 w-3/5">
+          <div className="flex justify-between text-xl font-bold text-sea-green">
+            <span>Total:</span>
+            <span>${cartTotal.toFixed(2)}</span>
+          </div>
+        </div>
       </div>
+      
     </div>
   )
 }

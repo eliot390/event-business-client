@@ -49,6 +49,11 @@ const BarService = () => {
     });  
   }, [keyFor]);
 
+  const PRICE_MAP = {
+    "16 oz. Bottle": 35,
+    "32 oz. Bottle": 60
+  }
+
   const addToCart = useCallback((product, orderSize) => {
     const qty = getCount(product.key, orderSize);
     if (qty <= 0) return;
@@ -59,6 +64,7 @@ const BarService = () => {
       productImg: product.image,
       cartImg: product.cartImg,
       orderSize,
+      orderCost: PRICE_MAP[orderSize],
       quantity: qty,
     });
 

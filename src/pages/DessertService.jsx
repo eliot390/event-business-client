@@ -47,6 +47,13 @@ const DessertService = () => {
     });
   },[keyFor]);
 
+  const PRICE_MAP = {
+    "6 Pack": 15,
+    "12 Pack": 25,
+    "9\" Pie": 23,
+    "9\" x 9\" Cake": 25
+  }
+
   const addToCart = useCallback((product, orderSize) => {
     const qty = getCount(product.key, orderSize);
     if (qty <= 0) return;
@@ -57,6 +64,7 @@ const DessertService = () => {
       productImg: product.image,
       cartImg: product.cartImg,
       orderSize,
+      orderCost: PRICE_MAP[orderSize],
       quantity: qty,
     });
 
@@ -71,25 +79,31 @@ const DessertService = () => {
     const chocolateChip = {
       key: "chocolateChip",
       type: "cookies",
-      name: "Chocolate Chip",
+      name: "Classic Chocolate Chip",
+      description: "Perfectly crispy on the outside and satisfyingly thick and gooey in the center.",
       image: chocochip,
-      cartImg: chocochipcart
+      cartImg: chocochipcart,
+      newStatus: false
     };
 
     const doubleChocoChip = {
       key: "doubleChocoChip",
       type: "cookies",
       name: "Double Chocolate Chocolate Chip",
+      description: "The ultimate chocolate cookie: dense, chewy and dangerously rich.",
       image: doublechocolate,
-      cartImg: doublechocolatecart
+      cartImg: doublechocolatecart,
+      newStatus: false
     };
 
     const walnutChocoChip = {
       key: "walnutChocoChip",
       type: "cookies",
       name: "Walnut Chocolate Chip",
+      description: "Crispy on the outside with a satisfyingly thick and gooey center, packed with semi-sweet chocolate chips and chunks of walnuts.",
       image: chocochip,
-      cartImg: chocochipcart
+      cartImg: chocochipcart,
+      newStaus: false
     };
 
     const corn = {
@@ -97,39 +111,46 @@ const DessertService = () => {
       type: "cookies",
       name: "Sweet Corn Sugar Cookie",
       image: cornCookie,
-      cartImg: cornCookiecart
+      cartImg: cornCookiecart,
+      newStatus: false
     };
 
     const bananaSplit = {
       key: "bananaCookie",
       type: "cookies",
       name: "Banana Split Cookie",
+      description:"Thick, indulgent cookies made with banana, creamy butterscotch, rich chocolate, walnuts, and fresh strawberries.",
       image: bananaSplitCookie,
-      cartImg: bananaSplitCookiecart
+      cartImg: bananaSplitCookiecart,
+      newStatus: true
     };
 
     const atlantic = {
       key: "atlanticPie",
       type: "pies",
       name: "Atlantic Beach Pie",
+      description:"A sweet-salty twist on a classic North Carolina lemon pie, made with a saltine cracker crust and a tart lemon-lime filling.",
       image: pie,
-      cartImg: piecart
+      cartImg: piecart,
+      newStatus: true
     };
 
     const fruityLeches = {
       key: "fruityLeches",
-      type: "cakes",
+      type: "tres leches",
       name: "Fruity Pebbles Tres Leches",
       image: leches,
-      cartImg: lechescart
+      cartImg: lechescart,
+      newStatus: true
     };
 
     const chocoLeches = {
       key: "chocoLeches",
-      type: "cakes",
+      type: "tres leches",
       name: "Chocolate Hazelnut Tres Leches",
       image: chocolateLeches,
-      cartImg: chocolateLechescart
+      cartImg: chocolateLechescart,
+      newStatus: true
     };
 
     {/* Detail Card Info */}
@@ -139,22 +160,21 @@ const DessertService = () => {
         details: (
           <DessertDetailsCard
             dessertImage={chocochip}
-            name="Chocolate Chip Cookie"
-            description="Crisp, light and refreshing. Delicately simple yet with perfectly balanced complexity of flavours."
+            name="Classic Chocolate Chip"            
             rows={[
               {
-                orderSize: "1/2 Dozen",
-                counter: getCount(chocolateChip.key, "1/2 Dozen"),
-                onDecrease: () => decrease(chocolateChip.key, "1/2 Dozen"),
-                onIncrease: () => increase(chocolateChip.key, "1/2 Dozen"),
-                onAdd: () => addToCart(chocolateChip, "1/2 Dozen")
+                orderSize: "6 Pack",
+                counter: getCount(chocolateChip.key, "6 Pack"),
+                onDecrease: () => decrease(chocolateChip.key, "6 Pack"),
+                onIncrease: () => increase(chocolateChip.key, "6 Pack"),
+                onAdd: () => addToCart(chocolateChip, "6 Pack")
               },
               {
-                orderSize: "1 Dozen",
-                counter: getCount(chocolateChip.key, "1 Dozen"),
-                onDecrease: () => decrease(chocolateChip.key, "1 Dozen"),
-                onIncrease: () => increase(chocolateChip.key, "1 Dozen"),
-                onAdd: () => addToCart(chocolateChip, "1 Dozen")
+                orderSize: "12 Pack",
+                counter: getCount(chocolateChip.key, "12 Pack"),
+                onDecrease: () => decrease(chocolateChip.key, "12 Pack"),
+                onIncrease: () => increase(chocolateChip.key, "12 Pack"),
+                onAdd: () => addToCart(chocolateChip, "12 Pack")
               },
             ]}
           />
@@ -166,21 +186,20 @@ const DessertService = () => {
           <DessertDetailsCard
             dessertImage={doublechocolate}
             name="Double Chocolate Chocolate Chip Cookie"
-            description="Crisp, light and refreshing. Delicately simple yet with perfectly balanced complexity of flavours."
             rows={[
               {
-                orderSize: "1/2 Dozen",
-                counter: getCount(doubleChocoChip.key, "1/2 Dozen"),
-                onDecrease: () => decrease(doubleChocoChip.key, "1/2 Dozen"),
-                onIncrease: () => increase(doubleChocoChip.key, "1/2 Dozen"),
-                onAdd: () => addToCart(doubleChocoChip, "1/2 Dozen")
+                orderSize: "6 Pack",
+                counter: getCount(doubleChocoChip.key, "6 Pack"),
+                onDecrease: () => decrease(doubleChocoChip.key, "6 Pack"),
+                onIncrease: () => increase(doubleChocoChip.key, "6 Pack"),
+                onAdd: () => addToCart(doubleChocoChip, "6 Pack")
               },
               {
-                orderSize: "1 Dozen",
-                counter: getCount(doubleChocoChip.key, "1 Dozen"),
-                onDecrease: () => decrease(doubleChocoChip.key, "1 Dozen"),
-                onIncrease: () => increase(doubleChocoChip.key, "1 Dozen"),
-                onAdd: () => addToCart(doubleChocoChip, "1 Dozen")
+                orderSize: "12 Pack",
+                counter: getCount(doubleChocoChip.key, "12 Pack"),
+                onDecrease: () => decrease(doubleChocoChip.key, "12 Pack"),
+                onIncrease: () => increase(doubleChocoChip.key, "12 Pack"),
+                onAdd: () => addToCart(doubleChocoChip, "12 Pack")
               },
             ]}
           />
@@ -192,21 +211,20 @@ const DessertService = () => {
           <DessertDetailsCard
             dessertImage={chocochip}
             name="Walnut Chocolate Chip Cookie"
-            description="Crisp, light and refreshing. Delicately simple yet with perfectly balanced complexity of flavours."
             rows={[
               {
-                orderSize: "1/2 Dozen",
-                counter: getCount(walnutChocoChip.key, "1/2 Dozen"),
-                onDecrease: () => decrease(walnutChocoChip.key, "1/2 Dozen"),
-                onIncrease: () => increase(walnutChocoChip.key, "1/2 Dozen"),
-                onAdd: () => addToCart(walnutChocoChip, "1/2 Dozen")
+                orderSize: "6 Pack",
+                counter: getCount(walnutChocoChip.key, "6 Pack"),
+                onDecrease: () => decrease(walnutChocoChip.key, "6 Pack"),
+                onIncrease: () => increase(walnutChocoChip.key, "6 Pack"),
+                onAdd: () => addToCart(walnutChocoChip, "6 Pack")
               },
               {
-                orderSize: "1 Dozen",
-                counter: getCount(walnutChocoChip.key, "1 Dozen"),
-                onDecrease: () => decrease(walnutChocoChip.key, "1 Dozen"),
-                onIncrease: () => increase(walnutChocoChip.key, "1 Dozen"),
-                onAdd: () => addToCart(walnutChocoChip, "1 Dozen")
+                orderSize: "12 Pack",
+                counter: getCount(walnutChocoChip.key, "12 Pack"),
+                onDecrease: () => decrease(walnutChocoChip.key, "12 Pack"),
+                onIncrease: () => increase(walnutChocoChip.key, "12 Pack"),
+                onAdd: () => addToCart(walnutChocoChip, "12 Pack")
               },
             ]}
           />
@@ -218,21 +236,20 @@ const DessertService = () => {
           <DessertDetailsCard
             dessertImage={cornCookie}
             name="Sweet Corn Sugar Cookie"
-            description="Crisp, light and refreshing. Delicately simple yet with perfectly balanced complexity of flavours."
             rows={[
               {
-                orderSize: "1/2 Dozen",
-                counter: getCount(corn.key, "1/2 Dozen"),
-                onDecrease: () => decrease(corn.key, "1/2 Dozen"),
-                onIncrease: () => increase(corn.key, "1/2 Dozen"),
-                onAdd: () => addToCart(corn, "1/2 Dozen")
+                orderSize: "6 Pack",
+                counter: getCount(corn.key, "6 Pack"),
+                onDecrease: () => decrease(corn.key, "6 Pack"),
+                onIncrease: () => increase(corn.key, "6 Pack"),
+                onAdd: () => addToCart(corn, "6 Pack")
               },
               {
-                orderSize: "1 Dozen",
-                counter: getCount(corn.key, "1 Dozen"),
-                onDecrease: () => decrease(corn.key, "1 Dozen"),
-                onIncrease: () => increase(corn.key, "1 Dozen"),
-                onAdd: () => addToCart(corn, "1 Dozen")
+                orderSize: "12 Pack",
+                counter: getCount(corn.key, "12 Pack"),
+                onDecrease: () => decrease(corn.key, "12 Pack"),
+                onIncrease: () => increase(corn.key, "12 Pack"),
+                onAdd: () => addToCart(corn, "12 Pack")
               },
             ]}
           />
@@ -244,21 +261,20 @@ const DessertService = () => {
           <DessertDetailsCard
             dessertImage={bananaSplitCookie}
             name="Banana Split Cookie"
-            description="Crisp, light and refreshing. Delicately simple yet with perfectly balanced complexity of flavours."
             rows={[
               {
-                orderSize: "1/2 Dozen",
-                counter: getCount(bananaSplit.key, "1/2 Dozen"),
-                onDecrease: () => decrease(bananaSplit.key, "1/2 Dozen"),
-                onIncrease: () => increase(bananaSplit.key, "1/2 Dozen"),
-                onAdd: () => addToCart(bananaSplit, "1/2 Dozen")
+                orderSize: "6 Pack",
+                counter: getCount(bananaSplit.key, "6 Pack"),
+                onDecrease: () => decrease(bananaSplit.key, "6 Pack"),
+                onIncrease: () => increase(bananaSplit.key, "6 Pack"),
+                onAdd: () => addToCart(bananaSplit, "6 Pack")
               },
               {
-                orderSize: "1 Dozen",
-                counter: getCount(bananaSplit.key, "1 Dozen"),
-                onDecrease: () => decrease(bananaSplit.key, "1 Dozen"),
-                onIncrease: () => increase(bananaSplit.key, "1 Dozen"),
-                onAdd: () => addToCart(bananaSplit, "1 Dozen")
+                orderSize: "12 Pack",
+                counter: getCount(bananaSplit.key, "12 Pack"),
+                onDecrease: () => decrease(bananaSplit.key, "12 Pack"),
+                onIncrease: () => increase(bananaSplit.key, "12 Pack"),
+                onAdd: () => addToCart(bananaSplit, "12 Pack")
               },
             ]}
           />
@@ -270,7 +286,6 @@ const DessertService = () => {
           <DessertDetailsCard
             dessertImage={pie}
             name="Atlantic Beach Pie"
-            description="Crisp, light and refreshing. Delicately simple yet with perfectly balanced complexity of flavours."
             rows={[
               {
                 orderSize: "9\" Pie",
@@ -289,7 +304,6 @@ const DessertService = () => {
           <DessertDetailsCard
             dessertImage={leches}
             name="Fruity Pebbles Tres Leches"
-            description="Crisp, light and refreshing. Delicately simple yet with perfectly balanced complexity of flavours."
             rows={[
               {
                 orderSize: "9\" x 9\" Cake",
@@ -308,7 +322,6 @@ const DessertService = () => {
           <DessertDetailsCard
             dessertImage={chocolateLeches}
             name="Chocolate Hazelnut Tres Leches"
-            description="Crisp, light and refreshing. Delicately simple yet with perfectly balanced complexity of flavours."
             rows={[
               {
                 orderSize: "9\" x 9\" Cake",
@@ -342,7 +355,9 @@ const DessertService = () => {
               key={`${p.type}-${p.name}`}
               type={p.type}
               name={p.name}
+              description={p.description}
               image={p.image}
+              newStatus={p.newStatus}
               details={p.details}
             />
           ))}

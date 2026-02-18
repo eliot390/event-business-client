@@ -5,7 +5,7 @@ const CartContext = createContext(null);
 export const CartProvider =({children}) => {
     const [items, setItems] = useState([]);
 
-    const addItem = ({ productKey, productName, productImg, cartImg, orderSize, quantity }) => {
+    const addItem = ({ productKey, productName, productImg, cartImg, orderSize, orderCost, quantity }) => {
     if (!quantity || quantity <= 0) return;
 
     setItems((prev) => {
@@ -21,7 +21,7 @@ export const CartProvider =({children}) => {
       }
 
       // Otherwise add new line item
-      return [...prev, { productKey, productName, productImg, cartImg, orderSize, quantity }];
+      return [...prev, { productKey, productName, productImg, cartImg, orderSize, orderCost, quantity }];
     });
   };
 
@@ -38,9 +38,14 @@ export const CartProvider =({children}) => {
     [items]
   );
 
+  const cartTotal = useMemo(
+    () => items.reduce((sum, it) => sum + it.quantity * (it.orderCost ?? 0), 0), 
+    [items]
+  );
+
   const value = useMemo(
-    () => ({ items, addItem, removeItem, clearCart, cartCount }),
-    [items, cartCount]
+    () => ({ items, addItem, removeItem, clearCart, cartCount, cartTotal }),
+    [items, cartCount, cartTotal]
   );
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

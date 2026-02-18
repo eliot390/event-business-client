@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const DessertProductCard = ({style, name, image, details}) => {
+const DessertProductCard = ({name, image, newStatus, details, description}) => {
   const [isOpen, setIsOpen] = useState(null);
 
   return (
@@ -11,14 +11,19 @@ const DessertProductCard = ({style, name, image, details}) => {
           <img src={image} className="md:w-full object-contain transition duration-300 ease-in-out hover:scale-105" />
         </div>
         <div className="ml-2 mb-16">
-          <p className="italic text-gray-600">{style}</p>
-          <h3 className="text-2xl font-semibold text-gray-800">{name}</h3>
+          <h3 className="text-2xl font-bold text-gray-800">{name}</h3>
+          <p className="font-medium w-5/6">{description}</p>
         </div>
         <div className="absolute bottom-4 right-4 flex justify-end">
           <button
             onClick={() => setIsOpen('details')} 
-            className="bg-light-honey hover:bg-honey text-gray-800 font-semibold py-1 px-3 border-2 border-amber rounded-full shadow cursor-pointer">Details</button>
+            className="bg-light-honey hover:bg-honey text-gray-800 font-semibold py-1 px-3 border-2 border-amber rounded-full shadow cursor-pointer">Order</button>
         </div>
+        <div>
+          {newStatus && 
+            <div className="absolute -top-3 -right-2 w-15 h-15 flex items-center justify-center bg-white rounded-full text-sea-green border-3 font-semibold">NEW!</div>}
+        </div>
+        
       </div>
 
       {/* Modal */}

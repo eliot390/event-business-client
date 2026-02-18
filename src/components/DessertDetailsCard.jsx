@@ -19,12 +19,11 @@ const OrderRow = ({orderSize, counter, onDecrease, onIncrease, onAdd}) => {
   )
 }
 
-const DessertDetailsCard = ({dessertImage, name, description, rows=[]}) => {
+const DessertDetailsCard = ({dessertImage, name, rows=[]}) => {
   return (
     <div className='w-sm text-left '>
       <img src={dessertImage} className="border-3 border-honey shadow-2xs rounded-xl"/>
       <p className='text-3xl font-semibold my-2 text-amber'>{name}</p>
-      <p className='italic mt-2 mb-2'>{description}</p>
       {rows.map((row) =>
       <OrderRow key={row.orderSize} {...row} />
       )}

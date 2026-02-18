@@ -10,7 +10,7 @@ const DessertButtonGroup = ({active, onChange}) => {
     {id: "all", img: all},
     {id: "cookies", img: cookieIcon},
     {id: "pies", img: pieIcon},
-    {id: "cakes", img: cakeIcon}
+    {id: "tres leches", img: cakeIcon}
   ]
 
   return (
