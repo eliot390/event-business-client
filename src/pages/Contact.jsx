@@ -38,6 +38,7 @@ const Contact = () => {
             <h2 className="text-gray-900 text-center text-3xl mt-4">Let's Connect!</h2>
             <p className="mt-1 text-sm/6 text-gray-600 text-center">We can't wait to help plan an awesome event for you</p>
             <div className="mt-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+              
               <div className="sm:col-span-3">
                 <label for="first-name" className="block text-sm/6 font-medium text-gray-900">First name</label>
                 <div className="mt-2">

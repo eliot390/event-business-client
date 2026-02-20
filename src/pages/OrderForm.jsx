@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { motion, AnimatePresence } from "framer-motion"
 import { useCart } from '../context/CartContext';
 
 const OrderForm = () => {
@@ -12,11 +13,35 @@ const OrderForm = () => {
 
   const { items, cartTotal } = useCart();
 
+  const faqs = [
+    {
+      question: "How do I pay you?",
+      answer: "We glady accept Venmo"
+    },
+    {
+      question: "How far do you deliver?",
+      answer: "We are currently able to deliver in a 5 mile radius in Burbank/Glendale."
+    },
+    {
+      question: "Can I put in a custom order for XYZ?",
+      answer: "Sure, let's discuss options! You can email us at support@example.com."
+    },
+    {
+      question: "Do you offer gluten free or other dietary options?",
+      answer: "Modifications are possible. Email us at support@example.com"
+    }
+  ]
+  const [openIndex, setOpenIndex] = useState(null)
+  const toggle = (index) => {
+    setOpenIndex(openIndex === index ? null : index)
+  }
+
 
   return (
     <div className='flex flex-row justify-center'>
-      <div className='flex justify-end bg-light-frozen mt-4 h-screen w-screen p-4 rounded-sm'>
-        <form className='w-lg bg-light-frozen'>        
+      {/* Left Side */}
+      <div className='flex flex-col items-end bg-light-frozen pt-4 pr-8 mt-4 h-screen w-1/2 rounded-sm'>
+        <form className='w-lg'>
           <div>
             <h2 className="text-gray-900 text-center text-3xl mt-4">Order Form</h2>
             <div className="mt-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
@@ -125,8 +150,39 @@ const OrderForm = () => {
             <button type="submit" className="rounded-md bg-darker-sage px-3 py-2 text-sm font-semibold text-white hover:bg-sage cursor-pointer">Send</button>
           </div>
         </form>
+
+        <div className="w-lg">
+          {faqs.map((faq, index) => (
+            <motion.div key={index} className="border-b border-gray-900/10">
+              <button
+                onClick={() => toggle(index)}
+                className="w-full text-left py-4 flex justify-between items-center hover:cursor-pointer focus:outline-none">
+                <span className="font-medium">{faq.question}</span>
+                <motion.span
+                  animate={{ rotate: openIndex === index ? 45 : 0 }}
+                  className="font-bold text-xl text-gray-900/50 transition-transform">+</motion.span>
+              </button>
+
+              <AnimatePresence>
+                {openIndex === index && (
+                  <motion.div
+                    key="content"
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="overflow-hidden">
+                    <p className="text-gray-700 py-2">{faq.answer}</p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
+          ))}
+        </div>
+
       </div>
-      <div className='mt-8 h-screen w-screen p-4 border-solid border-l-1 border-sea-green'>
+      {/* Right Side */}
+      <div className='mt-8 h-screen w-1/2 pt-8 pl-8 border-solid border-l-1 border-sea-green'>
         {(
           items.map((it) => (
             <div
