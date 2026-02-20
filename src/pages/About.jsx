@@ -18,3 +18,13 @@ const About = () => {
 }
 
 export default About
+
+/** TODO
+ * landing page back to services.jsx
+ * 
+ * copy shortened page description/details under services cards
+ * 
+ * change "add to cart" to copy Levain style
+ * 
+ * add +/- buttons to your cart
+ *  */ 
