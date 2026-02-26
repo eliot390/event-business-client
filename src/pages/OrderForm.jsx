@@ -3,13 +3,21 @@ import { motion, AnimatePresence } from "framer-motion"
 import { useCart } from '../context/CartContext';
 
 const OrderForm = () => {
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [phone, setPhone] = useState("")
+  const [comments, setComments] = useState("")
+  const [deliveryMethod, setDeliveryMethod] = useState("")
+  const [deliveryAddress, setDeliveryAddress] = useState("")
+  const [orderDate, setOrderDate] = useState("")
+
   const minDate = useMemo(() => {
     const date = new Date();
     date.setDate(date.getDate()+2);
     return date.toISOString().split("T")[0];
   }, []);
 
-  const [deliveryMethod, setDeliveryMethod] = useState("");
+  
 
   const { items, cartTotal } = useCart();
 
@@ -36,6 +44,51 @@ const OrderForm = () => {
     setOpenIndex(openIndex === index ? null : index)
   }
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const payload = {
+      name,
+      email,
+      phone,
+      deliveryMethod,
+      deliveryAddress: deliveryMethod === "Delivery" ? deliveryAddress : "",
+      comments,
+      orderDate,
+      items: items.map((it) => ({
+        productKey: it.productKey,
+        productName: it.productName,
+        orderSize: it.orderSize,
+        quantity: it.quantity,
+        price: it.price,
+      })),
+      total: cartTotal
+    }
+
+    try {
+      console.log("items", items);
+      console.log("payload preview", payload);
+      const res = await fetch("/api/orders", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(payload)
+      })
+
+      const text = await res.text();
+
+      if(!res.ok) {
+        alert(text);
+        return;
+      }
+
+      alert("Order placed");
+      clearCart();
+    } catch (err) {
+      console.error(err);
+      alert("Failed to place order");
+    }
+  }
+
 
   return (
     <div className='flex flex-row justify-center'>
@@ -52,9 +105,11 @@ const OrderForm = () => {
                 </label>
                 <div className="mt-2">
                   <input 
-                    id="first-name"
+                    id="name"
                     type="text" 
-                    name="first-name"
+                    name="name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 focus:outline-3 focus:outline-sea-green sm:text-sm/6"/>
                 </div>
               </div>
@@ -68,6 +123,8 @@ const OrderForm = () => {
                     id="email" 
                     type="email" 
                     name="email" 
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 focus:outline-3 focus:outline-sea-green sm:text-sm/6"/>
                 </div>
               </div>
@@ -78,9 +135,11 @@ const OrderForm = () => {
                 </label>
                 <div className="mt-2">
                   <input
-                    id="email" 
-                    type="email" 
-                    name="email" 
+                    id="phone" 
+                    type="tel" 
+                    name="phone" 
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 focus:outline-3 focus:outline-sea-green sm:text-sm/6"/>
                 </div>
               </div>
@@ -112,13 +171,15 @@ const OrderForm = () => {
                   <input
                     type="text"
                     placeholder="Enter delivery address"
+                    value={deliveryAddress}
+                    onChange={(e) => setDeliveryAddress(e.target.value)}
                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 focus:outline-3 focus:outline-sea-green sm:text-sm/6"
                   />
                 </div>
               )}
 
               <div className="col-span-full col-start-1">
-                <label for="orderDate" className="block text-sm/6 text-gray-900 after:ml-0.5 after:text-red-500 after:content-['*'] ...">Date Requested</label>                
+                <label htmlFor="orderDate" className="block text-sm/6 text-gray-900 after:ml-0.5 after:text-red-500 after:content-['*'] ...">Date Requested</label>                
                   <div className="mt-2 grid grid-cols-2">
                     <div>
                       <input 
@@ -126,6 +187,8 @@ const OrderForm = () => {
                         min={minDate} 
                         id="order" 
                         name="orderDate" 
+                        value={orderDate}
+                        onChange={(e) => setOrderDate(e.target.value)}
                         className="appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-gray-900 focus:outline-3 focus:outline-sea-green sm:text-sm/6">
                       </input>
                     </div>
@@ -133,12 +196,13 @@ const OrderForm = () => {
               </div>
 
               <div className="col-span-full">
-                <label for="street-address" className="block text-sm/6 font-medium text-gray-900">Additional Details</label>
+                <label htmlFor="street-address" className="block text-sm/6 font-medium text-gray-900">Additional Details</label>
                 <div className="mt-2">
                   <textarea 
-                    id="additional-info" 
-                    type="text" 
-                    name="additional-info" 
+                    id="comments" 
+                    name="comments"
+                    value={comments}
+                    onChange={(e) => setComments(e.target.value)}
                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 focus:outline-3 focus:outline-sea-green sm:text-sm/6" />
                 </div>
               </div>
@@ -147,7 +211,9 @@ const OrderForm = () => {
           </div>        
           <div className="mt-6 flex items-center justify-end gap-x-2">
             <button type="button" className="text-sm font-semibold px-2 py-2 font-semibold text-gray-900 hover:bg-sage hover:rounded-md cursor-pointer">Cancel</button>
-            <button type="submit" className="rounded-md bg-darker-sage px-3 py-2 text-sm font-semibold text-white hover:bg-sage cursor-pointer">Send</button>
+            <button
+              onClick={handleSubmit} 
+              type="submit" className="rounded-md bg-darker-sage px-3 py-2 text-sm font-semibold text-white hover:bg-sage cursor-pointer">Send</button>
           </div>
         </form>
 
