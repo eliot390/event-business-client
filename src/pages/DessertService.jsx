@@ -56,6 +56,7 @@ const DessertService = () => {
 
   const addToCart = useCallback((product, orderSize) => {
     const qty = getCount(product.key, orderSize);
+    const orderCost = PRICE_MAP[orderSize]
     if (qty <= 0) return;
 
     addItem({
@@ -64,9 +65,12 @@ const DessertService = () => {
       productImg: product.image,
       cartImg: product.cartImg,
       orderSize,
-      orderCost: PRICE_MAP[orderSize],
+      orderCost,
       quantity: qty,
     });
+
+    
+    console.log(orderCost)
 
     // reset that specific row
     const k = keyFor(product.key, orderSize);

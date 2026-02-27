@@ -59,9 +59,9 @@ const OrderForm = () => {
         productName: it.productName,
         orderSize: it.orderSize,
         quantity: it.quantity,
-        price: it.price,
+        price: Number(it.orderCost),
       })),
-      total: cartTotal
+      total: Number(cartTotal)
     }
 
     try {
