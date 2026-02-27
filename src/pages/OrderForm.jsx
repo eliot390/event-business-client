@@ -153,8 +153,8 @@ const OrderForm = () => {
                     onChange={(e) => setDeliveryMethod(e.target.value)} 
                     className="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-gray-900 focus:outline-3 focus:outline-sea-green sm:text-sm/6">
                     <option value="">Select Option</option>
-                    <option value="Ganbatte">Pickup (Ganbatte)</option>
-                    <option value="Burbank">Pickup (Burbank)</option>
+                    <option value="Pickup - Ganbatte">Pickup (Ganbatte)</option>
+                    <option value="Pickup - Burbank">Pickup (Burbank)</option>
                     <option value="Delivery">Delivery</option>
                   </select>
                   <svg viewBox="0 0 16 16" fill="currentColor" data-slot="icon" aria-hidden="true" className="pointer-events-none col-start-1 row-start-1 mr-2 size-5 self-center justify-self-end text-gray-500 sm:size-4">
@@ -211,7 +211,7 @@ const OrderForm = () => {
           <div className="mt-6 flex items-center justify-end gap-x-2">
             <button type="button" className="text-sm font-semibold px-2 py-2 font-semibold text-gray-900 hover:bg-sage hover:rounded-md cursor-pointer">Cancel</button>
             <button
-              onClick={handleSubmit} 
+              onClick={handleSubmit}
               type="submit" className="rounded-md bg-darker-sage px-3 py-2 text-sm font-semibold text-white hover:bg-sage cursor-pointer">Send</button>
           </div>
         </form>
