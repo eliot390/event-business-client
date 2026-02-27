@@ -15,9 +15,7 @@ const OrderForm = () => {
     const date = new Date();
     date.setDate(date.getDate()+2);
     return date.toISOString().split("T")[0];
-  }, []);
-
-  
+  }, []);  
 
   const { items, cartTotal } = useCart();
 
@@ -39,6 +37,7 @@ const OrderForm = () => {
       answer: "Modifications are possible. Email us at support@example.com"
     }
   ]
+
   const [openIndex, setOpenIndex] = useState(null)
   const toggle = (index) => {
     setOpenIndex(openIndex === index ? null : index)
@@ -192,7 +191,7 @@ const OrderForm = () => {
                         className="appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-gray-900 focus:outline-3 focus:outline-sea-green sm:text-sm/6">
                       </input>
                     </div>
-                  </div>                
+                  </div>
               </div>
 
               <div className="col-span-full">
@@ -208,7 +207,7 @@ const OrderForm = () => {
               </div>
               
             </div>
-          </div>        
+          </div>
           <div className="mt-6 flex items-center justify-end gap-x-2">
             <button type="button" className="text-sm font-semibold px-2 py-2 font-semibold text-gray-900 hover:bg-sage hover:rounded-md cursor-pointer">Cancel</button>
             <button
