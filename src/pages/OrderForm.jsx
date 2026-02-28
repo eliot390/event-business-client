@@ -90,10 +90,10 @@ const OrderForm = () => {
 
 
   return (
-    <div className='flex flex-row justify-center'>
+    <div className='flex flex-col lg:flex-row justify-center'>
       {/* Left Side */}
-      <div className='flex flex-col items-end bg-light-frozen pt-4 pr-8 mt-4 h-screen w-1/2 rounded-sm'>
-        <form className='w-lg'>
+      <div className='flex flex-col items-center lg:items-end bg-light-frozen lg:pt-4 lg:pr-8 lg:mt-8 mt-28 lg:h-screen lg:w-1/2 rounded-sm'>
+        <form className='w-fit lg:w-lg'>
           <div>
             <h2 className="text-gray-900 text-center text-3xl mt-4">Order Form</h2>
             <div className="mt-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
@@ -216,7 +216,7 @@ const OrderForm = () => {
           </div>
         </form>
 
-        <div className="w-lg">
+        <div className="lg:w-lg">
           {faqs.map((faq, index) => (
             <motion.div key={index} className="border-b border-gray-900/10">
               <button
@@ -247,26 +247,26 @@ const OrderForm = () => {
 
       </div>
       {/* Right Side */}
-      <div className='mt-8 h-screen w-1/2 pt-8 pl-8 border-solid border-l-1 border-sea-green'>
+      <div className='mt-8 lg:h-screen lg:w-1/2 pt-8 lg:pl-8 border-solid border-l-1 border-sea-green'>
         {(
           items.map((it) => (
             <div
               key={`${it.productKey}|${it.orderSize}`}
-              className="bg-white/60 rounded-xl p-3 shadow w-3/5">
+              className="bg-white/60 rounded-xl p-3 shadow w-full lg:w-3/5">
               <div className="flex flex-row justify-between items-center">
-                <img src={it.cartImg} className="rounded-xl h-20 mr-10"/>
+                <img src={it.cartImg} className="rounded-xl h-20 lg:mr-10"/>
                 <div className='flex flex-col items-center'>
-                  <p className="font-semibold text-gray-800">{it.productName}</p>
+                  <p className="text-center font-semibold text-gray-800">{it.productName}</p>
                   <p className="text-gray-700">{it.quantity} x {it.orderSize}</p>
                 </div>
-                <p>${it.orderCost.toFixed(2)}</p>
+                <p>=${it.orderCost.toFixed(2)}</p>
               </div>
             </div>
           ))
         )}
-        <div className="border-t-2 border-honey pt-3 mt-20 w-3/5">
-          <div className="flex justify-between text-xl font-bold text-sea-green">
-            <span>Total:</span>
+        <div className="border-t-2 border-honey p-4 lg:pt-3 lg:mt-20 lg:w-3/5">
+          <div className="flex justify-end lg:justify-between text-xl font-bold text-sea-green">
+            <span className='pr-6'>Total:</span>
             <span>${cartTotal.toFixed(2)}</span>
           </div>
         </div>

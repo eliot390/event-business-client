@@ -11,7 +11,7 @@ import PhotoService from './pages/PhotoService'
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<MainLayout />}>
-      <Route index element={<About />} />
+      <Route index element={<Services />} />
       <Route path='/about' element={<About />} />
       <Route path='/contact' element={<Contact />} />
       <Route path='/services' element={<Services />} />

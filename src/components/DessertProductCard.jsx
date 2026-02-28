@@ -8,7 +8,7 @@ const DessertProductCard = ({name, image, newStatus, details, description}) => {
     <>
       <div className="relative group flex flex-col w-full bg-white border-3 border-honey shadow-2xs rounded-xl">
         <div className="flex flex-col justify-center items-center rounded-t-lg overflow-hidden">
-          <img src={image} className="md:w-full object-contain transition duration-300 ease-in-out hover:scale-105" />
+          <img src={image} className="lg:w-full object-contain transition duration-300 ease-in-out hover:scale-105" />
         </div>
         <div className="ml-2 mb-16">
           <h3 className="text-2xl font-bold text-gray-800">{name}</h3>
@@ -37,7 +37,7 @@ const DessertProductCard = ({name, image, newStatus, details, description}) => {
             onClick={() => setIsOpen(null)}
           >
             <motion.div
-              className="bg-white dark:bg-neutral-900 rounded-md p-6 w-80 shadow-lg relative border border-solid text-center w-fit"
+              className="bg-white dark:bg-neutral-900 rounded-md p-6 shadow-lg relative border border-solid text-center w-3/4 lg:w-fit"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
@@ -45,7 +45,7 @@ const DessertProductCard = ({name, image, newStatus, details, description}) => {
               onClick={(e) => e.stopPropagation()}
             >
               <button
-                className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 cursor-pointer"
+                className="absolute top-1 right-2 lg:top-0 lg:right-1 lg:text-2xl text-gray-500 hover:text-gray-700 cursor-pointer"
                 onClick={() => setIsOpen(null)}
               >
                 ✕

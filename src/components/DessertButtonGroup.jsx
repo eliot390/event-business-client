@@ -15,13 +15,16 @@ const DessertButtonGroup = ({active, onChange}) => {
 
   return (
     <div className='flex justify-center'>
-      <div className="flex flex-row w-3/4 justify-evenly bg-light-honey border-honey border-solid border-3 rounded-xl">
+      <div className="flex flex-row w-full lg:w-3/4 justify-around lg:justify-evenly bg-light-honey border-honey border-solid border-3 rounded-xl">
         {buttons.map((btn) => (
           <button
           key={btn.id}
           onClick={() => onChange(btn.id)}
-          className={`            
-            p-3
+          className={`
+            grid grid-col-1
+            justify-items-center
+            p-2
+            lg:p-3
             transition
             ${active === btn.id ? "ring-blue-500" : "bg-none"}`}
             aria-pressed={active === btn.id}
@@ -29,7 +32,8 @@ const DessertButtonGroup = ({active, onChange}) => {
           <img
             src={btn.img}
             className={`
-            h-22
+            h-10
+            lg:h-22
             cursor-pointer
             transition duration-300 ease-in-out hover:scale-105`}
           />
