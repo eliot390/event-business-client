@@ -351,7 +351,7 @@ const DessertService = () => {
   return (
     <div>     
       <div className="flex flex-col justify-center max-w-[85rem] px-4 py-14 lg:px-8 lg:py-14 mx-auto">
-        <p className='mt-2 mx-auto max-w-lg h-24 text-center'>Toasted offers homemade desserts perfect for any occasion.</p>
+        <p className='mt-18 lg:mt-2 mx-auto max-w-lg h-24 text-center'>Toasted offers homemade desserts perfect for any occasion.</p>
         <DessertButtonGroup active={filter} onChange={setFilter}/>
         <div className="grid grid-cols-1 justify-items-center lg:grid-cols-3 gap-6 mb-5 mt-5">
           {visibleProducts.map((p) => (

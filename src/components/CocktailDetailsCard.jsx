@@ -1,7 +1,7 @@
 
 const OrderRow = ({orderSize, counter, onDecrease, onIncrease, onAdd}) => {
   return (
-    <div className='flex flex-row justify-between items-center mt-4'>
+    <div className='flex flex-row justify-between items-center mt-2 lg:mt-4'>
       <div className='bg-light-frozen hover:bg-frozen-water w-fit text-2xl text-gray-800 font-semibold px-3 border-2 border-sea-green rounded-full shadow' >
         <button
           className='mr-2 text-2xl cursor-pointer' 
@@ -21,11 +21,11 @@ const OrderRow = ({orderSize, counter, onDecrease, onIncrease, onAdd}) => {
 
 const CocktailDetailsCard = ({cocktailImage, name, ingredients, description, rows=[]}) => {
   return (
-    <div className='w-sm text-left'>
-      <img src={cocktailImage}/>
+    <div className='w-full lg:w-sm text-left'>
+      {/* <img src={cocktailImage}/> */}
       <p className='text-3xl font-semibold mb-2 text-honey'>{name}</p>
       <p>{ingredients}</p>
-      <p className='italic mt-2 mb-2'>{description}</p>
+      <p className='text-center italic my-2'>{description}</p>
       {rows.map((row, idx) =>
       <OrderRow key={idx} {...row} />
       )}
