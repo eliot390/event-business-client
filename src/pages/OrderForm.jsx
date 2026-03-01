@@ -252,7 +252,7 @@ const OrderForm = () => {
           items.map((it) => (
             <div
               key={`${it.productKey}|${it.orderSize}`}
-              className="bg-white/60 rounded-xl mx-auto p-3 shadow w-96 lg:w-3/5">
+              className="bg-white/60 rounded-xl mx-auto lg:mx-0 p-3 shadow w-9/10 lg:w-3/5">
               <div className="flex flex-row justify-between items-center">
                 <img src={it.cartImg} className="rounded-xl h-20 lg:mr-10"/>
                 <div className='flex flex-col items-center'>
@@ -264,7 +264,7 @@ const OrderForm = () => {
             </div>
           ))
         )}
-        <div className="border-t-2 border-honey p-4 lg:pt-3 mt-4 lg:mt-20 lg:w-3/5">
+        <div className="border-t-2 border-honey p-4 lg:pt-3 mt-4 lg:mt-12 lg:w-3/5">
           <div className="flex justify-end lg:justify-between text-xl font-bold text-sea-green">
             <span className='pr-6'>Total:</span>
             <span>${cartTotal.toFixed(2)}</span>

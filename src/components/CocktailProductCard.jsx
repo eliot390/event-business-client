@@ -32,7 +32,7 @@ const CocktailProductCard = ({style, name, image, details}) => {
             onClick={() => setIsOpen(null)}
           >
             <motion.div
-              className="bg-white rounded-md p-6 shadow-lg relative border-2 border-sea-green text-center w-5/6 lg:w-fit"
+              className="bg-white rounded-md p-6 shadow-lg relative border-2 border-sea-green text-center w-84 lg:w-fit"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}

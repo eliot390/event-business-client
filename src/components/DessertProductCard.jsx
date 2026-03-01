@@ -37,7 +37,7 @@ const DessertProductCard = ({name, image, newStatus, details, description}) => {
             onClick={() => setIsOpen(null)}
           >
             <motion.div
-              className="bg-white dark:bg-neutral-900 rounded-md p-6 shadow-lg relative border border-solid text-center w-3/4 lg:w-fit"
+              className="bg-white dark:bg-neutral-900 rounded-md p-6 shadow-lg relative border border-solid text-center w-84 lg:w-fit"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
