@@ -29,7 +29,7 @@ const Navbar = () => {
             <Link to="/collection/dessertservice" className="lg:pr-4 hover:text-amber">desserts</Link>
             <Link to="/collection/barservice" className="lg:pr-4 hover:text-amber">drinks</Link>
             <Link to="/collection/photoservice" className="lg:pr-4 hover:text-amber">photobooth</Link>
-            <Link to="/contact" className="lg:pr-4 hover:text-amber">contact</Link>
+            {/* <Link to="/contact" className="lg:pr-4 hover:text-amber">contact</Link> */}
           </div>
           <div className="relative cursor-pointer pt-5" onClick={() => setIsOpen(true)}>
             <img src={cart} className="h-10 bg-white border-solid border-2 border-sea-green rounded-full "/>
@@ -75,11 +75,9 @@ const Navbar = () => {
                       <div className="flex justify-between items-start gap-2">
                         <div>
                           <p className="font-semibold text-gray-800">{it.productName}</p>
-                          <p className="text-sm font-semibold text-gray-700">{it.orderSize}</p>
                           <img src={it.cartImg} className="rounded-xl"/>
-                          <p>${it.orderCost.toFixed(2)} × {it.quantity}</p>
-                          <p>${(it.orderCost * it.quantity).toFixed(2)}</p>
-                          
+                          <p>{it.orderSize} × {it.quantity}</p>
+                          <p>${(it.orderCost * it.quantity).toFixed(2)}</p>                          
                         </div>
 
                         <button

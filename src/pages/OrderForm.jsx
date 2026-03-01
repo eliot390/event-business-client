@@ -96,13 +96,13 @@ const OrderForm = () => {
         <form className='w-fit lg:w-lg'>
           <div>
             <h2 className="text-gray-900 text-center text-3xl mt-4">Order Form</h2>
-            <div className="mt-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+            <div className="lg:mt-4 grid grid-cols-1 gap-x-6 gap-y-4 lg:gap-y-8 sm:grid-cols-6">
 
               <div className="sm:col-span-3">
                 <label>
                   <span className="text-sm/6 font-medium text-gray-900 after:ml-0.5 after:text-red-500 after:content-['*'] ...">Name</span>
                 </label>
-                <div className="mt-2">
+                <div className="lg:mt-2">
                   <input 
                     id="name"
                     type="text" 
@@ -117,7 +117,7 @@ const OrderForm = () => {
                 <label>
                   <span className="text-sm/6 font-medium text-gray-900 after:ml-0.5 after:text-red-500 after:content-['*'] ...">Email</span>
                 </label>
-                <div className="mt-2">
+                <div className="lg:mt-2">
                   <input
                     id="email" 
                     type="email" 
@@ -132,7 +132,7 @@ const OrderForm = () => {
                 <label>
                   <span className="text-sm/6 font-medium text-gray-900 after:ml-0.5 after:text-red-500 after:content-['*'] ...">Phone</span>
                 </label>
-                <div className="mt-2">
+                <div className="lg:mt-2">
                   <input
                     id="phone" 
                     type="tel" 
@@ -147,7 +147,7 @@ const OrderForm = () => {
                 <label>
                   <span className="text-sm/6 font-medium text-gray-900 after:ml-0.5 after:text-red-500 after:content-['*'] ...">Pickup / Delivery</span>
                 </label>
-                <div className="mt-2 grid grid-cols-1">
+                <div className="lg:mt-2 grid grid-cols-1">
                   <select 
                     value={deliveryMethod}
                     onChange={(e) => setDeliveryMethod(e.target.value)} 
@@ -179,7 +179,7 @@ const OrderForm = () => {
 
               <div className="col-span-full col-start-1">
                 <label htmlFor="orderDate" className="block text-sm/6 text-gray-900 after:ml-0.5 after:text-red-500 after:content-['*'] ...">Date Requested</label>                
-                  <div className="mt-2 grid grid-cols-2">
+                  <div className="lg:mt-2 grid grid-cols-2">
                     <div>
                       <input 
                         type='date' 
@@ -196,7 +196,7 @@ const OrderForm = () => {
 
               <div className="col-span-full">
                 <label htmlFor="street-address" className="block text-sm/6 font-medium text-gray-900">Additional Details</label>
-                <div className="mt-2">
+                <div className="lg:mt-2">
                   <textarea 
                     id="comments" 
                     name="comments"
@@ -252,19 +252,19 @@ const OrderForm = () => {
           items.map((it) => (
             <div
               key={`${it.productKey}|${it.orderSize}`}
-              className="bg-white/60 rounded-xl p-3 shadow w-full lg:w-3/5">
+              className="bg-white/60 rounded-xl mx-auto p-3 shadow w-96 lg:w-3/5">
               <div className="flex flex-row justify-between items-center">
                 <img src={it.cartImg} className="rounded-xl h-20 lg:mr-10"/>
                 <div className='flex flex-col items-center'>
                   <p className="text-center font-semibold text-gray-800">{it.productName}</p>
                   <p className="text-gray-700">{it.quantity} x {it.orderSize}</p>
                 </div>
-                <p>=${it.orderCost.toFixed(2)}</p>
+                <p>${(it.orderCost * it.quantity).toFixed(2)}</p>
               </div>
             </div>
           ))
         )}
-        <div className="border-t-2 border-honey p-4 lg:pt-3 lg:mt-20 lg:w-3/5">
+        <div className="border-t-2 border-honey p-4 lg:pt-3 mt-4 lg:mt-20 lg:w-3/5">
           <div className="flex justify-end lg:justify-between text-xl font-bold text-sea-green">
             <span className='pr-6'>Total:</span>
             <span>${cartTotal.toFixed(2)}</span>
