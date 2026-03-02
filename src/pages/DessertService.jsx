@@ -69,9 +69,6 @@ const DessertService = () => {
       quantity: qty,
     });
 
-    
-    console.log(orderCost)
-
     // reset that specific row
     const k = keyFor(product.key, orderSize);
     setCounts((prev) => ({ ...prev, [k]: 0 }));

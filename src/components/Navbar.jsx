@@ -34,7 +34,8 @@ const Navbar = () => {
             </div>
           </div>
 
-          <div className="absolute top-6 right-2 lg:top-4 lg:right-20">
+          <div className="absolute top-6 right-2 lg:top-4 lg:right-20 flex flex-row items-end">
+            <p className="max-sm:hidden lg:text-4xl text-3xl font-semibold flex items-center justify-center text-sea-green lg:h-10 lg:w-10 mr-2 lg:bg-white border-solid lg:border-2 border-sea-green rounded-full">?</p>
             <div className="relative cursor-pointer pt-5" onClick={() => setIsOpen(true)}>
               <img src={cart} className="h-10 lg:bg-white border-solid lg:border-2 border-sea-green rounded-full "/>
               <div className="absolute top-3 -right-1 lg:top-3 lg:-right-1 w-5 h-5 flex items-center justify-center bg-sea-green rounded-full text-white text-xs font-semibold">{cartCount}</div>
