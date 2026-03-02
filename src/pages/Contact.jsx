@@ -1,6 +1,5 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import minis from '../assets/images/minis2.jpg'
 
 const Contact = () => {
   const faqs = [
