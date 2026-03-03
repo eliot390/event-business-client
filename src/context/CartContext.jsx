@@ -31,6 +31,27 @@ export const CartProvider =({children}) => {
     );
   };
 
+  const incrementItem = (productKey, orderSize) => {
+  setItems((prev) =>
+    prev.map((it) =>
+      it.productKey === productKey && it.orderSize === orderSize
+        ? { ...it, quantity: it.quantity + 1 }
+        : it
+    )
+  );
+};
+
+const decrementItem = (productKey, orderSize) => {
+  setItems((prev) =>
+    prev
+      .map((it) =>
+        it.productKey === productKey && it.orderSize === orderSize
+          ? { ...it, quantity: Math.max(1, it.quantity - 1) }
+          : it
+      )
+  );
+};
+
   const clearCart = () => setItems([]);
 
   const cartCount = useMemo(
@@ -44,7 +65,7 @@ export const CartProvider =({children}) => {
   );
 
   const value = useMemo(
-    () => ({ items, addItem, removeItem, clearCart, cartCount, cartTotal }),
+    () => ({ items, addItem, removeItem, clearCart, cartCount, cartTotal, incrementItem, decrementItem }),
     [items, cartCount, cartTotal]
   );
 

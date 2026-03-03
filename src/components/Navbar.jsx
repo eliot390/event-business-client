@@ -14,7 +14,7 @@ const Navbar = () => {
     navigate('/order');
   }
 
-  const { cartCount, items, removeItem, clearCart, cartTotal } = useCart();
+  const { cartCount, items, removeItem, clearCart, cartTotal, incrementItem, decrementItem } = useCart();
 
   
   return (
@@ -56,7 +56,7 @@ const Navbar = () => {
             onClick={() => setIsOpen(false)}
           >
             <motion.div
-              className="h-full w-80 flex flex-col bg-cream shadow-xl p-6 relative border-solid border-l-3 border-honey"
+              className="h-full w-1/4 flex flex-col bg-cream shadow-xl p-6 relative border-solid border-l-3 border-honey"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
@@ -79,18 +79,35 @@ const Navbar = () => {
                       key={`${it.productKey}|${it.orderSize}`}
                       className="bg-white/60 border-2 border-honey rounded-xl p-3 shadow"
                     >
-                      <div className="flex justify-between items-start gap-2">
-                        <div>
-                          <p className="font-semibold text-gray-800">{it.productName}</p>
-                          <img src={it.cartImg} className="rounded-xl"/>
-                          <p>{it.orderSize} × {it.quantity}</p>
-                          <p>${(it.orderCost * it.quantity).toFixed(2)}</p>                          
+                      <div className="relative flex gap-2">
+                        <div>                          
+                          <img src={it.cartImg} className="rounded-xl"/>                                                    
+                        </div>
+
+                        <div className="grid h-25 content-between w-full">
+                          <div>
+                            <p className="font-semibold text-gray-800">{it.productName}</p>
+                            <p>{it.orderSize}</p>
+                          </div>
+                          
+                          <div className="flex justify-between"> 
+                            <div className='w-fit text-sm/6 text-gray-800 font-semibold px-2 border-1 border-black rounded-full shadow' >
+                              <button
+                                onClick={() => decrementItem(it.productKey, it.orderSize)} 
+                                className='mr-4 text-lg/6 cursor-pointer'>-</button>
+                              {it.quantity} 
+                              <button
+                                onClick={() => incrementItem(it.productKey, it.orderSize)} 
+                                className='ml-3 text-lg/6 cursor-pointer'>+</button>
+                            </div>                           
+                            <p>${(it.orderCost * it.quantity).toFixed(2)}</p>
+                          </div>                          
                         </div>
 
                         <button
-                          className="text-sm text-gray-700 hover:text-gray-900 underline cursor-pointer"
+                          className="absolute top-0 right-0 text-sm text-gray-700 hover:text-gray-900 underline cursor-pointer"
                           onClick={() => removeItem(it.productKey, it.orderSize)}>
-                          <img src={trash} className="h-6 w-6"/>
+                          <img src={trash} className="h-5 w-5"/>
                         </button>
                       </div>
                     </div>
