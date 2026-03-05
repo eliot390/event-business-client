@@ -88,11 +88,10 @@ const OrderForm = () => {
     }
   }
 
-
   return (
-    <div className='flex flex-col lg:flex-row justify-center'>
+    <div className='flex flex-col mt-10 lg:mt-16 lg:flex-row justify-center'>
       {/* Left Side */}
-      <div className='flex flex-col items-center lg:items-end bg-light-frozen lg:pt-4 lg:pr-8 lg:mt-8 mt-28 lg:h-screen lg:w-1/2 rounded-sm'>
+      <div className='flex flex-col items-center lg:items-end bg-light-frozen lg:pt-4 lg:pr-8 lg:h-screen lg:w-1/2 rounded-sm'>
         <form className='w-fit lg:w-lg'>
           <div>
             <h2 className="text-gray-900 text-center text-3xl mt-4">Order Form</h2>
@@ -244,34 +243,39 @@ const OrderForm = () => {
             </motion.div>
           ))}
         </div>
-
       </div>
+
       {/* Right Side */}
-      <div className='mt-8 lg:h-screen lg:w-1/2 pt-8 lg:pl-8 border-solid border-l-1 border-sea-green'>
+      <div className='lg:h-screen lg:w-1/2 pt-8 lg:pl-8 border-solid border-l-1 border-sea-green'>
         {(
           items.map((it) => (
             <div
               key={`${it.productKey}|${it.orderSize}`}
-              className="bg-white/60 rounded-xl mx-auto lg:mx-0 p-3 shadow w-9/10 lg:w-3/5">
-              <div className="flex flex-row justify-between items-center">
-                <img src={it.cartImg} className="rounded-xl h-20 lg:mr-10"/>
-                <div className='flex flex-col items-center'>
-                  <p className="text-center font-semibold text-gray-800">{it.productName}</p>
-                  <p className="text-gray-700">{it.quantity} x {it.orderSize}</p>
+              className="bg-white/60 rounded-xl mx-auto lg:mb-2 lg:mx-0 p-3 lg:px-3 lg:py-4 shadow w-9/10 lg:w-1/2">
+              <div className="relative flex gap-2">
+                <div>                          
+                  <img src={it.cartImg} className="max-sm:w-5/6 rounded-xl"/>                                                    
                 </div>
-                <p>${(it.orderCost * it.quantity).toFixed(2)}</p>
+                <div className="grid content-between lg:w-full">
+                  <div>
+                    <p className="max-sm:text-sm font-semibold text-gray-800">{it.productName}</p>                    
+                  </div>                  
+                  <div className="flex justify-between"> 
+                    <p>{it.orderSize}</p>                          
+                    <p>${(it.orderCost * it.quantity).toFixed(2)}</p>
+                  </div>                          
+                </div>
               </div>
             </div>
           ))
         )}
-        <div className="border-t-2 border-honey p-4 lg:pt-3 mt-4 lg:mt-12 lg:w-3/5">
+        <div className="border-t-2 border-honey p-4 lg:pt-3 mt-4 lg:mt-12 lg:w-1/2">
           <div className="flex justify-end lg:justify-between text-xl font-bold text-sea-green">
             <span className='pr-6'>Total:</span>
             <span>${cartTotal.toFixed(2)}</span>
           </div>
         </div>
-      </div>
-      
+      </div>      
     </div>
   )
 }

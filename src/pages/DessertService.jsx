@@ -21,45 +21,10 @@ import { useCart } from '../context/CartContext';
 
 const DessertService = () => {
   const [filter, setFilter] = useState("all");
-  const [counts, setCounts] = useState({});
-
-  const keyFor = useCallback((productKey, orderSize) => {
-    return `${productKey}|${orderSize}`;
-  }, [])
-
-  const getCount = useCallback(
-    (productKey, orderSize) => counts[keyFor(productKey, orderSize)] ?? 0,
-    [counts, keyFor]
-  );
-
-  const increase = useCallback((productKey, orderSize) => {
-    const k = keyFor(productKey, orderSize);
-    setCounts((prev) => ({...prev, [k]: (prev[k] ?? 0)+1}));
-  },[keyFor]);
-
-  const decrease = useCallback((productKey, orderSize) => {
-    const k = keyFor(productKey, orderSize);
-    setCounts((prev) => {
-      const next = Math.max(0, (prev[k] ?? 0)-1);
-      return {...prev, [k]: next};
-    });
-  },[keyFor]);
-
-  const PRICE_MAP = {
-    "6 Pack": 15,
-    "12 Pack": 25,
-    "24 Pack": 45,
-    "9\" Pie": 23,
-    "9\" x 9\" Cake": 25
-  }
-
   const { addItem } = useCart();
 
   const addToCart = useCallback((product, selectedRow) => {
-    // const qty = getCount(product.key, orderSize);
-    // const orderCost = PRICE_MAP[orderSize]
     if (!selectedRow) return;
-
     addItem({
       productKey: product.key,
       productName: product.name,
@@ -68,13 +33,8 @@ const DessertService = () => {
       orderSize: selectedRow.orderSize,
       orderCost: Number(selectedRow.orderCost),
       quantity: 1,
-    });
-
-    // reset that specific row
-    // const k = keyFor(product.key, orderSize);
-    // setCounts((prev) => ({ ...prev, [k]: 0 }));
-  }, [addItem] //getCount, keyFor]);
-  );
+    });    
+  }, [addItem]);
 
   {/* Product Card Items */}
   const products = useMemo(() => {
@@ -162,7 +122,7 @@ const DessertService = () => {
             rows={[
               {orderSize: "6 Pack", orderCost: "15"},
               {orderSize: "12 Pack", orderCost: "25"},
-              {orderSize: "24 Pack",orderCost: "45"}
+              {orderSize: "24 Pack", orderCost: "45"}
             ]}
             onAdd={(selectedRow) => addToCart(chocolateChip, selectedRow)}
           />
@@ -176,23 +136,11 @@ const DessertService = () => {
             name="Double Chocolate Chocolate Chip Cookie"
             description="The ultimate chocolate cookie: dense, chewy and dangerously rich."
             rows={[
-              {
-                orderSize: "6 Pack",
-                orderCost: "15",
-                counter: getCount(doubleChocoChip.key, "6 Pack"),
-                onDecrease: () => decrease(doubleChocoChip.key, "6 Pack"),
-                onIncrease: () => increase(doubleChocoChip.key, "6 Pack"),
-                onAdd: () => addToCart(doubleChocoChip, "6 Pack")
-              },
-              {
-                orderSize: "12 Pack",
-                counter: getCount(doubleChocoChip.key, "12 Pack"),
-                onDecrease: () => decrease(doubleChocoChip.key, "12 Pack"),
-                onIncrease: () => increase(doubleChocoChip.key, "12 Pack"),
-                onAdd: () => addToCart(doubleChocoChip, "12 Pack")
-              },
-              {orderSize: "24 Pack"}
+              {orderSize: "6 Pack", orderCost: "15"},
+              {orderSize: "12 Pack", orderCost: "25"},
+              {orderSize: "24 Pack", orderCost: "45"}
             ]}
+            onAdd={(selectedRow) => addToCart(doubleChocoChip, selectedRow)}
           />
         ),
       },
@@ -204,22 +152,11 @@ const DessertService = () => {
             name="Walnut Chocolate Chip Cookie"
             description="Crispy on the outside with a satisfyingly thick and gooey center, packed with semi-sweet chocolate chips and chunks of walnuts."
             rows={[
-              {
-                orderSize: "6 Pack",
-                counter: getCount(walnutChocoChip.key, "6 Pack"),
-                onDecrease: () => decrease(walnutChocoChip.key, "6 Pack"),
-                onIncrease: () => increase(walnutChocoChip.key, "6 Pack"),
-                onAdd: () => addToCart(walnutChocoChip, "6 Pack")
-              },
-              {
-                orderSize: "12 Pack",
-                counter: getCount(walnutChocoChip.key, "12 Pack"),
-                onDecrease: () => decrease(walnutChocoChip.key, "12 Pack"),
-                onIncrease: () => increase(walnutChocoChip.key, "12 Pack"),
-                onAdd: () => addToCart(walnutChocoChip, "12 Pack")
-              },
-              {orderSize: "24 Pack"}
+              {orderSize: "6 Pack", orderCost: "15"},
+              {orderSize: "12 Pack", orderCost: "25"},
+              {orderSize: "24 Pack", orderCost: "45"}
             ]}
+            onAdd={(selectedRow) => addToCart(walnutChocoChip, selectedRow)}
           />
         ),
       },
@@ -230,22 +167,11 @@ const DessertService = () => {
             dessertImage={cornCookie}
             name="Sweet Corn Sugar Cookie"
             rows={[
-              {
-                orderSize: "6 Pack",
-                counter: getCount(corn.key, "6 Pack"),
-                onDecrease: () => decrease(corn.key, "6 Pack"),
-                onIncrease: () => increase(corn.key, "6 Pack"),
-                onAdd: () => addToCart(corn, "6 Pack")
-              },
-              {
-                orderSize: "12 Pack",
-                counter: getCount(corn.key, "12 Pack"),
-                onDecrease: () => decrease(corn.key, "12 Pack"),
-                onIncrease: () => increase(corn.key, "12 Pack"),
-                onAdd: () => addToCart(corn, "12 Pack")
-              },
-              {orderSize: "24 Pack"}
+              {orderSize: "6 Pack", orderCost: "15"},
+              {orderSize: "12 Pack", orderCost: "25"},
+              {orderSize: "24 Pack", orderCost: "45"}
             ]}
+            onAdd={(selectedRow) => addToCart(corn, selectedRow)}
           />
         ),
       },
@@ -257,22 +183,11 @@ const DessertService = () => {
             name="Banana Split Cookie"
             description="Thick, indulgent cookies made with banana, creamy butterscotch, rich chocolate, walnuts, and fresh strawberries."
             rows={[
-              {
-                orderSize: "6 Pack",
-                counter: getCount(bananaSplit.key, "6 Pack"),
-                onDecrease: () => decrease(bananaSplit.key, "6 Pack"),
-                onIncrease: () => increase(bananaSplit.key, "6 Pack"),
-                onAdd: () => addToCart(bananaSplit, "6 Pack")
-              },
-              {
-                orderSize: "12 Pack",
-                counter: getCount(bananaSplit.key, "12 Pack"),
-                onDecrease: () => decrease(bananaSplit.key, "12 Pack"),
-                onIncrease: () => increase(bananaSplit.key, "12 Pack"),
-                onAdd: () => addToCart(bananaSplit, "12 Pack")
-              },
-              {orderSize: "24 Pack"}
+              {orderSize: "6 Pack", orderCost: "15"},
+              {orderSize: "12 Pack", orderCost: "25"},
+              {orderSize: "24 Pack", orderCost: "45"}
             ]}
+            onAdd={(selectedRow) => addToCart(bananaSplit, selectedRow)}
           />
         ),
       },
@@ -284,14 +199,9 @@ const DessertService = () => {
             name="Atlantic Beach Pie"
             description="A sweet-salty twist on a classic North Carolina lemon pie, made with a saltine cracker crust and a tart lemon-lime filling."
             rows={[
-              {
-                orderSize: "9\" Pie",
-                counter: getCount(atlantic.key, "9\" Pie"),
-                onDecrease: () => decrease(atlantic.key, "9\" Pie"),
-                onIncrease: () => increase(atlantic.key, "9\" Pie"),
-                onAdd: () => addToCart(atlantic, "9\" Pie")
-              }
+              {orderSize: "9\" Pie", orderCost: "23"}
             ]}
+            onAdd={(selectedRow) => addToCart(atlantic, selectedRow)}
           />
         ),
       },
@@ -302,14 +212,9 @@ const DessertService = () => {
             dessertImage={leches}
             name="Fruity Pebbles Tres Leches"
             rows={[
-              {
-                orderSize: "9\" x 9\" Cake",
-                counter: getCount(fruityLeches.key, "9\" x 9\" Cake"),
-                onDecrease: () => decrease(fruityLeches.key, "9\" x 9\" Cake"),
-                onIncrease: () => increase(fruityLeches.key, "9\" x 9\" Cake"),
-                onAdd: () => addToCart(fruityLeches, "9\" x 9\" Cake")
-              }
+              {orderSize: "9\" x 9\" Cake", orderCost: "25"}
             ]}
+            onAdd={(selectedRow) => addToCart(fruityLeches, selectedRow)}
           />
         ),
       },
@@ -320,26 +225,19 @@ const DessertService = () => {
             dessertImage={chocolateLeches}
             name="Chocolate Hazelnut Tres Leches"
             rows={[
-              {
-                orderSize: "9\" x 9\" Cake",
-                counter: getCount(chocoLeches.key, "9\" x 9\" Cake"),
-                onDecrease: () => decrease(chocoLeches.key, "9\" x 9\" Cake"),
-                onIncrease: () => increase(chocoLeches.key, "9\" x 9\" Cake"),
-                onAdd: () => addToCart(chocoLeches, "9\" x 9\" Cake")
-              }
+              {orderSize: "9\" x 9\" Cake", orderCost: "25"}
             ]}
+            onAdd={(selectedRow) => addToCart(chocoLeches, selectedRow)}
           />
         ),
       }
     ];
-  }, [addToCart, getCount, decrease, increase]);
-  
+  }, [addToCart]);  
 
   const visibleProducts = useMemo(() => {
     if (filter === "all") return products;
     return products.filter((p) => p.type === filter);
   }, [filter, products]);
-
 
   return (
     <div>     

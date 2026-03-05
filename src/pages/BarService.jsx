@@ -20,58 +20,25 @@ import negroniCart from '../assets/images/drinks/negroni-sm.jpg'
 import jungleCart from '../assets/images/drinks/jungle-sm.jpg'
 import zombieCart from '../assets/images/drinks/zombie-sm.jpg'
 import maitaiCart from '../assets/images/drinks/maitai-sm.jpg'
+import peeweePic from '../assets/images/drinks/peewee.jpg'
+import peeweeCart from '../assets/images/drinks/peewee-sm.jpg'
 
 const BarService = () => {
   const [filter, setFilter] = useState("all");
-  const [counts, setCounts] = useState({});
-
   const { addItem } = useCart();
 
-  const keyFor = useCallback((productKey, orderSize) => {
-    return `${productKey}|${orderSize}`;
-  }, [])
-
-  const getCount = useCallback(
-    (productKey, orderSize) => counts[keyFor(productKey, orderSize)] ?? 0,
-    [counts, keyFor]
-  );
-
-  const increase = useCallback((productKey, orderSize) => {
-    const k = keyFor(productKey, orderSize);
-    setCounts((prev) => ({...prev, [k]: (prev[k] ?? 0)+1}));
-  },[keyFor]);
-
-  const decrease = useCallback((productKey, orderSize) => {
-    const k = keyFor(productKey, orderSize);
-    setCounts((prev) => {
-      const next = Math.max(0, (prev[k] ?? 0)-1);
-      return {...prev, [k]: next};
-    });  
-  }, [keyFor]);
-
-  const PRICE_MAP = {
-    "16 oz. Bottle": 35,
-    "32 oz. Bottle": 60
-  }
-
-  const addToCart = useCallback((product, orderSize) => {
-    const qty = getCount(product.key, orderSize);
-    if (qty <= 0) return;
-
+  const addToCart = useCallback((product, selectedRow) => {
+    if (!selectedRow) return;
     addItem({
       productKey: product.key,
       productName: product.name,
       productImg: product.image,
       cartImg: product.cartImg,
-      orderSize,
-      orderCost: PRICE_MAP[orderSize],
-      quantity: qty,
-    });
-
-    // reset that specific row
-    const k = keyFor(product.key, orderSize);
-    setCounts((prev) => ({ ...prev, [k]: 0 }));
-  }, [addItem, getCount, keyFor]);
+      orderSize: selectedRow.orderSize,
+      orderCost: Number(selectedRow.orderCost),
+      quantity: 1,
+    });    
+  }, [addItem]);
 
   {/* Product Card Items */}
   const products = useMemo(() => {
@@ -147,6 +114,14 @@ const BarService = () => {
       cartImg:zombieCart
     };
 
+    const peewee = {
+      key: "peewee",
+      style:"party",
+      name:"Pee-Wee's Big Adventure",
+      image:peeweePic,
+      cartImg:peeweeCart
+    }
+
     {/* Detail Card Info */}
     return [
       {
@@ -158,21 +133,10 @@ const BarService = () => {
             ingredients="Rum, Lime Juice, Simple Syrup"
             description="Crisp, light and refreshing. Delicately simple yet with perfectly balanced complexity of flavours."
             rows={[
-              {
-                orderSize: "16 oz. Bottle",
-                counter: getCount(daiquiri.key, "16 oz. Bottle"),
-                onDecrease: () => decrease(daiquiri.key, "16 oz. Bottle"),
-                onIncrease: () => increase(daiquiri.key, "16 oz. Bottle"),
-                onAdd: () => addToCart(daiquiri, "16 oz. Bottle")
-              },
-              {
-                orderSize: "32 oz. Bottle",
-                counter: getCount(daiquiri.key, "32 oz. Bottle"),
-                onDecrease: () => decrease(daiquiri.key, "32 oz. Bottle"),
-                onIncrease: () => increase(daiquiri.key, "32 oz. Bottle"),
-                onAdd: () => addToCart(daiquiri, "32 oz. Bottle")
-              },
+              {orderSize: "16 oz. Bottle", orderCost: "35"},
+              {orderSize: "32 oz. Bottle", orderCost: "60"}                
             ]}
+            onAdd={(selectedRow) => addToCart(daiquiri, selectedRow)}
           />
         )
       },
@@ -185,21 +149,10 @@ const BarService = () => {
             ingredients="Bourbon, Sweet Vermouth, Bitters"
             description="The Manhattan is complex, challenging and moreish. Best of all, it's available in a style to suit every palate"
             rows={[
-              {
-                orderSize: "16 oz. Bottle",
-                counter: getCount(manhattan.key, "16 oz. Bottle"),
-                onDecrease: () => decrease(manhattan.key, "16 oz. Bottle"),
-                onIncrease: () => increase(manhattan.key, "16 oz. Bottle"),
-                onAdd: () => addToCart(manhattan, "16 oz. Bottle")
-              },
-              {
-                orderSize: "32 oz. Bottle",
-                counter: getCount(manhattan.key, "32 oz. Bottle"),
-                onDecrease: () => decrease(manhattan.key, "32 oz. Bottle"),
-                onIncrease: () => increase(manhattan.key, "32 oz. Bottle"),
-                onAdd: () => addToCart(manhattan, "32 oz. Bottle")
-              },
+              {orderSize: "16 oz. Bottle", orderCost: "35"},
+              {orderSize: "32 oz. Bottle", orderCost: "60"}                
             ]}
+            onAdd={(selectedRow) => addToCart(manhattan, selectedRow)}
           />
         )
       },
@@ -212,21 +165,10 @@ const BarService = () => {
             ingredients="Tequila, Triple Sec, Agave, Lime"
             description="Tequila-forward, with tangy citrus, a hint of balancing sweetness and a faint salty undertone."
             rows={[
-              {
-                orderSize: "16 oz. Bottle",
-                counter: getCount(margarita.key, "16 oz. Bottle"),
-                onDecrease: () => decrease(margarita.key, "16 oz. Bottle"),
-                onIncrease: () => increase(margarita.key, "16 oz. Bottle"),
-                onAdd: () => addToCart(margarita, "16 oz. Bottle", "16 oz. Bottle")
-              },
-              {
-                orderSize: "32 oz. Bottle",
-                counter: getCount(margarita.key, "32 oz. Bottle"),
-                onDecrease: () => decrease(margarita.key, "32 oz. Bottle"),
-                onIncrease: () => increase(margarita.key, "32 oz. Bottle"),
-                onAdd: () => addToCart(margarita, "32 oz. Bottle")
-              },
+              {orderSize: "16 oz. Bottle", orderCost: "35"},
+              {orderSize: "32 oz. Bottle", orderCost: "60"}                
             ]}
+            onAdd={(selectedRow) => addToCart(margarita, selectedRow)}
           />
         )
       },
@@ -239,21 +181,10 @@ const BarService = () => {
             ingredients="Tequila, Triple Sec, Agave, Lime"
             description="Tequila-forward, with tangy citrus, a hint of balancing sweetness and a faint salty undertone."
             rows={[
-              {
-                orderSize: "16 oz. Bottle",
-                counter: getCount(martini.key, "16 oz. Bottle"),
-                onDecrease: () => decrease(martini.key, "16 oz. Bottle"),
-                onIncrease: () => increase(martini.key, "16 oz. Bottle"),
-                onAdd: () => addToCart(martini, "16 oz. Bottle", "16 oz. Bottle")
-              },
-              {
-                orderSize: "32 oz. Bottle",
-                counter: getCount(martini.key, "32 oz. Bottle"),
-                onDecrease: () => decrease(martini.key, "32 oz. Bottle"),
-                onIncrease: () => increase(martini.key, "32 oz. Bottle"),
-                onAdd: () => addToCart(martini, "32 oz. Bottle")
-              },
+              {orderSize: "16 oz. Bottle", orderCost: "35"},
+              {orderSize: "32 oz. Bottle", orderCost: "60"}                
             ]}
+            onAdd={(selectedRow) => addToCart(martini, selectedRow)}
           />
         )
       },
@@ -266,21 +197,10 @@ const BarService = () => {
             ingredients="Bourbon, Sweet Vermouth, Bitters"
             description="The Manhattan is complex, challenging and moreish. Best of all, it's available in a style to suit every palate"
             rows={[
-              {
-                orderSize: "16 oz. Bottle",
-                counter: getCount(negroni.key, "16 oz. Bottle"),
-                onDecrease: () => decrease(negroni.key, "16 oz. Bottle"),
-                onIncrease: () => increase(negroni.key, "16 oz. Bottle"),
-                onAdd: () => addToCart(negroni, "16 oz. Bottle")
-              },
-              {
-                orderSize: "32 oz. Bottle",
-                counter: getCount(negroni.key, "32 oz. Bottle"),
-                onDecrease: () => decrease(negroni.key, "32 oz. Bottle"),
-                onIncrease: () => increase(negroni.key, "32 oz. Bottle"),
-                onAdd: () => addToCart(negroni, "32 oz. Bottle")
-              },
+              {orderSize: "16 oz. Bottle", orderCost: "35"},
+              {orderSize: "32 oz. Bottle", orderCost: "60"}                
             ]}
+            onAdd={(selectedRow) => addToCart(negroni, selectedRow)}
           />
         )
       },
@@ -293,21 +213,10 @@ const BarService = () => {
             ingredients="Aged Rum, Orange Curaçao, Lime Juice, Orgeat"
             description="The undisputed king of Tiki cocktails and one of the most enduring of all vintage cocktails"
             rows={[
-              {
-                orderSize: "16 oz. Bottle",
-                counter: getCount(maitai.key, "16 oz. Bottle"),
-                onDecrease: () => decrease(maitai.key, "16 oz. Bottle"),
-                onIncrease: () => increase(maitai.key, "16 oz. Bottle"),
-                onAdd: () => addToCart(maitai, "16 oz. Bottle")
-              },
-              {
-                orderSize: "32 oz. Bottle",
-                counter: getCount(maitai.key, "32 oz. Bottle"),
-                onDecrease: () => decrease(maitai.key, "32 oz. Bottle"),
-                onIncrease: () => increase(maitai.key, "32 oz. Bottle"),
-                onAdd: () => addToCart(maitai, "32 oz. Bottle")
-              },
+              {orderSize: "16 oz. Bottle", orderCost: "35"},
+              {orderSize: "32 oz. Bottle", orderCost: "60"}                
             ]}
+            onAdd={(selectedRow) => addToCart(maitai, selectedRow)}
           />
         )  
       },
@@ -320,21 +229,10 @@ const BarService = () => {
             ingredients="Dark Rum, Campari, Pineapple Juice, Lime Juice"
             description="Bittersweet and fruity with pungent rum notes, sipped through crushed ice. Properly Tiki-tastic."
             rows={[
-              {
-                orderSize: "16 oz. Bottle",
-                counter: getCount(jungle.key, "16 oz. Bottle"),
-                onDecrease: () => decrease(jungle.key, "16 oz. Bottle"),
-                onIncrease: () => increase(jungle.key, "16 oz. Bottle"),
-                onAdd: () => addToCart(jungle, "16 oz. Bottle")
-              },
-              {
-                orderSize: "32 oz. Bottle",
-                counter: getCount(jungle.key, "32 oz. Bottle"),
-                onDecrease: () => decrease(jungle.key, "32 oz. Bottle"),
-                onIncrease: () => increase(jungle.key, "32 oz. Bottle"),
-                onAdd: () => addToCart(jungle, "32 oz. Bottle")
-              },
+              {orderSize: "16 oz. Bottle", orderCost: "35"},
+              {orderSize: "32 oz. Bottle", orderCost: "60"}                
             ]}
+            onAdd={(selectedRow) => addToCart(jungle, selectedRow)}
           />
         )  
       },
@@ -347,21 +245,10 @@ const BarService = () => {
             ingredients="Overproof Rum, Dark Rum, Banana Liqueur, Cinnamon, Bitters"
             description="The undisputed king of Tiki cocktails and one of the most enduring of all vintage cocktails"
             rows={[
-              {
-                orderSize: "16 oz. Bottle",
-                counter: getCount(nakedApe.key, "16 oz. Bottle"),
-                onDecrease: () => decrease(nakedApe.key, "16 oz. Bottle"),
-                onIncrease: () => increase(nakedApe.key, "16 oz. Bottle"),
-                onAdd: () => addToCart(nakedApe, "16 oz. Bottle")
-              },
-              {
-                orderSize: "32 oz. Bottle",
-                counter: getCount(nakedApe.key, "32 oz. Bottle"),
-                onDecrease: () => decrease(nakedApe.key, "32 oz. Bottle"),
-                onIncrease: () => increase(nakedApe.key, "32 oz. Bottle"),
-                onAdd: () => addToCart(nakedApe, "32 oz. Bottle")
-              },
+              {orderSize: "16 oz. Bottle", orderCost: "35"},
+              {orderSize: "32 oz. Bottle", orderCost: "60"}                
             ]}
+            onAdd={(selectedRow) => addToCart(nakedApe, selectedRow)}
           />
         )  
       },
@@ -374,26 +261,31 @@ const BarService = () => {
             ingredients={"Aged Rum, Overproof Rum, Falernum, Grenadine, \"Don's Mix\", Absinthe"}
             description="The undisputed king of Tiki cocktails and one of the most enduring of all vintage cocktails"
             rows={[
-              {
-                orderSize: "16 oz. Bottle",
-                counter: getCount(zombie.key, "16 oz. Bottle"),
-                onDecrease: () => decrease(zombie.key, "16 oz. Bottle"),
-                onIncrease: () => increase(zombie.key, "16 oz. Bottle"),
-                onAdd: () => addToCart(zombie, "16 oz. Bottle")
-              },
-              {
-                orderSize: "32 oz. Bottle",
-                counter: getCount(zombie.key, "32 oz. Bottle"),
-                onDecrease: () => decrease(zombie.key, "32 oz. Bottle"),
-                onIncrease: () => increase(zombie.key, "32 oz. Bottle"),
-                onAdd: () => addToCart(zombie, "32 oz. Bottle")
-              },
+              {orderSize: "16 oz. Bottle", orderCost: "35"},
+              {orderSize: "32 oz. Bottle", orderCost: "60"}                
             ]}
+            onAdd={(selectedRow) => addToCart(zombie, selectedRow)}
+          />
+        ),
+      },
+      {
+        ...peewee,
+        details: (
+          <CocktailDetailsCard
+            cocktailImage={limes}
+            name="Pee-Wee's Big Adventure"
+            ingredients={"Aged Rum, Overproof Rum, Falernum, Grenadine, \"Don's Mix\", Absinthe"}
+            description="The undisputed king of Tiki cocktails and one of the most enduring of all vintage cocktails"
+            rows={[
+              {orderSize: "16 oz. Bottle", orderCost: "35"},
+              {orderSize: "32 oz. Bottle", orderCost: "60"}                
+            ]}
+            onAdd={(selectedRow) => addToCart(peewee, selectedRow)}
           />
         ),
       }
     ];
-  }, [addToCart, getCount, decrease, increase]);
+  }, [addToCart]);
 
   const visibleProducts = useMemo(() => {
     if (filter === "all") return products;
