@@ -19,12 +19,14 @@ const About = () => {
 
 export default About
 
-/** TODO
- * landing page back to services.jsx
- * 
+/** TODO * 
  * copy shortened page description/details under services cards
  * 
- * change "add to cart" to copy Levain style
- * 
- * add +/- buttons to your cart
+ * Dulce Bar
+ * Buttered Rum Bakeshop
+ * CookieBar
+ * DessertBar
+ * Mixed Confections
+ * Treats & Tragos Catering
+ * Treats & Tragos
  *  */ 

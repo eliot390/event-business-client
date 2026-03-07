@@ -1,6 +1,8 @@
 import { useMemo, useState } from 'react'
 import { motion, AnimatePresence } from "framer-motion"
 import { useCart } from '../context/CartContext';
+import venmo from '../assets/images/venmo.jpg'
+import zelle from '../assets/images/zelle.jpg'
 
 const OrderForm = () => {
   const [name, setName] = useState("")
@@ -10,6 +12,26 @@ const OrderForm = () => {
   const [deliveryMethod, setDeliveryMethod] = useState("")
   const [deliveryAddress, setDeliveryAddress] = useState("")
   const [orderDate, setOrderDate] = useState("")
+
+  const [paymentMethod, setPaymentMethod] = useState("")
+  const paymentImg = {
+    Venmo: venmo,
+    Zelle: zelle
+  }
+
+  const formIsValid = name && email && phone && deliveryMethod && orderDate && paymentMethod
+
+  const handleCancel = () => {
+    setName("");
+    setEmail("");
+    setPhone("");
+    setComments("");
+    setDeliveryMethod("");
+    setAddress("");
+    setOrderDate("");
+    setPaymentMethod("")
+  };
+
 
   const minDate = useMemo(() => {
     const date = new Date();
@@ -176,7 +198,8 @@ const OrderForm = () => {
                 </div>
               )}
 
-              <div className="col-span-full col-start-1">
+              {/* <div className="col-span-full col-start-1"> */}
+              <div className="sm:col-span-3">
                 <label htmlFor="orderDate" className="block text-sm/6 text-gray-900 after:ml-0.5 after:text-red-500 after:content-['*'] ...">Date Requested</label>                
                   <div className="lg:mt-2 grid grid-cols-2">
                     <div>
@@ -193,6 +216,32 @@ const OrderForm = () => {
                   </div>
               </div>
 
+              <div className="sm:col-span-3">
+                <label>
+                  <span className="text-sm/6 font-medium text-gray-900 after:ml-0.5 after:text-red-500 after:content-['*'] ...">Payment Method</span>
+                </label>
+                <div className="lg:mt-2 grid grid-cols-1">
+                  <select 
+                    value={paymentMethod}
+                    onChange={(e) => setPaymentMethod(e.target.value)} 
+                    className="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-gray-900 focus:outline-3 focus:outline-sea-green sm:text-sm/6">
+                    <option value="">Select Option</option>
+                    <option value="Venmo">Venmo</option>
+                    <option value="Zelle">Zelle</option>
+                  </select>
+                  <svg viewBox="0 0 16 16" fill="currentColor" data-slot="icon" aria-hidden="true" className="pointer-events-none col-start-1 row-start-1 mr-2 size-5 self-center justify-self-end text-gray-500 sm:size-4">
+                    <path d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" fill-rule="evenodd" />
+                  </svg>
+                </div>
+              </div>
+
+              {/* Conditional Field */}
+              {paymentImg[paymentMethod] && (
+                <div className="col-span-full">
+                  <img src={paymentImg[paymentMethod]} className='mx-auto'/>
+                </div>
+              )}
+
               <div className="col-span-full">
                 <label htmlFor="street-address" className="block text-sm/6 font-medium text-gray-900">Additional Details</label>
                 <div className="lg:mt-2">
@@ -208,10 +257,20 @@ const OrderForm = () => {
             </div>
           </div>
           <div className="mt-6 flex items-center justify-end gap-x-2">
-            <button type="button" className="text-sm font-semibold px-2 py-2 font-semibold text-gray-900 hover:bg-sage hover:rounded-md cursor-pointer">Cancel</button>
             <button
+              onClick={handleCancel} 
+              type="button" 
+              className="text-sm font-semibold px-2 py-2 font-semibold text-gray-900 hover:bg-sage hover:rounded-md cursor-pointer">
+                Cancel
+            </button>
+            <button
+              disabled={!formIsValid}
               onClick={handleSubmit}
-              type="submit" className="rounded-md bg-darker-sage px-3 py-2 text-sm font-semibold text-white hover:bg-sage cursor-pointer">Send</button>
+              type="submit" 
+              className={`rounded-md bg-darker-sage px-3 py-2 text-sm font-semibold text-white hover:bg-sage
+                ${!formIsValid ? "cursor-not-allowed" : "cursor-pointer"}`}>
+                Send
+            </button>
           </div>
         </form>
 
