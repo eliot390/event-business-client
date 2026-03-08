@@ -12,12 +12,8 @@ const OrderForm = () => {
   const [deliveryMethod, setDeliveryMethod] = useState("")
   const [deliveryAddress, setDeliveryAddress] = useState("")
   const [orderDate, setOrderDate] = useState("")
-
   const [paymentMethod, setPaymentMethod] = useState("")
-  const paymentImg = {
-    Venmo: venmo,
-    Zelle: zelle
-  }
+  const paymentImg = {Venmo: venmo, Zelle: zelle}
 
   const formIsValid = name && email && phone && deliveryMethod && orderDate && paymentMethod
 
@@ -31,7 +27,6 @@ const OrderForm = () => {
     setOrderDate("");
     setPaymentMethod("")
   };
-
 
   const minDate = useMemo(() => {
     const date = new Date();
@@ -87,8 +82,6 @@ const OrderForm = () => {
     }
 
     try {
-      console.log("items", items);
-      console.log("payload preview", payload);
       const res = await fetch("/api/orders", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
@@ -198,7 +191,6 @@ const OrderForm = () => {
                 </div>
               )}
 
-              {/* <div className="col-span-full col-start-1"> */}
               <div className="sm:col-span-3">
                 <label htmlFor="orderDate" className="block text-sm/6 text-gray-900 after:ml-0.5 after:text-red-500 after:content-['*'] ...">Date Requested</label>                
                   <div className="lg:mt-2 grid grid-cols-2">
@@ -238,7 +230,7 @@ const OrderForm = () => {
               {/* Conditional Field */}
               {paymentImg[paymentMethod] && (
                 <div className="col-span-full">
-                  <img src={paymentImg[paymentMethod]} className='mx-auto'/>
+                  <img src={paymentImg[paymentMethod]} className='mx-auto w-2/5 shadow rounded-lg'/>
                 </div>
               )}
 
@@ -266,42 +258,13 @@ const OrderForm = () => {
             <button
               disabled={!formIsValid}
               onClick={handleSubmit}
-              type="submit" 
+              type="button" 
               className={`rounded-md bg-darker-sage px-3 py-2 text-sm font-semibold text-white hover:bg-sage
                 ${!formIsValid ? "cursor-not-allowed" : "cursor-pointer"}`}>
                 Send
             </button>
           </div>
         </form>
-
-        <div className="lg:w-lg">
-          {faqs.map((faq, index) => (
-            <motion.div key={index} className="border-b border-gray-900/10">
-              <button
-                onClick={() => toggle(index)}
-                className="w-full text-left py-4 flex justify-between items-center hover:cursor-pointer focus:outline-none">
-                <span className="font-medium">{faq.question}</span>
-                <motion.span
-                  animate={{ rotate: openIndex === index ? 45 : 0 }}
-                  className="font-bold text-xl text-gray-900/50 transition-transform">+</motion.span>
-              </button>
-
-              <AnimatePresence>
-                {openIndex === index && (
-                  <motion.div
-                    key="content"
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.2 }}
-                    className="overflow-hidden">
-                    <p className="text-gray-700 py-2">{faq.answer}</p>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          ))}
-        </div>
       </div>
 
       {/* Right Side */}

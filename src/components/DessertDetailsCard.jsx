@@ -19,6 +19,18 @@ const OrderRow = ({orderSize, orderCost, selected, onSelect}) => {
 const DessertDetailsCard = ({dessertImage, name, description, onAdd, rows=[]}) => {
   const [selectedSize, setSelectedSize] = useState(null)
   const selectedRow = rows.find((r) => r.orderSize === selectedSize)
+  const [isAdded, setIsAdded] = useState(false)
+
+  const handleAddToCart = () => {
+    if (!selectedRow) return
+
+    onAdd(selectedRow);
+    //setSelectedSize(null)
+    setIsAdded(true)
+    setTimeout(() => {
+      setIsAdded(false)
+    }, 1500)
+  }
 
   return (
     <div className='w-full lg:w-sm text-left'>
@@ -38,11 +50,9 @@ const DessertDetailsCard = ({dessertImage, name, description, onAdd, rows=[]}) =
       
       <button
         disabled={!selectedRow}
-        onClick={() => {
-          onAdd(selectedRow)
-          setSelectedSize(null)}}
-        className="text-xs lg:text-xl bg-light-honey hover:bg-honey text-gray-800 font-semibold w-full py-2 mt-2 border-3 border-honey rounded-lg shadow cursor-pointer">
-          Add to Cart
+        onClick={handleAddToCart}
+          className="text-xs lg:text-xl bg-light-honey hover:bg-honey text-gray-800 font-semibold w-full py-2 mt-2 border-3 border-honey rounded-lg shadow cursor-pointer">
+          {isAdded ? "Item Added!" : "Add to Cart"}
       </button>
     </div>
   )

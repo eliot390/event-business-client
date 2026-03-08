@@ -12,6 +12,8 @@ import negroniPic from '../assets/images/drinks/negroni.jpg'
 import junglePic from '../assets/images/drinks/jungle.jpg'
 import zombiePic from '../assets/images/drinks/zombie.jpg'
 import maitaiPic from '../assets/images/drinks/maitai.jpg'
+import peeweePic from '../assets/images/drinks/peewee.jpg'
+import tropicPic from '../assets/images/drinks/tropic.jpg'
 import daiquiriCart from '../assets/images/drinks/daiquiri-sm.jpg'
 import manhattanCart from '../assets/images/drinks/manhattan-sm.jpg'
 import margaritaCart from '../assets/images/drinks/margarita-sm.jpg'
@@ -20,8 +22,8 @@ import negroniCart from '../assets/images/drinks/negroni-sm.jpg'
 import jungleCart from '../assets/images/drinks/jungle-sm.jpg'
 import zombieCart from '../assets/images/drinks/zombie-sm.jpg'
 import maitaiCart from '../assets/images/drinks/maitai-sm.jpg'
-import peeweePic from '../assets/images/drinks/peewee.jpg'
 import peeweeCart from '../assets/images/drinks/peewee-sm.jpg'
+import tropicCart from '../assets/images/drinks/tropic-sm.jpg'
 
 const BarService = () => {
   const [filter, setFilter] = useState("all");
@@ -120,6 +122,14 @@ const BarService = () => {
       name:"Pee-Wee's Big Adventure",
       image:peeweePic,
       cartImg:peeweeCart
+    }
+
+    const tropic = {
+      key: "tropic",
+      style:"party",
+      name:"Tropic Thunder",
+      image:tropicPic,
+      cartImg:tropicCart
     }
 
     {/* Detail Card Info */}
@@ -274,13 +284,30 @@ const BarService = () => {
           <CocktailDetailsCard
             cocktailImage={limes}
             name="Pee-Wee's Big Adventure"
-            ingredients={"Aged Rum, Overproof Rum, Falernum, Grenadine, \"Don's Mix\", Absinthe"}
-            description="The undisputed king of Tiki cocktails and one of the most enduring of all vintage cocktails"
+            ingredients={"Habanero Infused Blanco Tequila, Watermelon Juice, Lime"}
+            description="Take a trip to the 80's with this slightly spicy, sweet drink"
             rows={[
               {orderSize: "16 oz. Bottle", orderCost: "35"},
               {orderSize: "32 oz. Bottle", orderCost: "60"}                
             ]}
             onAdd={(selectedRow) => addToCart(peewee, selectedRow)}
+          />
+        ),
+      }
+      ,
+      {
+        ...tropic,
+        details: (
+          <CocktailDetailsCard
+            cocktailImage={limes}
+            name="Tropic Thunder"
+            ingredients={"Cachaça, Triple Sec, Calamansi"}
+            description="Joanne's signature drink from our wedding!"
+            rows={[
+              {orderSize: "16 oz. Bottle", orderCost: "35"},
+              {orderSize: "32 oz. Bottle", orderCost: "60"}                
+            ]}
+            onAdd={(selectedRow) => addToCart(tropic, selectedRow)}
           />
         ),
       }

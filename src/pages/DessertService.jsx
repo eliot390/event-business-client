@@ -7,12 +7,16 @@ import chocochip from '../assets/images/desserts/choco-chip.jpg'
 import doublechocolate from '../assets/images/desserts/choco-choco-chip.jpg'
 import bananaSplitCookie from '../assets/images/desserts/bananaSplit.jpg'
 import cornCookie from '../assets/images/desserts/cornCookie.jpg'
+import carrotCakeCookie from '../assets/images/desserts/carrot-cake-cookie.jpg'
+import carrotSandwichCookie from '../assets/images/desserts/carrot-cake-sandwich.jpg'
 import pie from '../assets/images/desserts/atlantic.png'
 import leches from '../assets/images/desserts/leches.png'
 import chocolateLeches from '../assets/images/desserts/choco-leches.jpg'
 import chocochipcart from '../assets/images/desserts/choco-chip-sm.jpg'
 import doublechocolatecart from '../assets/images/desserts/choco-choco-chip-sm.jpg'
 import bananaSplitCookiecart from '../assets/images/desserts/bananaSplit-sm.jpg'
+import carrotCakeCart from '../assets/images/desserts/carrot-cake-cookie-sm.jpg'
+import carrotSandwichCart from '../assets/images/desserts/carrot-cake-sandwich-sm.jpg'
 import cornCookiecart from '../assets/images/desserts/cornCookie-sm.jpg'
 import piecart from '../assets/images/desserts/atlantic-sm.png'
 import lechescart from '../assets/images/desserts/leches-sm.png'
@@ -81,6 +85,26 @@ const DessertService = () => {
       image: bananaSplitCookie,
       cartImg: bananaSplitCookiecart,
       newStatus: true
+    };
+
+    const carrotCake = {
+      key: "carrotCake",
+      type: "cookies",
+      name: "Carrot Cake Cookies",
+      image: carrotCakeCookie,
+      cartImg: carrotCakeCart,
+      newStatus: false,
+      holidayStatus: true
+    };
+
+    const carrotSandwich = {
+      key: "carrotSandwich",
+      type: "cookies",
+      name: "Carrot Cake Sandwich Cookies",
+      image: carrotSandwichCookie,
+      cartImg: carrotSandwichCart,
+      newStatus: false,
+      holidayStatus: true
     };
 
     const atlantic = {
@@ -192,6 +216,38 @@ const DessertService = () => {
         ),
       },
       {
+        ...carrotCake,
+        details: (
+          <DessertDetailsCard
+            dessertImage={carrotCakeCookie}
+            name="Carrot Cake Cookie"
+            description="Thick, indulgent cookies made with banana, creamy butterscotch, rich chocolate, walnuts, and fresh strawberries."
+            rows={[
+              {orderSize: "6 Pack", orderCost: "15"},
+              {orderSize: "12 Pack", orderCost: "25"},
+              {orderSize: "24 Pack", orderCost: "45"}
+            ]}
+            onAdd={(selectedRow) => addToCart(bananaSplit, selectedRow)}
+          />
+        ),
+      },
+      {
+        ...carrotSandwich,
+        details: (
+          <DessertDetailsCard
+            dessertImage={carrotSandwichCookie}
+            name="Carrot Cake Sandwich Cookie"
+            description="Thick, indulgent cookies made with banana, creamy butterscotch, rich chocolate, walnuts, and fresh strawberries."
+            rows={[
+              {orderSize: "6 Pack", orderCost: "20"},
+              {orderSize: "12 Pack", orderCost: "35"},
+              {orderSize: "24 Pack", orderCost: "50"}
+            ]}
+            onAdd={(selectedRow) => addToCart(bananaSplit, selectedRow)}
+          />
+        ),
+      },
+      {
         ...atlantic,
         details: (
           <DessertDetailsCard
@@ -252,6 +308,7 @@ const DessertService = () => {
               name={p.name}
               image={p.image}
               newStatus={p.newStatus}
+              holidayStatus={p.holidayStatus}
               details={p.details}
             />
           ))}

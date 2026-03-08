@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const DessertProductCard = ({name, image, newStatus, details, description}) => {
+const DessertProductCard = ({name, image, newStatus, holidayStatus, details, description}) => {
   const [isOpen, setIsOpen] = useState(null);
 
   return (
@@ -22,6 +22,8 @@ const DessertProductCard = ({name, image, newStatus, details, description}) => {
         <div>
           {newStatus && 
             <div className="absolute -top-3 -right-2 w-15 h-15 flex items-center justify-center bg-white rounded-full text-sea-green border-3 font-semibold">NEW!</div>}
+          {holidayStatus && 
+            <div className="absolute -top-3 -right-2 w-15 h-15 flex items-center justify-center bg-white rounded-full text-sea-green border-3 font-semibold text-center text-xs">Holiday Special!</div>}
         </div>
         
       </div>

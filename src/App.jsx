@@ -1,7 +1,7 @@
 import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom'
 import MainLayout from './layouts/MainLayout'
 import About from './pages/About'
-import Contact from './pages/Contact'
+import FAQ from './pages/FAQ'
 import Services from './pages/Services'
 import OrderForm from './pages/OrderForm'
 import BarService from './pages/BarService'
@@ -13,7 +13,7 @@ const router = createBrowserRouter(
     <Route path='/' element={<MainLayout />}>
       <Route index element={<Services />} />
       <Route path='/about' element={<About />} />
-      <Route path='/contact' element={<Contact />} />
+      <Route path='/faq' element={<FAQ />} />
       <Route path='/services' element={<Services />} />
       <Route path='/order' element={<OrderForm />} />
       <Route path='/collection/barservice' element={<BarService />} />
