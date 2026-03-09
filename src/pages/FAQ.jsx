@@ -52,23 +52,23 @@ const FAQ = () => {
 
           <div className="max-w-2xl mx-auto">
             <p className="text-2xl text-center font-bold">Dessert FAQs</p>
-            {dessertfaqs.map((faq, index) => (
-              <motion.div key={index}
+            {dessertfaqs.map((dfaq, dindex) => (
+              <motion.div key={dindex}
                   className="border-b border-gray-900/10">
                 <button
-                  onClick={() => toggle(index)}
+                  onClick={() => toggle(dindex)}
                   className="w-full text-left py-4 flex justify-between items-center focus:outline-none">
-                  <span className="font-medium">{faq.question}</span>
+                  <span className="font-medium">{dfaq.question}</span>
                   <motion.span
-                    key={openIndex === index ? "minus" : "plus"}
+                    key={openIndex === dindex ? "minus" : "plus"}
                     className="font-bold text-xl text-gray-900/50"
                   >
-                    {openIndex === index ? "−" : "+"}
+                    {openIndex === dindex ? "−" : "+"}
                     </motion.span>
                 </button>
 
                 <AnimatePresence>
-                  {openIndex === index && (
+                  {openIndex === dindex && (
                     <motion.div
                       key="content"
                       initial={{ opacity: 0, height: 0 }}
@@ -76,7 +76,7 @@ const FAQ = () => {
                       exit={{ opacity: 0, height: 0 }}
                       transition={{ duration: 0.2 }}
                       className="overflow-hidden">
-                      <p className="w-7/8 text-gray-700 py-2">{faq.answer}</p>
+                      <p className="w-7/8 text-gray-700 py-2">{dfaq.answer}</p>
                     </motion.div>
                   )}
                 </AnimatePresence>

@@ -1,5 +1,4 @@
 import { useMemo, useState } from 'react'
-import { motion, AnimatePresence } from "framer-motion"
 import { useCart } from '../context/CartContext';
 import venmo from '../assets/images/venmo.jpg'
 import zelle from '../assets/images/zelle.jpg'
@@ -11,11 +10,15 @@ const OrderForm = () => {
   const [comments, setComments] = useState("")
   const [deliveryMethod, setDeliveryMethod] = useState("")
   const [deliveryAddress, setDeliveryAddress] = useState("")
+  const [deliveryCity, setDeliveryCity] = useState("")
+  const [deliveryZip, setDeliveryZip] = useState("")
   const [orderDate, setOrderDate] = useState("")
   const [paymentMethod, setPaymentMethod] = useState("")
   const paymentImg = {Venmo: venmo, Zelle: zelle}
 
-  const formIsValid = name && email && phone && deliveryMethod && orderDate && paymentMethod
+  const validateEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+  const validatePhone = (v) => /^[0-9+\-()\s]{7,15}$/.test(v);
+  const formIsValid = name && validateEmail(email) && validatePhone(phone) && deliveryMethod && orderDate && paymentMethod
 
   const handleCancel = () => {
     setName("");
@@ -23,7 +26,9 @@ const OrderForm = () => {
     setPhone("");
     setComments("");
     setDeliveryMethod("");
-    setAddress("");
+    setDeliveryAddress("");
+    setDeliveryCity("");
+    setDeliveryZip("");
     setOrderDate("");
     setPaymentMethod("")
   };
@@ -35,30 +40,6 @@ const OrderForm = () => {
   }, []);  
 
   const { items, cartTotal } = useCart();
-
-  const faqs = [
-    {
-      question: "How do I pay you?",
-      answer: "We glady accept Venmo"
-    },
-    {
-      question: "How far do you deliver?",
-      answer: "We are currently able to deliver in a 5 mile radius in Burbank/Glendale."
-    },
-    {
-      question: "Can I put in a custom order for XYZ?",
-      answer: "Sure, let's discuss options! You can email us at support@example.com."
-    },
-    {
-      question: "Do you offer gluten free or other dietary options?",
-      answer: "Modifications are possible. Email us at support@example.com"
-    }
-  ]
-
-  const [openIndex, setOpenIndex] = useState(null)
-  const toggle = (index) => {
-    setOpenIndex(openIndex === index ? null : index)
-  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -179,15 +160,37 @@ const OrderForm = () => {
 
               {/* Conditional Field */}
               {deliveryMethod === "Delivery" && (
-                <div className="sm:col-span-full mt-4">
-                  <label className="block text-sm font-medium text-gray-900">Delivery Address</label>
-                  <input
-                    type="text"
-                    placeholder="Enter delivery address"
-                    value={deliveryAddress}
-                    onChange={(e) => setDeliveryAddress(e.target.value)}
-                    className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 focus:outline-3 focus:outline-sea-green sm:text-sm/6"
-                  />
+                <div className='sm:col-span-full lg:mt-4'>
+                  <div className="sm:col-span-full lg:mt-4">
+                    <label className="block text-sm font-medium text-gray-900">Delivery Address</label>
+                    <input
+                      type="text"
+                      value={deliveryAddress}
+                      onChange={(e) => setDeliveryAddress(e.target.value)}
+                      className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 focus:outline-3 focus:outline-sea-green sm:text-sm/6"
+                    />
+                  </div>
+                  <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4'>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-900">City</label>
+                      <input
+                        type="text"
+                        value={deliveryCity}
+                        onChange={(e) => setDeliveryCity(e.target.value)}
+                        className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 focus:outline-3 focus:outline-sea-green sm:text-sm/6"
+                      />
+                    </div>
+                    
+                    <div>
+                      <label className="block text-sm font-medium text-gray-900">Zip Code</label>
+                      <input
+                        type="text"
+                        value={deliveryZip}
+                        onChange={(e) => setDeliveryZip(e.target.value)}
+                        className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 focus:outline-3 focus:outline-sea-green sm:text-sm/6"
+                      />
+                    </div>
+                  </div>
                 </div>
               )}
 
@@ -244,8 +247,7 @@ const OrderForm = () => {
                     onChange={(e) => setComments(e.target.value)}
                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 focus:outline-3 focus:outline-sea-green sm:text-sm/6" />
                 </div>
-              </div>
-              
+              </div>              
             </div>
           </div>
           <div className="mt-6 flex items-center justify-end gap-x-2">
