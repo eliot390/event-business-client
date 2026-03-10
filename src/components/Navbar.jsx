@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCart } from "../context/CartContext";
-import disco from '../assets/images/disco-ball-gold.png';
+import logo from '../assets/images/logo-sm.png';
 import cart from '../assets/images/shopping-cart.png'
 import trash from '../assets/images/bin.png'
 
@@ -23,14 +23,16 @@ const Navbar = () => {
         <div className="relative flex flex-col lg:flex-row items-center justify-center my-2">
 
           <div className="flex flex-col items-center">
-            <div className="flex items-baseline lg:items-center">
-              <img src={disco} className="w-[2rem] lg:mr-2 lg:w-[3rem]"/>
-              <Link to="/about" className="text-sea-green font-(family-name:--font-milliard-heavy) mt-2 text-3xl lg:text-5xl">Toasted</Link>
+            <div className="flex items-center justify-center">
+              <img src={logo} className="w-1/5"/>
+              <Link to="/about" className="text-sea-green font-(family-name:--font-milliard-heavy) mt-2 text-3xl lg:text-5xl">
+                Flour <span className="inline-block text-3xl relative -top-1"> & </span> Flask
+              </Link>
             </div>          
             <div className="flex space-x-4 mt-2 text-center text-sea-green uppercase tracking-tighter text-md lg:tracking-wide lg:text-2xl">            
               <Link to="/collection/dessertservice" className="lg:pr-4 hover:text-amber">desserts</Link>
               <Link to="/collection/barservice" className="lg:pr-4 hover:text-amber">drinks</Link>
-              <Link to="/collection/photoservice" className="lg:pr-4 hover:text-amber">photobooth</Link>
+              {/* <Link to="/collection/photoservice" className="lg:pr-4 hover:text-amber">photobooth</Link> */}
               <Link to="/faq" className=" hover:text-amber">faqs</Link>
             </div>
           </div>

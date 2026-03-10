@@ -37,7 +37,7 @@ const DessertButtonGroup = ({active, onChange}) => {
             cursor-pointer
             transition duration-300 ease-in-out hover:scale-105`}
           />
-          <span className="text-sm font-medium capitalize">
+          <span className="text-sm font-semibold capitalize">
             {btn.id}
           </span>
         </button>

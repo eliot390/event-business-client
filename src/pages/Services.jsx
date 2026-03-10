@@ -6,12 +6,11 @@ import { Link } from "react-router-dom";
 const Services = () => {
   return (
     <div>     
-      <div className="flex flex-col justify-center max-w-[85rem] px-4 py-24 lg:px-8 lg:py-14 mx-auto">
-        {/* <p className='text-4xl text-center'>What's Your Party Missing?</p> */}
-        <p className='mt-8 mx-auto w-full lg:w-7/8 lg:text-xl mb-8 font-semibold text-center'>Toasted provides personalized additions that elevate any celebration with custom batched cocktails,
+      <div className="flex flex-col justify-center max-w-2/3 px-4 py-24 lg:px-8 lg:py-14 mx-auto">
+        {/* <p className='mt-8 mx-auto w-full lg:w-7/8 lg:text-xl mb-8 font-semibold text-center'>Toasted provides personalized additions that elevate any celebration with custom batched cocktails,
           a selection of home-made desserts, and interactive photobooth experiences. 
-          We're not a full-scale caterer or event planner... We specialize in the extra details that make events unforgettable.</p>
-        <div className="grid grid-cols-1 justify-items-center lg:grid-cols-3 gap-6 lg:mb-5 lg:mt-5">
+          We're not a full-scale caterer or event planner... We specialize in the extra details that make events unforgettable.</p> */}
+        <div className="grid grid-cols-1 justify-items-center lg:grid-cols-2 gap-6 lg:mb-5 lg:mt-5">
           <Link to='/collection/dessertservice'>
             <div className='group transition duration-300 ease-in-out hover:-translate-y-4 hover:scale-100'>
               <img src={dessert} className='border-solid border-2 border-gold rounded'/>
@@ -26,12 +25,12 @@ const Services = () => {
               <p className='text-center'>Toasted offers handcrafted, pre-batched cocktails</p>
             </div>
           </Link>
-          <Link to='/collection/photoservice'>
+          {/* <Link to='/collection/photoservice'>
             <div className='group transition duration-300 ease-in-out hover:-translate-y-4 hover:scale-100'>
               <img src={photo} className='border-solid border-2 border-gold rounded'/>
               <p className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-center">Photobooth Services</p>
             </div> 
-          </Link>
+          </Link> */}
         </div>
       </div>
     </div>
