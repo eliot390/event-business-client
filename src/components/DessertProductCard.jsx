@@ -6,9 +6,9 @@ const DessertProductCard = ({name, image, newStatus, holidayStatus, details, des
 
   return (
     <>
-      <div className="relative group flex flex-col w-full bg-white border-3 border-honey shadow-2xs rounded-xl">
+      <div className="relative group flex flex-col lg:w-full bg-white border-3 border-honey shadow-2xs rounded-xl">
         <div className="flex flex-col justify-center items-center rounded-t-lg overflow-hidden">
-          <img src={image} className="lg:w-full object-contain transition duration-300 ease-in-out hover:scale-105" />
+          <img src={image} className="w-full object-contain transition duration-300 ease-in-out hover:scale-105" />
         </div>
         <div className="ml-2 mb-16">
           <h3 className="text-2xl font-bold text-gray-800">{name}</h3>

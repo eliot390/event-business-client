@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Services = () => {
   return (
     <div>     
-      <div className="flex flex-col justify-center max-w-2/3 px-4 py-24 lg:px-8 lg:py-14 mx-auto">
+      <div className="flex flex-row min-h-screen justify-center items-center">
         {/* <p className='mt-8 mx-auto w-full lg:w-7/8 lg:text-xl mb-8 font-semibold text-center'>Toasted provides personalized additions that elevate any celebration with custom batched cocktails,
           a selection of home-made desserts, and interactive photobooth experiences. 
           We're not a full-scale caterer or event planner... We specialize in the extra details that make events unforgettable.</p> */}

@@ -25,7 +25,7 @@ const Navbar = () => {
           <div className="flex flex-col items-center">
             <div className="flex items-center justify-center">
               <img src={logo} className="w-1/5"/>
-              <Link to="/about" className="text-sea-green font-(family-name:--font-milliard-heavy) mt-2 text-3xl lg:text-5xl">
+              <Link to="/" className="text-sea-green font-(family-name:--font-milliard-heavy) mt-2 text-3xl lg:text-5xl">
                 Flour <span className="inline-block text-3xl relative -top-1"> & </span> Flask
               </Link>
             </div>          

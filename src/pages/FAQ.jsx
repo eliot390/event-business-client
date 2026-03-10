@@ -5,7 +5,7 @@ const FAQ = () => {
   const dessertfaqs = [
     {
       question: "Allergen List",
-      answer: "Our cookies are made by hand using shared equipment, which processes dairy, eggs, soy, wheat, peanuts, and other tree nuts. If you have a severe allergy, please know that while we do our best to prevent cross-contamination, we can't guarantee 100% allergen-free."
+      answer: "Our cookies are made by hand using shared equipment, which processes dairy, eggs, soy, wheat, peanuts, and other tree nuts. If you have a severe allergy, please know that while I do my best to prevent cross-contamination, I can't guarantee 100% allergen-free."
     },
     {
       question: "Cookie Care",
@@ -17,22 +17,22 @@ const FAQ = () => {
     },
     {
       question: "Do you offer gluten free or other dietary options?",
-      answer: "Modifications are possible. Email us at support@example.com"
+      answer: "Modifications are possible. Email me for more details."
     }
   ]
 
   const faqs = [
     {
       question: "How do I pay you?",
-      answer: "We glady accept Venmo or Zelle. Payment information is available on the order form when ready to check-out."
+      answer: "I gladly accept Venmo or Zelle. Payment information is available on the order form when ready to check-out."
     },
     {
       question: "How far do you deliver?",
-      answer: "We are currently able to deliver in a 5 mile radius in Burbank/Glendale."
+      answer: "I am currently able to deliver in about a 5 mile radius around Burbank/Glendale."
     },
     {
       question: "Can I put in a custom order for XYZ?",
-      answer: "Sure, let's discuss options! You can email us at support@example.com."
+      answer: "Sure, let's discuss options! You can email me for more details."
     }
   ]
 
@@ -41,34 +41,34 @@ const FAQ = () => {
     setOpenIndex(openIndex === index ? null : index)
   }
 
+  const [openDIndex, setOpenDIndex] = useState(null)
+  const toggleD = (dindex) => {
+    setOpenDIndex(openDIndex === dindex ? null : dindex)
+  }
+
   return (
     <div>
-      <div className="mt-18 w-2xl mx-auto">
-        <div className="pb-12 px-4 py-4 sm:px-6 lg:px-8 lg:py-4 mx-auto">
-          <div className="max-w-2xl mx-auto text-center mb-10 lg:mb-14">
-            <h2 className="text-2xl font-bold md:text-4xl md:leading-tight dark:text-white">Your questions, answered</h2>
-            <p className="mt-1 text-gray-600 dark:text-neutral-400">Answers to the most frequently asked questions.</p>
-          </div>
-
+      <div className="mt-28 px-4 lg:mt-40 lg:w-2xl lg:mx-auto">
+        <div>
           <div className="max-w-2xl mx-auto">
             <p className="text-2xl text-center font-bold">Dessert FAQs</p>
             {dessertfaqs.map((dfaq, dindex) => (
               <motion.div key={dindex}
                   className="border-b border-gray-900/10">
                 <button
-                  onClick={() => toggle(dindex)}
-                  className="w-full text-left py-4 flex justify-between items-center focus:outline-none">
+                  onClick={() => toggleD(dindex)}
+                  className="w-full text-left py-4 flex justify-between items-center focus:outline-none cursor-pointer">
                   <span className="font-medium">{dfaq.question}</span>
                   <motion.span
-                    key={openIndex === dindex ? "minus" : "plus"}
+                    key={openDIndex === dindex ? "minus" : "plus"}
                     className="font-bold text-xl text-gray-900/50"
                   >
-                    {openIndex === dindex ? "−" : "+"}
+                    {openDIndex === dindex ? "−" : "+"}
                     </motion.span>
                 </button>
 
                 <AnimatePresence>
-                  {openIndex === dindex && (
+                  {openDIndex === dindex && (
                     <motion.div
                       key="content"
                       initial={{ opacity: 0, height: 0 }}
@@ -91,7 +91,7 @@ const FAQ = () => {
                   className="border-b border-gray-900/10">
                 <button
                   onClick={() => toggle(index)}
-                  className="w-full text-left py-4 flex justify-between items-center focus:outline-none">
+                  className="w-full text-left py-4 flex justify-between items-center focus:outline-none cursor-pointer">
                   <span className="font-medium">{faq.question}</span>
                   <motion.span
                     key={openIndex === index ? "minus" : "plus"}
