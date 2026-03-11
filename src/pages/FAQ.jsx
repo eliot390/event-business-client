@@ -33,6 +33,10 @@ const FAQ = () => {
     {
       question: "Can I put in a custom order for XYZ?",
       answer: "Sure, let's discuss options! You can email me for more details."
+    },
+    {
+      question: "Can you cater my event?",
+      answer: "Sure, let's discuss options! You can email me for more details."
     }
   ]
 
@@ -48,13 +52,13 @@ const FAQ = () => {
 
   return (
     <div>
-      <div className="mt-28 px-4 lg:mt-40 lg:w-2xl lg:mx-auto">
-        <div>
+      <div className="pt-28 px-4 lg:pt-40 lg:w-2xl lg:mx-auto h-screen">
+        <div className="bg-white/85 pt-4 px-4 border-sea-green border-2 rounded">
           <div className="max-w-2xl mx-auto">
             <p className="text-2xl text-center font-bold">Dessert FAQs</p>
             {dessertfaqs.map((dfaq, dindex) => (
               <motion.div key={dindex}
-                  className="border-b border-gray-900/10">
+                  className="border-b border-sea-green">
                 <button
                   onClick={() => toggleD(dindex)}
                   className="w-full text-left py-4 flex justify-between items-center focus:outline-none cursor-pointer">
@@ -88,7 +92,7 @@ const FAQ = () => {
             <p className="text-2xl text-center font-bold mt-10">General FAQs</p>
             {faqs.map((faq, index) => (
               <motion.div key={index}
-                  className="border-b border-gray-900/10">
+                  className="border-b border-sea-green">
                 <button
                   onClick={() => toggle(index)}
                   className="w-full text-left py-4 flex justify-between items-center focus:outline-none cursor-pointer">

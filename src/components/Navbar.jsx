@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCart } from "../context/CartContext";
@@ -14,6 +14,8 @@ const Navbar = () => {
     navigate('/order');
   }
 
+  const location = useLocation();
+
   const { cartCount, items, removeItem, clearCart, cartTotal, incrementItem, decrementItem } = useCart();
 
   
@@ -26,14 +28,13 @@ const Navbar = () => {
             <div className="flex items-center justify-center">
               <img src={logo} className="w-1/5"/>
               <Link to="/" className="text-sea-green font-(family-name:--font-milliard-heavy) mt-2 text-3xl lg:text-5xl">
-                Flour <span className="inline-block text-3xl relative -top-1"> & </span> Flask
+                Flour <span className="inline-block text-base lg:text-3xl relative -top-1"> & </span> Flask
               </Link>
             </div>          
             <div className="flex space-x-4 mt-2 text-center text-sea-green uppercase tracking-tighter text-md lg:tracking-wide lg:text-2xl">            
-              <Link to="/collection/dessertservice" className="lg:pr-4 hover:text-amber">desserts</Link>
-              <Link to="/collection/barservice" className="lg:pr-4 hover:text-amber">drinks</Link>
-              {/* <Link to="/collection/photoservice" className="lg:pr-4 hover:text-amber">photobooth</Link> */}
-              <Link to="/faq" className=" hover:text-amber">faqs</Link>
+              <Link to="/collection/dessertservice" className={`lg:pr-4 hover:text-amber ${location.pathname === '/collection/dessertservice' ? 'text-amber' : ''}`}>desserts</Link>
+              <Link to="/collection/barservice" className={`lg:pr-4 hover:text-amber ${location.pathname === '/collection/barservice' ? 'text-amber' : ''}`}>drinks</Link>
+              <Link to="/faq" className={`lg:pr-4 hover:text-amber ${location.pathname === '/faq' ? 'text-amber' : ''}`}>faqs</Link>
             </div>
           </div>
 

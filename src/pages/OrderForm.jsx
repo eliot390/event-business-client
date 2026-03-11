@@ -87,7 +87,7 @@ const OrderForm = () => {
   return (
     <div className='flex flex-col mt-10 lg:mt-30 lg:flex-row justify-center'>
       {/* Left Side */}
-      <div className='flex flex-col items-center lg:items-end bg-light-frozen lg:pt-4 lg:pr-8 lg:h-screen lg:w-1/2 rounded-sm'>
+      <div className='flex flex-col items-center lg:items-end bg-light-frozen lg:pt-4 lg:pr-8 lg:h-screen lg:w-1/2 max-sm:border-b-2 border-sea-green'>
         <form className='w-fit lg:w-lg'>
           <div>
             <h2 className="text-gray-900 text-center text-3xl mt-4">Order Form</h2>
@@ -250,7 +250,7 @@ const OrderForm = () => {
               </div>              
             </div>
           </div>
-          <div className="mt-6 flex items-center justify-end gap-x-2">
+          <div className="mt-6 max-sm:pb-4 flex items-center justify-end gap-x-2">
             <button
               onClick={handleCancel} 
               type="button" 
@@ -270,19 +270,20 @@ const OrderForm = () => {
       </div>
 
       {/* Right Side */}
-      <div className='lg:h-screen lg:w-1/2 pt-8 lg:pl-8 border-solid border-l-1 border-sea-green'>
+      <div className='lg:h-screen lg:w-1/2 pt-8 lg:pl-8 border-solid lg:border-l-2 border-sea-green'>
+        <div className='max-sm:mx-auto max-sm:mb-4 bg-cream p-4 rounded  lg:w-fit border-sea-green border-2'>
         {(
           items.map((it) => (
             <div
               key={`${it.productKey}|${it.orderSize}`}
-              className="bg-white/60 rounded-xl mx-auto lg:mb-2 lg:mx-0 p-3 lg:px-3 lg:py-4 shadow w-9/10 lg:w-1/2">
+              className="bg-white/60 rounded-xl mx-auto lg:mb-2 lg:mx-0 p-3 lg:px-3 lg:py-4 shadow w-9/10 ">
               <div className="relative flex gap-2">
                 <div>                          
-                  <img src={it.cartImg} className="max-sm:w-5/6 rounded-xl"/>                                                    
+                  <img src={it.cartImg} className="max-sm:w-5/6 rounded-xl"/>
                 </div>
                 <div className="grid content-between lg:w-full">
                   <div>
-                    <p className="max-sm:text-sm font-semibold text-gray-800">{it.productName}</p>                    
+                    <p className="max-sm:text-sm font-semibold text-gray-800">{it.productName}</p>
                   </div>                  
                   <div className="flex justify-between"> 
                     <p>{it.orderSize}</p>                          
@@ -293,13 +294,15 @@ const OrderForm = () => {
             </div>
           ))
         )}
-        <div className="border-t-2 border-honey p-4 lg:pt-3 mt-4 lg:mt-12 lg:w-1/2">
+        <div className="border-t-2 border-honey p-4 lg:pt-3 mt-4 lg:mt-12 ">
           <div className="flex justify-end lg:justify-between text-xl font-bold text-sea-green">
             <span className='pr-6'>Total:</span>
             <span>${cartTotal.toFixed(2)}</span>
           </div>
         </div>
-      </div>      
+        </div>
+      </div>
+
     </div>
   )
 }

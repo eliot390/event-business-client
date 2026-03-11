@@ -1,7 +1,8 @@
+import { Link } from "react-router-dom";
 import drink from '../assets/images/batched.jpg'
 import dessert from '../assets/images/cookies.jpg'
-import photo from '../assets/images/photobooth.jpg'
-import { Link } from "react-router-dom";
+import cookie from '../assets/images/cookie-2.jpg'
+import mixed from '../assets/images/mixed.jpg'
 
 const Services = () => {
   return (
@@ -12,25 +13,19 @@ const Services = () => {
           We're not a full-scale caterer or event planner... We specialize in the extra details that make events unforgettable.</p> */}
         <div className="grid grid-cols-1 justify-items-center lg:grid-cols-2 gap-6 lg:mb-5 lg:mt-5">
           <Link to='/collection/dessertservice'>
-            <div className='group transition duration-300 ease-in-out hover:-translate-y-4 hover:scale-100'>
-              <img src={dessert} className='border-solid border-2 border-gold rounded'/>
+            <div className='group transition bg-cream border-solid border-3 border-honey rounded duration-300 ease-in-out hover:-translate-y-4 hover:scale-100'>
+              <img src={dessert} className='mx-auto w-7/8 rounded mt-4'/>
               <p className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-center">Homemade Desserts</p>
-              <p className='text-center'>Toasted offers homemade desserts perfect for any occasion.</p>
+              <p className='text-center pb-4'>Toasted offers homemade desserts perfect for any occasion.</p>
             </div> 
           </Link>
           <Link to='/collection/barservice'>
-            <div className='relative group transition duration-300 ease-in-out hover:-translate-y-4 hover:scale-100'>
-              <img src={drink} className='border-solid border-2 border-gold rounded'/>
+            <div className='group transition bg-cream border-solid border-3 border-honey rounded duration-300 ease-in-out hover:-translate-y-4 hover:scale-100'>
+              <img src={drink} className='mx-auto w-7/8 rounded mt-4'/>
               <p className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-center">Custom Batched Cocktails</p>
-              <p className='text-center'>Toasted offers handcrafted, pre-batched cocktails</p>
+              <p className='text-center pb-4'>Toasted offers handcrafted, pre-batched cocktails</p>
             </div>
           </Link>
-          {/* <Link to='/collection/photoservice'>
-            <div className='group transition duration-300 ease-in-out hover:-translate-y-4 hover:scale-100'>
-              <img src={photo} className='border-solid border-2 border-gold rounded'/>
-              <p className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-center">Photobooth Services</p>
-            </div> 
-          </Link> */}
         </div>
       </div>
     </div>

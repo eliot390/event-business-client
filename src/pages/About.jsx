@@ -22,11 +22,5 @@ export default About
 /** TODO * 
  * copy shortened page description/details under services cards
  * 
- * Dulce Bar
- * Buttered Rum Bakeshop
- * CookieBar
- * DessertBar
- * Mixed Confections
- * Treats & Tragos Catering
- * Treats & Tragos
+ * 
  *  */ 

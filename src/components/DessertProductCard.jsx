@@ -6,9 +6,9 @@ const DessertProductCard = ({name, image, newStatus, holidayStatus, details, des
 
   return (
     <>
-      <div className="relative group flex flex-col lg:w-full bg-white border-3 border-honey shadow-2xs rounded-xl">
-        <div className="flex flex-col justify-center items-center rounded-t-lg overflow-hidden">
-          <img src={image} className="w-full object-contain transition duration-300 ease-in-out hover:scale-105" />
+      <div className="relative group flex flex-col w-fit bg-white border-3 border-sea-green shadow-2xs rounded-xl">
+        <div className="flex flex-col justify-center items-center overflow-hidden">
+          <img src={image} className="w-4/5 rounded-lg my-4 object-contain transition duration-300 ease-in-out hover:scale-105" />
         </div>
         <div className="ml-2 mb-16">
           <h3 className="text-2xl font-bold text-gray-800">{name}</h3>
@@ -17,7 +17,7 @@ const DessertProductCard = ({name, image, newStatus, holidayStatus, details, des
         <div className="absolute bottom-4 right-4 flex justify-end">
           <button
             onClick={() => setIsOpen('details')} 
-            className="bg-light-honey hover:bg-honey text-gray-800 font-semibold py-1 px-3 border-2 border-amber rounded-full shadow cursor-pointer">Order</button>
+            className="bg-light-frozen hover:bg-frozen-water text-gray-800 font-semibold py-1 px-3 border-2 border-sea-green rounded-full shadow cursor-pointer">Order</button>
         </div>
         <div>
           {newStatus && 
