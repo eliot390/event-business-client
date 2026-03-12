@@ -18,13 +18,40 @@ const FAQ = () => {
     {
       question: "Do you offer gluten free or other dietary options?",
       answer: "Modifications are possible. Email me for more details."
+    },
+    {
+      question: "Do you make cakes/cupcakes?",
+      answer: "Cakes and cupcakes are not currently on the menu, but may appear soon."
     }
+  ]
+
+  const cocktailfaqs = [
+    {
+      question: "What are pre-batched cocktails?",
+      answer: "Our pre-batched cocktails are handcrafted, small-batch drinks made in advance using premium spirits and fresh ingredients. They're ready to pour and enjoy."
+    },
+    {
+      question: "Do your cocktails need to be refrigerated?",
+      answer: "Yes. Please keep refrigerated until ready to serve unless otherwise noted."
+    },
+    {
+      question: "How many cocktails do I need for a party of 20?",
+      answer: "Consumption per guest can vary, but here are some guidelines that may help: If no other alcohol is provided (beer/wine), assume two 3oz. drinks per person. In this case, four 32oz. bottles."
+    },
+    {
+      question: "Is this legal?",
+      answer: "What are you, a cop?"
+    },
   ]
 
   const faqs = [
     {
       question: "How do I pay you?",
       answer: "I gladly accept Venmo or Zelle. Payment information is available on the order form when ready to check-out."
+    },
+    {
+      question: "How far in advance do I need to put an order in?",
+      answer: "I respectfully require at least 2 days notice before the intended delivery/pick-up date to ensure the best service!"
     },
     {
       question: "How far do you deliver?",
@@ -45,34 +72,39 @@ const FAQ = () => {
     setOpenIndex(openIndex === index ? null : index)
   }
 
-  const [openDIndex, setOpenDIndex] = useState(null)
-  const toggleD = (dindex) => {
-    setOpenDIndex(openDIndex === dindex ? null : dindex)
+  const [openDessertIndex, setOpenDessertIndex] = useState(null)
+  const toggleD = (dessertIndex) => {
+    setOpenDessertIndex(openDessertIndex === dessertIndex ? null : dessertIndex)
+  }
+
+  const [openCocktailIndex, setOpenCocktailIndex] = useState(null)
+  const toggleC = (cocktailIndex) => {
+    setOpenCocktailIndex(openCocktailIndex === cocktailIndex ? null : cocktailIndex)
   }
 
   return (
     <div>
-      <div className="pt-28 px-4 lg:pt-40 lg:w-2xl lg:mx-auto h-screen">
+      <div className="pt-28 pb-10 px-4 lg:pt-40 lg:w-2xl lg:mx-auto">
         <div className="bg-white/85 pt-4 px-4 border-sea-green border-2 rounded">
           <div className="max-w-2xl mx-auto">
             <p className="text-2xl text-center font-bold">Dessert FAQs</p>
-            {dessertfaqs.map((dfaq, dindex) => (
-              <motion.div key={dindex}
+            {dessertfaqs.map((dessertFaq, dessertIndex) => (
+              <motion.div key={dessertIndex}
                   className="border-b border-sea-green">
                 <button
-                  onClick={() => toggleD(dindex)}
+                  onClick={() => toggleD(dessertIndex)}
                   className="w-full text-left py-4 flex justify-between items-center focus:outline-none cursor-pointer">
-                  <span className="font-medium">{dfaq.question}</span>
+                  <span className="font-medium">{dessertFaq.question}</span>
                   <motion.span
-                    key={openDIndex === dindex ? "minus" : "plus"}
+                    key={openDessertIndex === dessertIndex ? "minus" : "plus"}
                     className="font-bold text-xl text-gray-900/50"
                   >
-                    {openDIndex === dindex ? "−" : "+"}
+                    {openDessertIndex === dessertIndex ? "-" : "+"}
                     </motion.span>
                 </button>
 
                 <AnimatePresence>
-                  {openDIndex === dindex && (
+                  {openDessertIndex === dessertIndex && (
                     <motion.div
                       key="content"
                       initial={{ opacity: 0, height: 0 }}
@@ -80,7 +112,41 @@ const FAQ = () => {
                       exit={{ opacity: 0, height: 0 }}
                       transition={{ duration: 0.2 }}
                       className="overflow-hidden">
-                      <p className="w-7/8 text-gray-700 py-2">{dfaq.answer}</p>
+                      <p className="w-7/8 text-gray-700 py-2">{dessertFaq.answer}</p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="max-w-2xl mx-auto">
+            <p className="text-2xl text-center font-bold mt-10">Drinks FAQs</p>
+            {cocktailfaqs.map((cocktailFaq, cocktailIndex) => (
+              <motion.div key={cocktailIndex}
+                  className="border-b border-sea-green">
+                <button
+                  onClick={() => toggleC(cocktailIndex)}
+                  className="w-full text-left py-4 flex justify-between items-center focus:outline-none cursor-pointer">
+                  <span className="font-medium">{cocktailFaq.question}</span>
+                  <motion.span
+                    key={openCocktailIndex === cocktailIndex ? "minus" : "plus"}
+                    className="font-bold text-xl text-gray-900/50"
+                  >
+                    {openCocktailIndex === cocktailIndex ? "-" : "+"}
+                    </motion.span>
+                </button>
+
+                <AnimatePresence>
+                  {openCocktailIndex === cocktailIndex && (
+                    <motion.div
+                      key="content"
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="overflow-hidden">
+                      <p className="w-7/8 text-gray-700 py-2">{cocktailFaq.answer}</p>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -92,7 +158,7 @@ const FAQ = () => {
             <p className="text-2xl text-center font-bold mt-10">General FAQs</p>
             {faqs.map((faq, index) => (
               <motion.div key={index}
-                  className="border-b border-sea-green">
+                  className={`border-sea-green ${index !== faqs.length -1 ? "border-b" : ""}`}>
                 <button
                   onClick={() => toggle(index)}
                   className="w-full text-left py-4 flex justify-between items-center focus:outline-none cursor-pointer">
@@ -101,7 +167,7 @@ const FAQ = () => {
                     key={openIndex === index ? "minus" : "plus"}
                     className="font-bold text-xl text-gray-900/50"
                   >
-                    {openIndex === index ? "−" : "+"}
+                    {openIndex === index ? "-" : "+"}
                     </motion.span>
                 </button>
 

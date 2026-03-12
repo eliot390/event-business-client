@@ -227,7 +227,7 @@ const DessertService = () => {
               {orderSize: "12 Pack", orderCost: "25"},
               {orderSize: "24 Pack", orderCost: "45"}
             ]}
-            onAdd={(selectedRow) => addToCart(bananaSplit, selectedRow)}
+            onAdd={(selectedRow) => addToCart(carrotCake, selectedRow)}
           />
         ),
       },
@@ -243,7 +243,7 @@ const DessertService = () => {
               {orderSize: "12 Pack", orderCost: "35"},
               {orderSize: "24 Pack", orderCost: "50"}
             ]}
-            onAdd={(selectedRow) => addToCart(bananaSplit, selectedRow)}
+            onAdd={(selectedRow) => addToCart(carrotSandwich, selectedRow)}
           />
         ),
       },

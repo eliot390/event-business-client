@@ -1,16 +1,20 @@
 import { Link } from "react-router-dom";
 import drink from '../assets/images/batched.jpg'
 import dessert from '../assets/images/cookies.jpg'
-import cookie from '../assets/images/cookie-2.jpg'
+import cookies2 from '../assets/images/cookie-2.jpg'
 import mixed from '../assets/images/mixed.jpg'
 
 const Services = () => {
   return (
-    <div>     
-      <div className="flex flex-row min-h-screen justify-center items-center">
-        {/* <p className='mt-8 mx-auto w-full lg:w-7/8 lg:text-xl mb-8 font-semibold text-center'>Toasted provides personalized additions that elevate any celebration with custom batched cocktails,
-          a selection of home-made desserts, and interactive photobooth experiences. 
-          We're not a full-scale caterer or event planner... We specialize in the extra details that make events unforgettable.</p> */}
+    <div>
+      <div className="flex flex-col pt-40 justify-center items-center">
+        <div className="w-2/5 mb-4 p-4 bg-white/75 rounded-lg">
+          <p className="text-lg">Flour & Flask combines small-batch baked goods and handcrafted cocktails, 
+            because I decided that was a completely reasonable business idea and no one stopped me.
+            Order something sweet, add something spirited, and let me handle the rest.
+            Your treats (and your drinks) will be ready before you've decided which one you're excited about most.
+          </p>
+        </div>        
         <div className="grid grid-cols-1 justify-items-center lg:grid-cols-2 gap-6 lg:mb-5 lg:mt-5">
           <Link to='/collection/dessertservice'>
             <div className='group transition bg-cream border-solid border-3 border-honey rounded duration-300 ease-in-out hover:-translate-y-4 hover:scale-100'>

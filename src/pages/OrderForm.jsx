@@ -88,9 +88,9 @@ const OrderForm = () => {
     <div className='flex flex-col mt-10 lg:mt-30 lg:flex-row justify-center'>
       {/* Left Side */}
       <div className='flex flex-col items-center lg:items-end bg-light-frozen lg:pt-4 lg:pr-8 lg:h-screen lg:w-1/2 max-sm:border-b-2 border-sea-green'>
-        <form className='w-fit lg:w-lg'>
+        <form className='w-7/8 lg:w-lg pt-12 lg:pt-0'>
           <div>
-            <h2 className="text-gray-900 text-center text-3xl mt-4">Order Form</h2>
+            <h2 className="text-gray-900 text-center text-2xl lg:text-3xl mt-4">Order Form</h2>
             <div className="lg:mt-4 grid grid-cols-1 gap-x-6 gap-y-4 lg:gap-y-8 sm:grid-cols-6">
 
               <div className="sm:col-span-3">
@@ -160,8 +160,8 @@ const OrderForm = () => {
 
               {/* Conditional Field */}
               {deliveryMethod === "Delivery" && (
-                <div className='sm:col-span-full lg:mt-4'>
-                  <div className="sm:col-span-full lg:mt-4">
+                <div className='sm:col-span-full '>
+                  <div className="sm:col-span-full ">
                     <label className="block text-sm font-medium text-gray-900">Delivery Address</label>
                     <input
                       type="text"
@@ -170,7 +170,7 @@ const OrderForm = () => {
                       className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 focus:outline-3 focus:outline-sea-green sm:text-sm/6"
                     />
                   </div>
-                  <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4'>
+                  <div className='grid grid-cols-2 gap-4 mt-4'>
                     <div>
                       <label className="block text-sm font-medium text-gray-900">City</label>
                       <input
@@ -271,7 +271,7 @@ const OrderForm = () => {
 
       {/* Right Side */}
       <div className='lg:h-screen lg:w-1/2 pt-8 lg:pl-8 border-solid lg:border-l-2 border-sea-green'>
-        <div className='max-sm:mx-auto max-sm:mb-4 bg-cream p-4 rounded  lg:w-fit border-sea-green border-2'>
+        <div className='max-sm:mx-auto max-sm:mb-4 bg-cream p-4 rounded lg:w-fit border-sea-green border-2'>
         {(
           items.map((it) => (
             <div
