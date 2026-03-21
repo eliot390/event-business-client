@@ -246,38 +246,38 @@ const BarService = () => {
           />
         )  
       },
-      {
-        ...nakedApe,
-        details: (
-          <CocktailDetailsCard
-            cocktailImage={limes}
-            name="Naked Ape"
-            ingredients="Overproof Rum, Dark Rum, Banana Liqueur, Cinnamon, Bitters"
-            description="The undisputed king of Tiki cocktails and one of the most enduring of all vintage cocktails"
-            rows={[
-              {orderSize: "16 oz. Bottle", orderCost: "35"},
-              {orderSize: "32 oz. Bottle", orderCost: "60"}                
-            ]}
-            onAdd={(selectedRow) => addToCart(nakedApe, selectedRow)}
-          />
-        )  
-      },
-      {
-        ...zombie,
-        details: (
-          <CocktailDetailsCard
-            cocktailImage={limes}
-            name="Zombie"
-            ingredients={"Aged Rum, Overproof Rum, Falernum, Grenadine, \"Don's Mix\", Absinthe"}
-            description="The undisputed king of Tiki cocktails and one of the most enduring of all vintage cocktails"
-            rows={[
-              {orderSize: "16 oz. Bottle", orderCost: "35"},
-              {orderSize: "32 oz. Bottle", orderCost: "60"}                
-            ]}
-            onAdd={(selectedRow) => addToCart(zombie, selectedRow)}
-          />
-        ),
-      },
+      // {
+      //   ...nakedApe,
+      //   details: (
+      //     <CocktailDetailsCard
+      //       cocktailImage={limes}
+      //       name="Naked Ape"
+      //       ingredients="Overproof Rum, Dark Rum, Banana Liqueur, Cinnamon, Bitters"
+      //       description="The undisputed king of Tiki cocktails and one of the most enduring of all vintage cocktails"
+      //       rows={[
+      //         {orderSize: "16 oz. Bottle", orderCost: "35"},
+      //         {orderSize: "32 oz. Bottle", orderCost: "60"}                
+      //       ]}
+      //       onAdd={(selectedRow) => addToCart(nakedApe, selectedRow)}
+      //     />
+      //   )  
+      // },
+      // {
+      //   ...zombie,
+      //   details: (
+      //     <CocktailDetailsCard
+      //       cocktailImage={limes}
+      //       name="Zombie"
+      //       ingredients={"Aged Rum, Overproof Rum, Falernum, Grenadine, \"Don's Mix\", Absinthe"}
+      //       description="The undisputed king of Tiki cocktails and one of the most enduring of all vintage cocktails"
+      //       rows={[
+      //         {orderSize: "16 oz. Bottle", orderCost: "35"},
+      //         {orderSize: "32 oz. Bottle", orderCost: "60"}                
+      //       ]}
+      //       onAdd={(selectedRow) => addToCart(zombie, selectedRow)}
+      //     />
+      //   ),
+      // },
       {
         ...peewee,
         details: (
@@ -320,7 +320,16 @@ const BarService = () => {
   }, [filter, products]);
 
   return (
-    <div>     
+    <div className="relative">
+      {/* Overlay */}
+      <div className="fixed inset-0 z-10 flex items-center justify-center bg-black/30">
+      <div className='bg-light-frozen p-10 rounded-lg border-sea-green border-3'>
+        <p className="text-amber font-bold text-center font-(family-name:--font-milliard) text-4xl">
+          Coming Soon!
+        </p>
+      </div>
+        
+      </div>     
       <div className="flex flex-col max-w-[85rem] px-4 pt-28 lg:px-8 lg:pt-38 mx-auto">
         <CocktailButtonGroup active={filter} onChange={setFilter}/>
         <div className="grid grid-cols-1 justify-items-center lg:grid-cols-4 gap-6 mb-5 mt-5">

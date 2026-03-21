@@ -43,8 +43,7 @@ export const CartProvider =({children}) => {
 
 const decrementItem = (productKey, orderSize) => {
   setItems((prev) =>
-    prev
-      .map((it) =>
+    prev.map((it) =>
         it.productKey === productKey && it.orderSize === orderSize
           ? { ...it, quantity: Math.max(1, it.quantity - 1) }
           : it

@@ -25,7 +25,6 @@ const CocktailDetailsCard = ({cocktailImage, name, ingredients, description, onA
     if (!selectedRow) return
 
     onAdd(selectedRow);
-    //setSelectedSize(null)
     setIsAdded(true)
     setTimeout(() => {
       setIsAdded(false)

@@ -25,7 +25,6 @@ const DessertDetailsCard = ({dessertImage, name, description, onAdd, rows=[]}) =
     if (!selectedRow) return
 
     onAdd(selectedRow);
-    //setSelectedSize(null)
     setIsAdded(true)
     setTimeout(() => {
       setIsAdded(false)

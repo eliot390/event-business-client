@@ -8,14 +8,14 @@ const Services = () => {
   return (
     <div>
       <div className="flex flex-col pt-40 justify-center items-center">
-        <div className="w-2/5 mb-4 p-4 bg-white/75 rounded-lg">
-          <p className="text-lg">Flour & Flask combines small-batch baked goods and handcrafted cocktails, 
-            because I decided that was a completely reasonable business idea and no one stopped me.
-            Order something sweet, add something spirited, and let me handle the rest.
+        <div className="w-7/8 lg:w-2/5 mb-4 p-4 bg-white/75 rounded-lg">
+          <p className="text-lg text-center">Flour & Flask combines small-batch baked goods and handcrafted cocktails, 
+            because we decided that was a completely reasonable business idea and no one stopped us!
+            Order something sweet, add something spirited, and let us handle the rest.
             Your treats (and your drinks) will be ready before you've decided which one you're excited about most.
           </p>
         </div>        
-        <div className="grid grid-cols-1 justify-items-center lg:grid-cols-2 gap-6 lg:mb-5 lg:mt-5">
+        <div className="grid grid-cols-1 max-sm:w-7/8 justify-items-center pb-4 lg:grid-cols-2 gap-6 lg:mb-5 lg:mt-5">
           <Link to='/collection/dessertservice'>
             <div className='group transition bg-cream border-solid border-3 border-honey rounded duration-300 ease-in-out hover:-translate-y-4 hover:scale-100'>
               <img src={dessert} className='mx-auto w-7/8 rounded mt-4'/>

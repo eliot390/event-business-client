@@ -9,7 +9,7 @@ const FAQ = () => {
     },
     {
       question: "Cookie Care",
-      answer: "Cookies may be stored in an airtight container for up to one week or frozen if not enjoyed immediately. For maximum enjoyment, warm the cookie in the microwave for 15-20 seconds!"
+      answer: "Cookies may be stored in an airtight container for up to one week or frozen if not enjoyed immediately. For maximum enjoyment, warm chocolate chips cookies in the microwave for 15-20 seconds!"
     },
     {
       question: "Pie Care",
@@ -28,7 +28,7 @@ const FAQ = () => {
   const cocktailfaqs = [
     {
       question: "What are pre-batched cocktails?",
-      answer: "Our pre-batched cocktails are handcrafted, small-batch drinks made in advance using premium spirits and fresh ingredients. They're ready to pour and enjoy."
+      answer: "Pre-batched cocktails are handcrafted, small-batch drinks made in advance using premium spirits and fresh ingredients. They're ready to pour and enjoy."
     },
     {
       question: "Do your cocktails need to be refrigerated?",
@@ -36,22 +36,22 @@ const FAQ = () => {
     },
     {
       question: "How many cocktails do I need for a party of 20?",
-      answer: "Consumption per guest can vary, but here are some guidelines that may help: If no other alcohol is provided (beer/wine), assume two 3oz. drinks per person. In this case, four 32oz. bottles."
+      answer: "Consumption per guest can vary, but here are some guidelines that may help: If no other alcohol is provided (beer/wine), assume two 3oz. drinks per person. In this case, you should order four 32oz. bottles."
     },
     {
-      question: "Is this legal?",
-      answer: "What are you, a cop?"
+      question: "Do you provide onsite bartending services if I don't want pre-batched cocktails?",
+      answer: "Bartending packages will be available in the future!"
     },
   ]
 
   const faqs = [
     {
       question: "How do I pay you?",
-      answer: "I gladly accept Venmo or Zelle. Payment information is available on the order form when ready to check-out."
+      answer: "I accept Venmo and Zelle. Once you receive your order confirmation email, please include your order number in the notes/memo field of your payment."
     },
     {
       question: "How far in advance do I need to put an order in?",
-      answer: "I respectfully require at least 2 days notice before the intended delivery/pick-up date to ensure the best service!"
+      answer: "I respectfully require 3-4 days notice before the intended delivery/pick-up date to ensure the best service!"
     },
     {
       question: "How far do you deliver?",

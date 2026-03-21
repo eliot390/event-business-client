@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import venmo from '../assets/images/venmo.jpg'
 import zelle from '../assets/images/zelle.jpg'
@@ -15,6 +16,8 @@ const OrderForm = () => {
   const [orderDate, setOrderDate] = useState("")
   const [paymentMethod, setPaymentMethod] = useState("")
   const paymentImg = {Venmo: venmo, Zelle: zelle}
+
+  const navigate = useNavigate();
 
   const validateEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
   const validatePhone = (v) => /^[0-9+\-()\s]{7,15}$/.test(v);
@@ -39,7 +42,7 @@ const OrderForm = () => {
     return date.toISOString().split("T")[0];
   }, []);  
 
-  const { items, cartTotal } = useCart();
+  const { items, cartTotal, clearCart } = useCart();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -76,8 +79,11 @@ const OrderForm = () => {
         return;
       }
 
-      alert("Order placed");
       clearCart();
+      alert("Order placed");
+      setTimeout(() => {
+        navigate('/confirmation');
+      }, 1000)
     } catch (err) {
       console.error(err);
       alert("Failed to place order");

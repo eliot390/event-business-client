@@ -2,7 +2,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCart } from "../context/CartContext";
-import logo from '../assets/images/logo-sm.png';
+import logo from '../assets/images/logo-grn.png';
 import cart from '../assets/images/shopping-cart.png'
 import trash from '../assets/images/bin.png'
 
@@ -17,7 +17,6 @@ const Navbar = () => {
   const location = useLocation();
 
   const { cartCount, items, removeItem, clearCart, cartTotal, incrementItem, decrementItem } = useCart();
-
   
   return (
     <div>
