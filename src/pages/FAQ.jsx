@@ -188,6 +188,7 @@ const FAQ = () => {
             ))}
           </div>
         </div>
+        <p className="text-center pt-2">For other inquiries please contact us at chefeliotison@gmail.com</p>
       </div>
     </div>
   )

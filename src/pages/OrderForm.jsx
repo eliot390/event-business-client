@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import StatusModal from '../components/StatusModal';
 import venmo from '../assets/images/venmo.jpg'
 import zelle from '../assets/images/zelle.jpg'
 
@@ -18,6 +19,23 @@ const OrderForm = () => {
   const paymentImg = {Venmo: venmo, Zelle: zelle}
 
   const navigate = useNavigate();
+  const [modal, setModal] = useState({
+    isOpen: false,
+    type: "success",
+    title: "",
+    message: ""
+  })
+  const closeModal = () => {
+    setModal((prev) => ({...prev, isOpen: false}))
+  }
+  const openModal = ({type, title, message}) => {
+    setModal({
+      isOpen: true,
+      type,
+      title,
+      message
+    })
+  }
 
   const validateEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
   const validatePhone = (v) => /^[0-9+\-()\s]{7,15}$/.test(v);
@@ -83,20 +101,32 @@ const OrderForm = () => {
       const text = await res.text();
 
       if(!res.ok) {
-        alert(text);
+        openModal({
+          type: "error",
+          title: "Order Failed",
+          message: text || "Something went wrong while placing your order.",
+        });
         return;
       }
       
-      alert("Order placed");
+      openModal({
+        type: "success",
+        title: "Order Placed",
+        message: "Your order was placed successfully.",
+      });
+
       setTimeout(() => {
+        closeModal()
         navigate('/confirmation', {
           state: {order: payload}
         });
-      }, 1000)
-      clearCart();
+      }, 130000)
     } catch (err) {
-      console.error(err);
-      alert("Failed to place order");
+      openModal({
+        type: "error",
+        title: "Order Failed",
+        message: "Failed to place order. Please try again.",
+      });
     }
   }
 
@@ -319,7 +349,17 @@ const OrderForm = () => {
         </div>
       </div>
 
+      <StatusModal
+        isOpen={modal.isOpen}
+        type={modal.type}
+        title={modal.title}
+        message={modal.message}
+        onClose={closeModal}
+      />
+
     </div>
+
+    
   )
 }
 

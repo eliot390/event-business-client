@@ -1,6 +1,9 @@
 import { useLocation, Navigate } from "react-router-dom"
+import { useCart } from '../context/CartContext';
 
 const Confirmation = () => {
+  const { clearCart } = useCart();
+  clearCart();
   const location = useLocation()
   const order = location.state?.order
   const trimmedName = order.name.trim().split(/\s+/)[0]
