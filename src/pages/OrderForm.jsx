@@ -23,6 +23,11 @@ const OrderForm = () => {
   const validatePhone = (v) => /^[0-9+\-()\s]{7,15}$/.test(v);
   const formIsValid = name && validateEmail(email) && validatePhone(phone) && deliveryMethod && orderDate && paymentMethod
 
+  const generateOrderID = () => {
+    const random = Math.floor(100000 + Math.random() * 900000)
+    return `FAF-${random}`
+  }
+
   const handleClear = () => {
     setName("");
     setEmail("");
@@ -38,7 +43,7 @@ const OrderForm = () => {
 
   const minDate = useMemo(() => {
     const date = new Date();
-    date.setDate(date.getDate()+2);
+    date.setDate(date.getDate()+4);
     return date.toISOString().split("T")[0];
   }, []);  
 
@@ -47,7 +52,10 @@ const OrderForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const orderID = generateOrderID();
+
     const payload = {
+      orderID,
       name,
       email,
       phone,
@@ -78,12 +86,14 @@ const OrderForm = () => {
         alert(text);
         return;
       }
-
-      clearCart();
+      
       alert("Order placed");
       setTimeout(() => {
-        navigate('/confirmation');
+        navigate('/confirmation', {
+          state: {order: payload}
+        });
       }, 1000)
+      clearCart();
     } catch (err) {
       console.error(err);
       alert("Failed to place order");

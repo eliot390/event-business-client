@@ -323,13 +323,13 @@ const BarService = () => {
     <div className="relative">
       {/* Overlay */}
       <div className="fixed inset-0 z-10 flex items-center justify-center bg-black/30">
-      <div className='bg-light-frozen p-10 rounded-lg border-sea-green border-3'>
-        <p className="text-amber font-bold text-center font-(family-name:--font-milliard) text-4xl">
-          Coming Soon!
-        </p>
+        <div className='bg-light-frozen p-10 rounded-lg border-sea-green border-3'>
+          <p className="text-amber font-bold text-center font-(family-name:--font-milliard) text-4xl">
+            Coming Soon!
+          </p>
+        </div>
       </div>
-        
-      </div>     
+
       <div className="flex flex-col max-w-[85rem] px-4 pt-28 lg:px-8 lg:pt-38 mx-auto">
         <CocktailButtonGroup active={filter} onChange={setFilter}/>
         <div className="grid grid-cols-1 justify-items-center lg:grid-cols-4 gap-6 mb-5 mt-5">
