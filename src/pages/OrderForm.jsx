@@ -18,6 +18,7 @@ const OrderForm = () => {
   const [paymentMethod, setPaymentMethod] = useState("")
   const paymentImg = {Venmo: venmo, Zelle: zelle}
 
+  const API_URL = import.meta.env.VITE_API_URL
   const navigate = useNavigate();
   const [modal, setModal] = useState({
     isOpen: false,
@@ -65,7 +66,7 @@ const OrderForm = () => {
     return date.toISOString().split("T")[0];
   }, []);  
 
-  const { items, cartTotal, clearCart } = useCart();
+  const { items, cartTotal } = useCart();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -92,7 +93,7 @@ const OrderForm = () => {
     }
 
     try {
-      const res = await fetch("/api/orders", {
+      const res = await fetch(`${API_URL}/api/orders`, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(payload)
