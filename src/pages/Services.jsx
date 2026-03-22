@@ -19,15 +19,13 @@ const Services = () => {
           <Link to='/collection/dessertservice'>
             <div className='group transition bg-cream border-solid border-3 border-honey rounded duration-300 ease-in-out hover:-translate-y-4 hover:scale-100'>
               <img src={dessert} className='mx-auto w-7/8 rounded mt-4'/>
-              <p className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-center">Homemade Desserts</p>
-              <p className='text-center pb-4'>Toasted offers homemade desserts perfect for any occasion.</p>
+              <p className='text-center text-sm lg:text-lg font-semibold py-2'>Homemade desserts, perfect for any occasion.</p>
             </div> 
           </Link>
           <Link to='/collection/barservice'>
             <div className='group transition bg-cream border-solid border-3 border-honey rounded duration-300 ease-in-out hover:-translate-y-4 hover:scale-100'>
               <img src={drink} className='mx-auto w-7/8 rounded mt-4'/>
-              <p className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-center">Custom Batched Cocktails</p>
-              <p className='text-center pb-4'>Toasted offers handcrafted, pre-batched cocktails</p>
+              <p className='text-center text-sm lg:text-lg font-semibold py-2'>Handcrafted, pre-batched cocktails</p>
             </div>
           </Link>
         </div>

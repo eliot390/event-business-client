@@ -23,7 +23,7 @@ const OrderForm = () => {
   const validatePhone = (v) => /^[0-9+\-()\s]{7,15}$/.test(v);
   const formIsValid = name && validateEmail(email) && validatePhone(phone) && deliveryMethod && orderDate && paymentMethod
 
-  const handleCancel = () => {
+  const handleClear = () => {
     setName("");
     setEmail("");
     setPhone("");
@@ -258,10 +258,10 @@ const OrderForm = () => {
           </div>
           <div className="mt-6 max-sm:pb-4 flex items-center justify-end gap-x-2">
             <button
-              onClick={handleCancel} 
+              onClick={handleClear} 
               type="button" 
               className="text-sm font-semibold px-2 py-2 font-semibold text-gray-900 hover:bg-sage hover:rounded-md cursor-pointer">
-                Cancel
+                Clear
             </button>
             <button
               disabled={!formIsValid}
