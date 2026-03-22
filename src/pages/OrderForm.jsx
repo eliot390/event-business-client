@@ -111,7 +111,7 @@ const OrderForm = () => {
       
       openModal({
         type: "success",
-        title: "Order Placed",
+        title: "Order Placed!",
         message: "Your order was placed successfully.",
       });
 
@@ -120,7 +120,7 @@ const OrderForm = () => {
         navigate('/confirmation', {
           state: {order: payload}
         });
-      }, 130000)
+      }, 3000)
     } catch (err) {
       openModal({
         type: "error",
