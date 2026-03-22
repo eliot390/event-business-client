@@ -19,7 +19,7 @@ const Confirmation = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center">
-      <div className="flex flex-col w-1/3 py-8 px-5 mx-auto bg-light-frozen border-2 border-sea-green rounded">
+      <div className="flex flex-col w-full lg:w-1/3 py-8 px-5 mx-auto bg-light-frozen border-2 border-sea-green rounded">
         <p className="text-2xl font-bold text-sea-green mb-4">Thank you for your order, {trimmedName}!</p>
         <p className="mb-1"><span className="font-semibold">Order #: </span> {order.orderID}</p>
         <p className="mb-1"><span className="font-semibold">Order Date:</span> {formattedDate}</p>
