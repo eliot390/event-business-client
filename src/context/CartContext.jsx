@@ -1,9 +1,14 @@
-import {createContext, useContext, useMemo, useState} from 'react';
+import {createContext, useContext, useEffect, useMemo, useState} from 'react';
 
 const CartContext = createContext(null);
 
+const CART_STORAGE_KEY = "cart-contents";
+
 export const CartProvider =({children}) => {
-    const [items, setItems] = useState([]);
+    const [items, setItems] = useState(() => {
+      const saved = localStorage.getItem(CART_STORAGE_KEY)
+      return saved ? JSON.parse(saved) : []
+    });
 
     const addItem = ({ productKey, productName, productImg, cartImg, orderSize, orderCost, quantity }) => {
     if (!quantity || quantity <= 0) return;
@@ -52,6 +57,10 @@ const decrementItem = (productKey, orderSize) => {
 };
 
   const clearCart = () => setItems([]);
+
+  useEffect(() => {
+    localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(items))
+  }, [items])
 
   const cartCount = useMemo(
     () => items.reduce((sum, it) => sum + (it.quantity ?? 0), 0),
