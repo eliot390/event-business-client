@@ -1,5 +1,4 @@
 
-import us from '../assets/images/jesm.png'
 
 const About = () => {
   return (

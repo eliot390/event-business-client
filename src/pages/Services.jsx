@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 import drink from '../assets/images/batched.jpg'
 import dessert from '../assets/images/cookies.jpg'
-import cookies2 from '../assets/images/cookie-2.jpg'
-import mixed from '../assets/images/mixed.jpg'
 
 const Services = () => {
   return (

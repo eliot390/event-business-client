@@ -3,7 +3,6 @@ import { useCart } from '../context/CartContext'
 import CocktailDetailsCard from '../components/CocktailDetailsCard'
 import CocktailButtonGroup from '../components/CocktailButtonGroup'
 import CocktailProductCard from '../components/CocktailProductCard'
-import limes from '../assets/images/fresh-limes.png'
 import daiquiriPic from '../assets/images/drinks/daiquiri.jpg'
 import manhattanPic from '../assets/images/drinks/manhattan.jpg'
 import margaritaPic from '../assets/images/drinks/margarita.jpg'
@@ -138,7 +137,7 @@ const BarService = () => {
         ...daiquiri,
         details: (
           <CocktailDetailsCard
-            cocktailImage={limes}
+            
             name="Daiquiri"
             ingredients="Rum, Lime Juice, Simple Syrup"
             description="Crisp, light and refreshing. Delicately simple yet with perfectly balanced complexity of flavours."
@@ -154,7 +153,7 @@ const BarService = () => {
         ...manhattan,
         details: (
           <CocktailDetailsCard
-            cocktailImage={limes}
+            
             name="Manhattan"
             ingredients="Bourbon, Sweet Vermouth, Bitters"
             description="The Manhattan is complex, challenging and moreish. Best of all, it's available in a style to suit every palate"
@@ -170,7 +169,7 @@ const BarService = () => {
         ...margarita,
         details: (
           <CocktailDetailsCard
-            cocktailImage={limes}
+            
             name="Margarita"
             ingredients="Tequila, Triple Sec, Agave, Lime"
             description="Tequila-forward, with tangy citrus, a hint of balancing sweetness and a faint salty undertone."
@@ -186,7 +185,7 @@ const BarService = () => {
         ...martini,
         details: (
           <CocktailDetailsCard
-            cocktailImage={limes}
+            
             name="Martini"
             ingredients="Tequila, Triple Sec, Agave, Lime"
             description="Tequila-forward, with tangy citrus, a hint of balancing sweetness and a faint salty undertone."
@@ -202,7 +201,7 @@ const BarService = () => {
         ...negroni,
         details: (
           <CocktailDetailsCard
-            cocktailImage={limes}
+            
             name="Negroni"
             ingredients="Bourbon, Sweet Vermouth, Bitters"
             description="The Manhattan is complex, challenging and moreish. Best of all, it's available in a style to suit every palate"
@@ -218,7 +217,7 @@ const BarService = () => {
         ...maitai,
         details: (
           <CocktailDetailsCard
-            cocktailImage={limes}
+            
             name="Mai Tai"
             ingredients="Aged Rum, Orange Curaçao, Lime Juice, Orgeat"
             description="The undisputed king of Tiki cocktails and one of the most enduring of all vintage cocktails"
@@ -234,7 +233,7 @@ const BarService = () => {
         ...jungle,
         details: (
           <CocktailDetailsCard
-            cocktailImage={limes}
+            
             name="Jungle Bird"
             ingredients="Dark Rum, Campari, Pineapple Juice, Lime Juice"
             description="Bittersweet and fruity with pungent rum notes, sipped through crushed ice. Properly Tiki-tastic."
@@ -250,7 +249,7 @@ const BarService = () => {
       //   ...nakedApe,
       //   details: (
       //     <CocktailDetailsCard
-      //       cocktailImage={limes}
+      //       
       //       name="Naked Ape"
       //       ingredients="Overproof Rum, Dark Rum, Banana Liqueur, Cinnamon, Bitters"
       //       description="The undisputed king of Tiki cocktails and one of the most enduring of all vintage cocktails"
@@ -266,7 +265,7 @@ const BarService = () => {
       //   ...zombie,
       //   details: (
       //     <CocktailDetailsCard
-      //       cocktailImage={limes}
+      //       
       //       name="Zombie"
       //       ingredients={"Aged Rum, Overproof Rum, Falernum, Grenadine, \"Don's Mix\", Absinthe"}
       //       description="The undisputed king of Tiki cocktails and one of the most enduring of all vintage cocktails"
@@ -282,7 +281,7 @@ const BarService = () => {
         ...peewee,
         details: (
           <CocktailDetailsCard
-            cocktailImage={limes}
+            
             name="Pee-Wee's Big Adventure"
             ingredients={"Habanero Infused Blanco Tequila, Watermelon Juice, Lime"}
             description="Take a trip to the 80's with this slightly spicy, sweet drink"
@@ -299,7 +298,7 @@ const BarService = () => {
         ...tropic,
         details: (
           <CocktailDetailsCard
-            cocktailImage={limes}
+            
             name="Tropic Thunder"
             ingredients={"Cachaça, Triple Sec, Calamansi"}
             description="Joanne's signature drink from our wedding!"
