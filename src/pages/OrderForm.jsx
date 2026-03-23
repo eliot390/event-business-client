@@ -79,7 +79,11 @@ const OrderForm = () => {
       email,
       phone,
       deliveryMethod,
-      deliveryAddress: deliveryMethod === "Delivery" ? deliveryAddress : "",
+      ...(deliveryMethod === "Delivery" && {
+        deliveryAddress,
+        deliveryCity,
+        deliveryZip,
+      }),
       comments,
       orderDate,
       items: items.map((it) => ({
