@@ -25,7 +25,7 @@ const Confirmation = () => {
         <p className="mb-1"><span className="font-semibold">Order Date:</span> {formattedDate}</p>
         <p className="mb-1"><span className="font-semibold">Delivery method:</span> {order.deliveryMethod}</p>
         {order.deliveryMethod === "Delivery" && (
-          <p className="mb-1"><span className="font-semibold">Address:</span> {order.deliveryAddress}</p>
+          <p className="mb-1"><span className="font-semibold">Address:<br/></span> {order.deliveryAddress}<br/>{order.deliveryCity}, {order.deliveryZip}</p>
         )}
 
         <p className="font-semibold mt-4 pb-1">Your Order</p>
