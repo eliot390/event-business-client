@@ -63,9 +63,8 @@ const Services = () => {
         className="w-7/8 lg:w-2/5 mb-4 p-4 bg-white/75 rounded-lg"
       >
         <p className="text-lg text-center">
-          Satisfy your sweet tooth with our small-batch cookies and baked goodies, 
-          or cool down with a refreshing handcrafted cocktail. Whether you're craving something sweet, 
-          something strong, or a little of both, Flour & Flask has your cravings covered.
+          Welcome to Flour & Flask! Whether you want to satisfy your sweet tooth with a fresh baked goodie, 
+          or unwind with a refreshing handcrafted cocktail, we have your cravings covered!
         </p>
       </motion.div>
 

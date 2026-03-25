@@ -2,7 +2,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCart } from "../context/CartContext";
-import logo from '../assets/images/logo-grn.png';
+import logo from '../assets/images/logo-grn2.png';
 import cart from '../assets/images/shopping-cart.png'
 import trash from '../assets/images/bin.png'
 
@@ -20,12 +20,12 @@ const Navbar = () => {
   
   return (
     <div>
-      <div className="fixed top-0 left-0 w-full z-50 mx-auto bg-frozen-water border-solid border-b-3 border-amber">
+      <div className="fixed top-0 left-0 w-full z-50 mx-auto bg-[url(/src/assets/images/pattern.png)] bg-contain bg-frozen-water border-solid border-b-3 border-amber">
         <div className="relative flex flex-col lg:flex-row items-center justify-center my-2">
 
           <div className="flex flex-col items-center">
-            <div className="flex items-center justify-center">
-              <img src={logo} className="w-1/5"/>
+            <div className="relative flex items-center justify-center">
+              <img src={logo} className="absolute top-1 right-89/90 w-1/3"/>
               <Link to="/" className="text-sea-green font-(family-name:--font-milliard-heavy) mt-2 text-3xl lg:text-5xl">
                 Flour <span className="inline-block text-base lg:text-3xl relative -top-1"> & </span> Flask
               </Link>
