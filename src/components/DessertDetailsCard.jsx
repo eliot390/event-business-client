@@ -36,7 +36,7 @@ const DessertDetailsCard = ({dessertImage, name, description, onAdd, rows=[]}) =
       <img src={dessertImage} className="lg:w-full border-3 border-honey shadow-2xs rounded-xl"/>
       <p className='text-xl lg:text-3xl font-semibold my-2 text-amber'>{name}</p>
       <p className="font-medium mb-6">{description}</p>
-      <p className="mb-1">Sizes:</p>
+      <p className="mb-1">Select Size:</p>
       <div className="flex gap-1 justify-between">
         {rows.map((row) => (
           <OrderRow 

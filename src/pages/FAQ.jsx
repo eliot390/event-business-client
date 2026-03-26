@@ -25,24 +25,24 @@ const FAQ = () => {
     }
   ]
 
-  const cocktailfaqs = [
-    {
-      question: "What are pre-batched cocktails?",
-      answer: "Pre-batched cocktails are handcrafted, small-batch drinks made in advance using premium spirits and fresh ingredients. They're ready to pour and enjoy."
-    },
-    {
-      question: "Do your cocktails need to be refrigerated?",
-      answer: "Yes. Please keep refrigerated until ready to serve unless otherwise noted."
-    },
-    {
-      question: "How many cocktails do I need for a party of 20?",
-      answer: "Consumption per guest can vary, but here are some guidelines that may help: If no other alcohol is provided (beer/wine), assume two 3oz. drinks per person. In this case, you should order four 32oz. bottles."
-    },
-    {
-      question: "Do you provide onsite bartending services if I don't want pre-batched cocktails?",
-      answer: "Bartending packages will be available in the future!"
-    },
-  ]
+  // const cocktailfaqs = [
+  //   {
+  //     question: "What are pre-batched cocktails?",
+  //     answer: "Pre-batched cocktails are handcrafted, small-batch drinks made in advance using premium spirits and fresh ingredients. They're ready to pour and enjoy."
+  //   },
+  //   {
+  //     question: "Do your cocktails need to be refrigerated?",
+  //     answer: "Yes. Please keep refrigerated until ready to serve unless otherwise noted."
+  //   },
+  //   {
+  //     question: "How many cocktails do I need for a party of 20?",
+  //     answer: "Consumption per guest can vary, but here are some guidelines that may help: If no other alcohol is provided (beer/wine), assume two 3oz. drinks per person. In this case, you should order four 32oz. bottles."
+  //   },
+  //   {
+  //     question: "Do you provide onsite bartending services if I don't want pre-batched cocktails?",
+  //     answer: "Bartending packages will be available in the future!"
+  //   },
+  // ]
 
   const faqs = [
     {
@@ -61,10 +61,10 @@ const FAQ = () => {
       question: "Can I put in a custom order for XYZ?",
       answer: "Sure, let's discuss options! You can email me for more details."
     },
-    {
-      question: "Can you cater my event?",
-      answer: "Sure, let's discuss options! You can email me for more details."
-    }
+    // {
+    //   question: "Can you cater my event?",
+    //   answer: "Sure, let's discuss options! You can email me for more details."
+    // }
   ]
 
   const [openIndex, setOpenIndex] = useState(null)
@@ -120,7 +120,7 @@ const FAQ = () => {
             ))}
           </div>
 
-          <div className="max-w-2xl mx-auto">
+          {/* <div className="max-w-2xl mx-auto">
             <p className="text-2xl text-center font-bold mt-10">Drinks FAQs</p>
             {cocktailfaqs.map((cocktailFaq, cocktailIndex) => (
               <motion.div key={cocktailIndex}
@@ -152,7 +152,7 @@ const FAQ = () => {
                 </AnimatePresence>
               </motion.div>
             ))}
-          </div>
+          </div> */}
 
           <div className="max-w-2xl mx-auto">
             <p className="text-2xl text-center font-bold mt-10">General FAQs</p>

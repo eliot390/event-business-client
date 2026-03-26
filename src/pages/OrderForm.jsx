@@ -16,7 +16,16 @@ const OrderForm = () => {
   const [deliveryZip, setDeliveryZip] = useState("")
   const [orderDate, setOrderDate] = useState("")
   const [paymentMethod, setPaymentMethod] = useState("")
-  const paymentImg = {Venmo: venmo, Zelle: zelle}
+  const paymentImg = {
+    Venmo: {
+      img: venmo,
+      info: "@Eliot-Pardo"
+     },
+    Zelle: {
+      img: zelle,
+      info: "818 439 1123"
+    }
+  }
 
   const API_URL = import.meta.env.VITE_API_URL
   const navigate = useNavigate();
@@ -199,7 +208,7 @@ const OrderForm = () => {
                     onChange={(e) => setDeliveryMethod(e.target.value)} 
                     className="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-gray-900 focus:outline-3 focus:outline-sea-green sm:text-sm/6">
                     <option value="">Select Option</option>
-                    <option value="Pickup - Ganbatte">Pickup (Ganbatte)</option>
+                    <option value="Pickup - Ganbatte">Pickup (Ganbatte Gym)</option>
                     <option value="Pickup - Burbank">Pickup (Burbank)</option>
                     <option value="Delivery">Delivery</option>
                   </select>
@@ -283,8 +292,12 @@ const OrderForm = () => {
 
               {/* Conditional Field */}
               {paymentImg[paymentMethod] && (
-                <div className="col-span-full">
-                  <img src={paymentImg[paymentMethod]} className='mx-auto w-2/5 shadow rounded-lg'/>
+                <div className="col-span-full text-center">
+                  <img 
+                    src={paymentImg[paymentMethod].img}
+                    className='mx-auto w-2/5 shadow rounded-lg'
+                  />
+                  <p className="text-gray-600">{paymentImg[paymentMethod].info}</p>
                 </div>
               )}
 

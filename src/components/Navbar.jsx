@@ -20,12 +20,12 @@ const Navbar = () => {
   
   return (
     <div>
-      <div className="fixed top-0 left-0 w-full z-50 mx-auto bg-[url(/src/assets/images/pattern.png)] bg-contain bg-frozen-water border-solid border-b-3 border-amber">
+      <div className="fixed top-0 left-0 w-full pb-2 z-50 mx-auto bg-[url(/src/assets/images/pattern.png)] bg-contain bg-frozen-water border-solid border-b-3 border-amber">
         <div className="relative flex flex-col lg:flex-row items-center justify-center my-2">
 
-          <div className="flex flex-col items-center">
+          <div className="flex flex-row items-center justify-around w-1/3">
             <div className="relative flex items-center justify-center">
-              <img src={logo} className="absolute top-1 right-89/90 w-1/3"/>
+              <img src={logo} className="absolute -top-1 right-89/90 w-1/3"/>
               <Link to="/" className="text-sea-green font-(family-name:--font-milliard-heavy) mt-2 text-3xl lg:text-5xl">
                 Flour <span className="inline-block text-base lg:text-3xl relative -top-1"> & </span> Flask
               </Link>
@@ -33,11 +33,11 @@ const Navbar = () => {
             <div className="flex space-x-4 mt-2 text-center text-sea-green uppercase tracking-tighter text-md lg:tracking-wide lg:text-2xl">            
               <Link to="/collection/dessertservice" className={`lg:pr-4 hover:text-amber ${location.pathname === '/collection/dessertservice' ? 'text-amber' : ''}`}>desserts</Link>
               <Link to="/collection/barservice" className={`lg:pr-4 hover:text-amber ${location.pathname === '/collection/barservice' ? 'text-amber' : ''}`}>drinks</Link>
-              <Link to="/faq" className={`lg:pr-4 hover:text-amber ${location.pathname === '/faq' ? 'text-amber' : ''}`}>faqs</Link>
+              <Link to="/faq" className={`hover:text-amber ${location.pathname === '/faq' ? 'text-amber' : ''}`}>faqs</Link>
             </div>
           </div>
 
-          <div className="absolute top-6 right-2 lg:top-4 lg:right-20 flex flex-row items-end">
+          <div className="absolute top-6 right-2 lg:top-0 lg:right-20 flex flex-row items-end">
             <div className="relative cursor-pointer pt-5" onClick={() => setIsOpen(true)}>
               <img src={cart} className="h-10 lg:bg-white border-solid lg:border-2 border-sea-green rounded-full "/>
               <div className="absolute top-3 -right-1 lg:top-3 lg:-right-1 w-5 h-5 flex items-center justify-center bg-sea-green rounded-full text-white text-xs font-semibold">{cartCount}</div>
