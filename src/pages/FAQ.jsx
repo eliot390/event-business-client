@@ -61,10 +61,10 @@ const FAQ = () => {
       question: "Can I put in a custom order for XYZ?",
       answer: "Sure, let's discuss options! You can email me for more details."
     },
-    // {
-    //   question: "Can you cater my event?",
-    //   answer: "Sure, let's discuss options! You can email me for more details."
-    // }
+    {
+      question: "Can you do dessert catering for my event?",
+      answer: "Sure, let's discuss options! You can email me for more details."
+    }
   ]
 
   const [openIndex, setOpenIndex] = useState(null)

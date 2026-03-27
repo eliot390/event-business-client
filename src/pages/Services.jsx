@@ -64,7 +64,7 @@ const Services = () => {
       >
         <p className="text-gray-600 text-lg text-center">
           Welcome to Flour & Flask! Whether you want to satisfy your sweet tooth with a fresh baked goodie, 
-          or unwind with a refreshing handcrafted cocktail, we have your cravings covered!
+          or unwind with a <span className='italic'>"mix-your-own"</span> cocktail, we have your cravings covered!
         </p>
       </motion.div>
 
@@ -105,7 +105,7 @@ const Services = () => {
                 className="mx-auto w-7/8 rounded mt-4"
                 transition={{ duration: 0.35 }}
               />
-              <p className="text-gray-600 text-center text-sm lg:text-lg font-semibold py-4">Handcrafted, pre-batched cocktails.</p>
+              <p className="text-gray-600 text-center text-sm lg:text-lg font-semibold py-4">Handcrafted mixers, ready for your favorite cocktails.</p>
             </motion.div>
           </Link>
         </motion.div>

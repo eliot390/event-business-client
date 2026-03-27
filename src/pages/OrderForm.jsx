@@ -95,6 +95,7 @@ const OrderForm = () => {
       }),
       comments,
       orderDate,
+      paymentMethod,
       items: items.map((it) => ({
         productKey: it.productKey,
         productName: it.productName,
@@ -145,7 +146,7 @@ const OrderForm = () => {
   }
 
   return (
-    <div className='flex flex-col mt-10 lg:mt-28 lg:flex-row justify-center'>
+    <div className='flex flex-col mt-10 lg:mt-15 3xl:mt-28 lg:flex-row justify-center'>
       {/* Left Side */}
       <div className='flex flex-col items-center lg:items-end bg-light-frozen lg:pt-4 lg:pr-8 lg:h-screen lg:w-1/2 max-sm:border-b-2 border-sea-green'>
         <form className='w-7/8 lg:w-lg pt-12 lg:pt-0'>
@@ -281,8 +282,8 @@ const OrderForm = () => {
                     onChange={(e) => setPaymentMethod(e.target.value)} 
                     className="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-gray-900 focus:outline-3 focus:outline-sea-green sm:text-sm/6">
                     <option value="">Select Option</option>
-                    <option value="Venmo">Venmo</option>
-                    <option value="Zelle">Zelle</option>
+                    <option value="Venmo">Venmo - @Eliot-Pardo</option>
+                    <option value="Zelle">Zelle - 818-439-1123</option>
                   </select>
                   <svg viewBox="0 0 16 16" fill="currentColor" data-slot="icon" aria-hidden="true" className="pointer-events-none col-start-1 row-start-1 mr-2 size-5 self-center justify-self-end text-gray-500 sm:size-4">
                     <path d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" fill-rule="evenodd" />
@@ -291,7 +292,7 @@ const OrderForm = () => {
               </div>
 
               {/* Conditional Field */}
-              {paymentImg[paymentMethod] && (
+            {/*  {paymentImg[paymentMethod] && (
                 <div className="col-span-full text-center">
                   <img 
                     src={paymentImg[paymentMethod].img}
@@ -299,7 +300,7 @@ const OrderForm = () => {
                   />
                   <p className="text-gray-600">{paymentImg[paymentMethod].info}</p>
                 </div>
-              )}
+              )} */}
 
               <div className="col-span-full">
                 <label htmlFor="street-address" className="block text-sm/6 font-medium text-gray-900">Additional Details</label>

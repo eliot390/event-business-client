@@ -23,16 +23,16 @@ const Navbar = () => {
       <div className="fixed top-0 left-0 w-full pb-2 z-50 mx-auto bg-[url(/src/assets/images/pattern.png)] bg-contain bg-frozen-water border-solid border-b-3 border-amber">
         <div className="relative flex flex-col lg:flex-row items-center justify-center my-2">
 
-          <div className="flex flex-row items-center justify-around w-1/3">
+          <div className="flex flex-row items-center justify-center 3xl:justify-around w-full 3xl:w-1/3">
             <div className="relative flex items-center justify-center">
-              <img src={logo} className="absolute -top-1 right-89/90 w-1/3"/>
-              <Link to="/" className="text-sea-green font-(family-name:--font-milliard-heavy) mt-2 text-3xl lg:text-5xl">
+              <img src={logo} className="absolute top-3 3xl:-top-1 right-89/90 w-1/6 3xl:w-1/3"/>
+              <Link to="/" className="text-sea-green font-(family-name:--font-milliard-heavy) lg:mt-2 text-3xl lg:text-5xl mr-10">
                 Flour <span className="inline-block text-base lg:text-3xl relative -top-1"> & </span> Flask
               </Link>
             </div>          
-            <div className="flex space-x-4 mt-2 text-center text-sea-green uppercase tracking-tighter text-md lg:tracking-wide lg:text-2xl">            
-              <Link to="/collection/dessertservice" className={`lg:pr-4 hover:text-amber ${location.pathname === '/collection/dessertservice' ? 'text-amber' : ''}`}>desserts</Link>
-              <Link to="/collection/barservice" className={`lg:pr-4 hover:text-amber ${location.pathname === '/collection/barservice' ? 'text-amber' : ''}`}>drinks</Link>
+            <div className="flex space-x-2 mt-2 text-center text-sea-green uppercase tracking-tighter text-md lg:tracking-wide lg:text-2xl">            
+              <Link to="/collection/dessertservice" className={`2xl:pr-4 hover:text-amber ${location.pathname === '/collection/dessertservice' ? 'text-amber' : ''}`}>desserts</Link>
+              <Link to="/collection/barservice" className={`2xl:pr-4 hover:text-amber ${location.pathname === '/collection/barservice' ? 'text-amber' : ''}`}>drinks</Link>
               <Link to="/faq" className={`hover:text-amber ${location.pathname === '/faq' ? 'text-amber' : ''}`}>faqs</Link>
             </div>
           </div>
