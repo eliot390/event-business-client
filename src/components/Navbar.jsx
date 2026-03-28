@@ -23,9 +23,11 @@ const Navbar = () => {
       <div className="fixed top-0 left-0 w-full pb-2 z-50 mx-auto bg-[url(/src/assets/images/pattern.png)] bg-contain bg-frozen-water border-solid border-b-3 border-amber">
         <div className="relative flex flex-col lg:flex-row items-center justify-center my-2">
 
-          <div className="flex flex-col lg:flex-row items-center lg:py-3 justify-center 3xl:justify-around w-full 3xl:w-1/3">
-            <img src={logo} className="w-2/3 lg:w-1/4 2xl:w-1/6 lg:mr-20"/>
-            {/* <div className="relative flex items-center justify-center">
+          <div className="flex flex-col lg:flex-row items-center lg:py-3 justify-center 3xl:justify-around w-full 2xl:w-2/3">
+            <Link to="/" className="w-3/5 xl:w-1/3 md:mr-10 2xl:w-1/3">
+              <img src={logo}/>
+            </Link>
+            {/* <div className="relative flex items-center justify-center"> <img src={logo} className="w-2/3 lg:w-1/4 2xl:w-1/6 lg:mr-20"/>
               <img src={logo} className="absolute top-3 3xl:-top-1 right-89/90 w-1/6 3xl:w-1/3"/>
               <Link to="/" className="text-sea-green font-(family-name:--font-milliard-heavy) lg:mt-2 text-3xl lg:text-5xl mr-10">
                 Flour <span className="inline-block text-base lg:text-3xl relative -top-1"> & </span> Flask
@@ -38,7 +40,7 @@ const Navbar = () => {
             </div>
           </div>
 
-          <div className="absolute top-0 right-2 xl:-top-1 xl:right-20 flex flex-row items-end">
+          <div className="absolute top-0 right-3 xl:-top-0 xl:right-20 flex flex-row items-end">
             <div className="relative cursor-pointer pt-5" onClick={() => setIsOpen(true)}>
               <img src={cart} className="h-8 lg:h-10 bg-white border-solid border-2 border-sea-green rounded-full "/>
               <div className="absolute top-3 -right-1 lg:top-3 lg:-right-1 w-4 h-4 lg:w-5 lg:h-5 flex items-center justify-center bg-sea-green rounded-full text-white text-xs font-semibold">{cartCount}</div>
