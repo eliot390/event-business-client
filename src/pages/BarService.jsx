@@ -329,7 +329,7 @@ const BarService = () => {
         </div>
       </div>
 
-      <div className="flex flex-col max-w-[85rem] px-4 pt-28 lg:px-8 lg:pt-38 mx-auto">
+      <div className="flex flex-col max-w-[85rem] px-4 pt-28 lg:px-8 mx-auto">
         <CocktailButtonGroup active={filter} onChange={setFilter}/>
         <div className="grid grid-cols-1 justify-items-center lg:grid-cols-4 gap-6 mb-5 mt-5">
           {visibleProducts.map((p) => (

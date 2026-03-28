@@ -52,7 +52,7 @@ const cardVariants = {
 const Services = () => {
   return (
     <motion.section
-      className="flex flex-col pt-40 justify-center items-center"
+      className="flex flex-col pt-30 justify-center items-center"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"

@@ -84,7 +84,7 @@ const FAQ = () => {
 
   return (
     <div>
-      <div className="pt-28 pb-10 px-4 lg:pt-40 lg:w-2xl lg:mx-auto">
+      <div className="pt-24 pb-10 px-4 lg:pt-30 lg:w-2xl lg:mx-auto">
         <div className="bg-white/85 pt-4 px-4 border-sea-green border-2 rounded">
           <div className="max-w-2xl mx-auto">
             <p className="text-2xl text-center font-bold">Dessert FAQs</p>

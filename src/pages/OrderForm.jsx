@@ -146,7 +146,7 @@ const OrderForm = () => {
   }
 
   return (
-    <div className='flex flex-col mt-10 lg:mt-15 3xl:mt-28 lg:flex-row justify-center'>
+    <div className='flex flex-col mt-10 lg:mt-22 lg:flex-row justify-center'>
       {/* Left Side */}
       <div className='flex flex-col items-center lg:items-end bg-light-frozen lg:pt-4 lg:pr-8 lg:h-screen lg:w-1/2 max-sm:border-b-2 border-sea-green'>
         <form className='w-7/8 lg:w-lg pt-12 lg:pt-0'>
