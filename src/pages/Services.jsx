@@ -63,7 +63,7 @@ const Services = () => {
         className="w-7/8 lg:w-2/5 mb-4 p-4 bg-frozen-water/75 rounded-lg"
       >
         <p className="text-gray-600 text-lg text-center">
-          Welcome to Flour & Flask! Whether you want to satisfy your sweet tooth with a fresh baked goodie, 
+          Whether you want to satisfy your sweet tooth with a fresh baked goodie, 
           or unwind with a <span className='italic'>"mix-your-own"</span> cocktail, we have your cravings covered!
         </p>
       </motion.div>

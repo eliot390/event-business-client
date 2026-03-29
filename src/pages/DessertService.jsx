@@ -8,7 +8,8 @@ import doublechocolate from '../assets/images/desserts/choco-choco-chip.jpg'
 import bananaSplitCookie from '../assets/images/desserts/bananaSplit.jpg'
 import cornCookie from '../assets/images/desserts/cornCookie.jpg'
 import carrotCakeCookie from '../assets/images/desserts/carrot-cake-cookie.jpg'
-import pie from '../assets/images/desserts/atlantic.png'
+import atlanticPie from '../assets/images/desserts/atlantic.png'
+import coconutPie from '../assets/images/desserts/coconut.jpg'
 import leches from '../assets/images/desserts/leches.png'
 import chocolateLeches from '../assets/images/desserts/choco-leches.jpg'
 import chocochipcart from '../assets/images/desserts/choco-chip-sm.jpg'
@@ -16,7 +17,8 @@ import doublechocolatecart from '../assets/images/desserts/choco-choco-chip-sm.j
 import bananaSplitCookiecart from '../assets/images/desserts/bananaSplit-sm.jpg'
 import carrotCakeCart from '../assets/images/desserts/carrot-cake-cookie-sm.jpg'
 import cornCookiecart from '../assets/images/desserts/cornCookie-sm.jpg'
-import piecart from '../assets/images/desserts/atlantic-sm.png'
+import atlanticPiecart from '../assets/images/desserts/atlantic-sm.png'
+import coconutPieCart from '../assets/images/desserts/coconut-sm.jpg'
 import lechescart from '../assets/images/desserts/leches-sm.png'
 import chocolateLechescart from '../assets/images/desserts/choco-leches-sm.jpg'
 import { useCart } from '../context/CartContext';
@@ -99,8 +101,17 @@ const DessertService = () => {
       key: "atlanticPie",
       type: "pies",
       name: "Atlantic Beach Pie",
-      image: pie,
-      cartImg: piecart,
+      image: atlanticPie,
+      cartImg: atlanticPiecart,
+      newStatus: true
+    };
+
+    const coconut = {
+      key: "coconutPie",
+      type: "pies",
+      name: "Coconut Pandan Cream Pie",
+      image: coconutPie,
+      cartImg: coconutPieCart,
       newStatus: true
     };
 
@@ -224,13 +235,27 @@ const DessertService = () => {
         ...atlantic,
         details: (
           <DessertDetailsCard
-            dessertImage={pie}
+            dessertImage={atlanticPie}
             name="Atlantic Beach Pie"
             description="A sweet-salty twist on a classic North Carolina lemon pie, made with a saltine cracker crust and a tart lemon-lime filling."
             rows={[
               {orderSize: "9\" Pie", orderCost: "23"}
             ]}
             onAdd={(selectedRow) => addToCart(atlantic, selectedRow)}
+          />
+        ),
+      },
+      {
+        ...coconut,
+        details: (
+          <DessertDetailsCard
+            dessertImage={coconutPie}
+            name="Coconut Pandan Cream Pie"
+            description="Thick & creamy coconut custard, made with a touch of aromatic pandan. Topped with whipped cream & toasted coconut."
+            rows={[
+              {orderSize: "9\" Pie", orderCost: "23"}
+            ]}
+            onAdd={(selectedRow) => addToCart(coconut, selectedRow)}
           />
         ),
       },
