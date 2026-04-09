@@ -189,7 +189,7 @@ const DessertService = () => {
           <DessertDetailsCard
             dessertImage={cornCookie}
             name="Sweet Corn Sugar Cookie"
-            description="Sweet and salty, soft and chewy, these cookies come packed with corn flavor."
+            description="Sweet and salty, soft and chewy, these cookies come packed with corn flavor! Pick up a batch and transport yourself to the days of eating your favorite corn-based, Saturday morning cereal."
             rows={[
               {orderSize: "6 Pack", orderCost: "15"},
               {orderSize: "12 Pack", orderCost: "25"},
@@ -237,7 +237,7 @@ const DessertService = () => {
           <DessertDetailsCard
             dessertImage={atlanticPie}
             name="Atlantic Beach Pie"
-            description="A sweet-salty twist on a classic North Carolina lemon pie, made with a saltine cracker crust and a tart lemon-lime filling."
+            description="A sweet-salty twist on a classic North Carolina lemon pie, made with a saltine cracker crust and a tart lime filling. Perfect for warm summer evening paired with a citrus forward cocktail or sparkling white wine!"
             rows={[
               {orderSize: "9\" Pie", orderCost: "23"}
             ]}
