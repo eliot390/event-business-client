@@ -54,8 +54,8 @@ const FAQ = () => {
       answer: "I respectfully require 3-4 days notice before the intended delivery/pick-up date to ensure the best service!"
     },
     {
-      question: "How far do you deliver?",
-      answer: "I am currently able to deliver in about a 5 mile radius around Burbank/Glendale."
+      question: "Delivery/Pickup Info",
+      answer: "Minimum delivery fee is $5.00, plus $0.75/mi based on round trip milage. Pickup or delivery within Burbank is free!"
     },
     {
       question: "Can I put in a custom order for XYZ?",
@@ -86,8 +86,42 @@ const FAQ = () => {
     <div>
       <div className="pt-24 pb-10 px-4 lg:pt-30 lg:w-2xl lg:mx-auto">
         <div className="bg-white/85 pt-4 px-4 border-sea-green border-2 rounded">
+        <div className="max-w-2xl mx-auto">
+            <p className="text-2xl text-center font-bold mt-10">Ordering Info</p>
+            {faqs.map((faq, index) => (
+              <motion.div key={index}
+                  className={`border-sea-green ${index !== faqs.length -1 ? "border-b" : ""}`}>
+                <button
+                  onClick={() => toggle(index)}
+                  className="w-full text-left py-4 flex justify-between items-center focus:outline-none cursor-pointer">
+                  <span className="font-medium">{faq.question}</span>
+                  <motion.span
+                    key={openIndex === index ? "minus" : "plus"}
+                    className="font-bold text-xl text-gray-900/50"
+                  >
+                    {openIndex === index ? "-" : "+"}
+                    </motion.span>
+                </button>
+
+                <AnimatePresence>
+                  {openIndex === index && (
+                    <motion.div
+                      key="content"
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="overflow-hidden">
+                      <p className="text-gray-700 py-2">{faq.answer}</p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            ))}
+          </div>
+
           <div className="max-w-2xl mx-auto">
-            <p className="text-2xl text-center font-bold">Dessert FAQs</p>
+            <p className="text-2xl text-center font-bold">Dessert Info</p>
             {dessertfaqs.map((dessertFaq, dessertIndex) => (
               <motion.div key={dessertIndex}
                   className="border-b border-sea-green">
@@ -154,39 +188,6 @@ const FAQ = () => {
             ))}
           </div> */}
 
-          <div className="max-w-2xl mx-auto">
-            <p className="text-2xl text-center font-bold mt-10">General FAQs</p>
-            {faqs.map((faq, index) => (
-              <motion.div key={index}
-                  className={`border-sea-green ${index !== faqs.length -1 ? "border-b" : ""}`}>
-                <button
-                  onClick={() => toggle(index)}
-                  className="w-full text-left py-4 flex justify-between items-center focus:outline-none cursor-pointer">
-                  <span className="font-medium">{faq.question}</span>
-                  <motion.span
-                    key={openIndex === index ? "minus" : "plus"}
-                    className="font-bold text-xl text-gray-900/50"
-                  >
-                    {openIndex === index ? "-" : "+"}
-                    </motion.span>
-                </button>
-
-                <AnimatePresence>
-                  {openIndex === index && (
-                    <motion.div
-                      key="content"
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: 'auto' }}
-                      exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.2 }}
-                      className="overflow-hidden">
-                      <p className="text-gray-700 py-2">{faq.answer}</p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            ))}
-          </div>
         </div>
         <p className="text-center pt-2">For other inquiries please contact us at chefeliotison@gmail.com</p>
       </div>

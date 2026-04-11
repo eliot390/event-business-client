@@ -16,7 +16,7 @@ const OrderRow = ({orderSize, orderCost, selected, onSelect}) => {
   )
 }
 
-const DessertDetailsCard = ({dessertImage, name, description, onAdd, rows=[]}) => {
+const DessertDetailsCard = ({dessertImage, name, description, allergens, onAdd, rows=[]}) => {
   const [selectedSize, setSelectedSize] = useState(null)
   const selectedRow = rows.find((r) => r.orderSize === selectedSize)
   const [isAdded, setIsAdded] = useState(false)
@@ -33,11 +33,18 @@ const DessertDetailsCard = ({dessertImage, name, description, onAdd, rows=[]}) =
 
   return (
     <div className='w-full lg:w-sm text-left'>
-      <img src={dessertImage} className="lg:w-full border-3 border-honey shadow-2xs rounded-xl"/>
+      <img src={dessertImage} className="border-3 border-honey shadow-2xs rounded-xl"/>
       <p className='text-xl lg:text-3xl font-semibold my-2 text-amber'>{name}</p>
-      <p className="font-medium mb-6">{description}</p>
-      <p className="mb-1">Select Size:</p>
-      <div className="flex gap-1 justify-between">
+      <p className="mb-2">{description}</p>
+      <p className="mb-4 font-semibold">Allergens: 
+        <span className="flex gap-2 mt-1">
+          {allergens.map((img, index) => (
+            <img key={index} src={img} className="h-6 lg:h-8" />
+          ))}
+        </span>
+      </p>
+      <p className="mb-1 font-semibold">Select Size:</p>
+      <div className="flex gap-1">
         {rows.map((row) => (
           <OrderRow 
             key={row.orderSize} 

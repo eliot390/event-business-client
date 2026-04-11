@@ -27,16 +27,10 @@ const Navbar = () => {
             <Link to="/" className="w-3/5 xl:w-1/3 md:mr-10 2xl:w-1/3">
               <img src={logo}/>
             </Link>
-            {/* <div className="relative flex items-center justify-center"> <img src={logo} className="w-2/3 lg:w-1/4 2xl:w-1/6 lg:mr-20"/>
-              <img src={logo} className="absolute top-3 3xl:-top-1 right-89/90 w-1/6 3xl:w-1/3"/>
-              <Link to="/" className="text-sea-green font-(family-name:--font-milliard-heavy) lg:mt-2 text-3xl lg:text-5xl mr-10">
-                Flour <span className="inline-block text-base lg:text-3xl relative -top-1"> & </span> Flask
-              </Link>
-            </div>           */}
             <div className="flex space-x-2 mt-2 text-center text-sea-green uppercase tracking-tighter text-md lg:tracking-wide lg:text-2xl">            
               <Link to="/collection/dessertservice" className={`xl:pr-4 hover:text-amber ${location.pathname === '/collection/dessertservice' ? 'text-amber' : ''}`}>desserts</Link>
               <Link to="/collection/barservice" className={`xl:pr-4 hover:text-amber ${location.pathname === '/collection/barservice' ? 'text-amber' : ''}`}>drinks</Link>
-              <Link to="/faq" className={`hover:text-amber ${location.pathname === '/faq' ? 'text-amber' : ''}`}>faqs</Link>
+              <Link to="/faq" className={`hover:text-amber ${location.pathname === '/faq' ? 'text-amber' : ''}`}>order info</Link>
             </div>
           </div>
 

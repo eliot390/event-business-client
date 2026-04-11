@@ -3,8 +3,8 @@ import { useCallback, useMemo, useState } from 'react';
 import DessertDetailsCard from '../components/DessertDetailsCard';
 import DessertButtonGroup from '../components/DessertButtonGroup';
 import DessertProductCard from '../components/DessertProductCard';
-import chocochip from '../assets/images/desserts/choco-chip.jpg'
-import doublechocolate from '../assets/images/desserts/choco-choco-chip.jpg'
+import chocoChip from '../assets/images/desserts/choco-chip.jpg'
+import doubleChocolate from '../assets/images/desserts/choco-choco-chip.jpg'
 import bananaSplitCookie from '../assets/images/desserts/bananaSplit.jpg'
 import cornCookie from '../assets/images/desserts/cornCookie.jpg'
 import carrotCakeCookie from '../assets/images/desserts/carrot-cake-cookie.jpg'
@@ -12,15 +12,20 @@ import atlanticPie from '../assets/images/desserts/atlantic.png'
 import coconutPie from '../assets/images/desserts/coconut.jpg'
 import leches from '../assets/images/desserts/leches.png'
 import chocolateLeches from '../assets/images/desserts/choco-leches.jpg'
-import chocochipcart from '../assets/images/desserts/choco-chip-sm.jpg'
-import doublechocolatecart from '../assets/images/desserts/choco-choco-chip-sm.jpg'
-import bananaSplitCookiecart from '../assets/images/desserts/bananaSplit-sm.jpg'
-import carrotCakeCart from '../assets/images/desserts/carrot-cake-cookie-sm.jpg'
-import cornCookiecart from '../assets/images/desserts/cornCookie-sm.jpg'
-import atlanticPiecart from '../assets/images/desserts/atlantic-sm.png'
+import chocoChipCart from '../assets/images/desserts/choco-chip-sm.jpg'
+import doubleChocolateCart from '../assets/images/desserts/choco-choco-chip-sm.jpg'
+import bananaSplitCookieCart from '../assets/images/desserts/bananaSplit-sm.jpg'
+import carrotCakeCookieCart from '../assets/images/desserts/carrot-cake-cookie-sm.jpg'
+import cornCookieCart from '../assets/images/desserts/cornCookie-sm.jpg'
+import atlanticPieCart from '../assets/images/desserts/atlantic-sm.png'
 import coconutPieCart from '../assets/images/desserts/coconut-sm.jpg'
-import lechescart from '../assets/images/desserts/leches-sm.png'
-import chocolateLechescart from '../assets/images/desserts/choco-leches-sm.jpg'
+import lechesCart from '../assets/images/desserts/leches-sm.png'
+import chocolateLechesCart from '../assets/images/desserts/choco-leches-sm.jpg'
+import dairy from '../assets/images/milk-c.png'
+import egg from '../assets/images/egg-c.png'
+import wheat from '../assets/images/wheat-c.png'
+import nuts from '../assets/images/nuts-c.png'
+import soy from '../assets/images/soy-c.png'
 import { useCart } from '../context/CartContext';
 
 const DessertService = () => {
@@ -46,8 +51,8 @@ const DessertService = () => {
       key: "chocolateChip",
       type: "cookies",
       name: "Classic Chocolate Chip",
-      image: chocochip,
-      cartImg: chocochipcart,
+      image: chocoChip,
+      cartImg: chocoChipCart,
       newStatus: false
     };
 
@@ -55,17 +60,17 @@ const DessertService = () => {
       key: "doubleChocoChip",
       type: "cookies",
       name: "Double Chocolate Chocolate Chip",
-      image: doublechocolate,
-      cartImg: doublechocolatecart,
+      image: doubleChocolate,
+      cartImg: doubleChocolateCart,
       newStatus: false
     };
 
-    const walnutChocoChip = {
-      key: "walnutChocoChip",
+    const walnutchocoChip = {
+      key: "walnutchocoChip",
       type: "cookies",
       name: "Walnut Chocolate Chip",
-      image: chocochip,
-      cartImg: chocochipcart,
+      image: chocoChip,
+      cartImg: chocoChipCart,
       newStaus: false
     };
 
@@ -74,7 +79,7 @@ const DessertService = () => {
       type: "cookies",
       name: "Sweet Corn Sugar Cookie",
       image: cornCookie,
-      cartImg: cornCookiecart,
+      cartImg: cornCookieCart,
       newStatus: false
     };
 
@@ -83,7 +88,7 @@ const DessertService = () => {
       type: "cookies",
       name: "Banana Split Cookie",
       image: bananaSplitCookie,
-      cartImg: bananaSplitCookiecart,
+      cartImg: bananaSplitCookieCart,
       newStatus: true
     };
 
@@ -92,7 +97,7 @@ const DessertService = () => {
       type: "cookies",
       name: "Carrot Cake Cookies",
       image: carrotCakeCookie,
-      cartImg: carrotCakeCart,
+      cartImg: carrotCakeCookieCart,
       newStatus: false,
       holidayStatus: true
     };
@@ -102,7 +107,7 @@ const DessertService = () => {
       type: "pies",
       name: "Atlantic Beach Pie",
       image: atlanticPie,
-      cartImg: atlanticPiecart,
+      cartImg: atlanticPieCart,
       newStatus: true
     };
 
@@ -120,7 +125,7 @@ const DessertService = () => {
       type: "tres leches",
       name: "Fruity Pebbles Tres Leches",
       image: leches,
-      cartImg: lechescart,
+      cartImg: lechesCart,
       newStatus: true
     };
 
@@ -129,7 +134,7 @@ const DessertService = () => {
       type: "tres leches",
       name: "Chocolate Hazelnut Tres Leches",
       image: chocolateLeches,
-      cartImg: chocolateLechescart,
+      cartImg: chocolateLechesCart,
       newStatus: true
     };
 
@@ -139,11 +144,11 @@ const DessertService = () => {
         ...chocolateChip,
         details: (
           <DessertDetailsCard
-            dessertImage={chocochip}
+            dessertImage={chocoChipCart}
             name="Classic Chocolate Chip"
             description="Perfectly crispy on the outside and satisfyingly thick and gooey in the center."
-            rows={[
-              {orderSize: "6 Pack", orderCost: "15"},
+            allergens={[dairy, egg, wheat, soy]}
+            rows={[              
               {orderSize: "12 Pack", orderCost: "25"},
               {orderSize: "24 Pack", orderCost: "45"}
             ]}
@@ -155,11 +160,11 @@ const DessertService = () => {
         ...doubleChocoChip,
         details: (
           <DessertDetailsCard
-            dessertImage={doublechocolate}
+            dessertImage={doubleChocolateCart}
             name="Double Chocolate Chocolate Chip Cookie"
             description="The ultimate chocolate cookie: dense, chewy and dangerously rich."
-            rows={[
-              {orderSize: "6 Pack", orderCost: "15"},
+            allergens={[dairy, egg, wheat, soy]}
+            rows={[              
               {orderSize: "12 Pack", orderCost: "25"},
               {orderSize: "24 Pack", orderCost: "45"}
             ]}
@@ -168,18 +173,18 @@ const DessertService = () => {
         ),
       },
       {
-        ...walnutChocoChip,
+        ...walnutchocoChip,
         details: (
           <DessertDetailsCard
-            dessertImage={chocochip}
+            dessertImage={chocoChipCart}
             name="Walnut Chocolate Chip Cookie"
-            description="Crispy on the outside with a satisfyingly thick and gooey center, packed with semi-sweet chocolate chips and chunks of walnuts."
-            rows={[
-              {orderSize: "6 Pack", orderCost: "15"},
+            description="Crispy on the outside with a satisfyingly thick and moist center, packed with semi-sweet chocolate chips and chunks of walnuts."
+            allergens={[dairy, egg, wheat, soy, nuts]}
+            rows={[              
               {orderSize: "12 Pack", orderCost: "25"},
               {orderSize: "24 Pack", orderCost: "45"}
             ]}
-            onAdd={(selectedRow) => addToCart(walnutChocoChip, selectedRow)}
+            onAdd={(selectedRow) => addToCart(walnutchocoChip, selectedRow)}
           />
         ),
       },
@@ -187,11 +192,11 @@ const DessertService = () => {
         ...corn,
         details: (
           <DessertDetailsCard
-            dessertImage={cornCookie}
+            dessertImage={cornCookieCart}
             name="Sweet Corn Sugar Cookie"
             description="Sweet and salty, soft and chewy, these cookies come packed with corn flavor! Pick up a batch and transport yourself to the days of eating your favorite corn-based, Saturday morning cereal."
-            rows={[
-              {orderSize: "6 Pack", orderCost: "15"},
+            allergens={[dairy, egg, wheat]}
+            rows={[              
               {orderSize: "12 Pack", orderCost: "25"},
               {orderSize: "24 Pack", orderCost: "45"}
             ]}
@@ -203,11 +208,11 @@ const DessertService = () => {
         ...bananaSplit,
         details: (
           <DessertDetailsCard
-            dessertImage={bananaSplitCookie}
+            dessertImage={bananaSplitCookieCart}
             name="Banana Split Cookie"
             description="Thick, indulgent cookies made with banana, creamy butterscotch, rich chocolate, walnuts, and fresh strawberries."
-            rows={[
-              {orderSize: "6 Pack", orderCost: "15"},
+            allergens={[dairy, egg, wheat, soy, nuts]}
+            rows={[              
               {orderSize: "12 Pack", orderCost: "25"},
               {orderSize: "24 Pack", orderCost: "45"}
             ]}
@@ -219,11 +224,11 @@ const DessertService = () => {
         ...carrotCake,
         details: (
           <DessertDetailsCard
-            dessertImage={carrotCakeCookie}
+            dessertImage={carrotCakeCookieCart}
             name="Carrot Cake Cookie"
             description="Soft & tender cookies packed with raisins, pecans and carrots, topped with a cream cheese drizzle."
-            rows={[
-              {orderSize: "6 Pack", orderCost: "15"},
+            allergens={[dairy, egg, wheat, soy, nuts]}
+            rows={[              
               {orderSize: "12 Pack", orderCost: "25"},
               {orderSize: "24 Pack", orderCost: "45"}
             ]}
@@ -235,9 +240,10 @@ const DessertService = () => {
         ...atlantic,
         details: (
           <DessertDetailsCard
-            dessertImage={atlanticPie}
+            dessertImage={atlanticPieCart}
             name="Atlantic Beach Pie"
             description="A sweet-salty twist on a classic North Carolina lemon pie, made with a saltine cracker crust and a tart lime filling. Perfect for warm summer evening paired with a citrus forward cocktail or sparkling white wine!"
+            allergens={[dairy, egg, wheat]}
             rows={[
               {orderSize: "9\" Pie", orderCost: "23"}
             ]}
@@ -249,9 +255,10 @@ const DessertService = () => {
         ...coconut,
         details: (
           <DessertDetailsCard
-            dessertImage={coconutPie}
+            dessertImage={coconutPieCart}
             name="Coconut Pandan Cream Pie"
             description="Thick & creamy coconut custard, made with a touch of aromatic pandan. Topped with whipped cream & toasted coconut."
+            allergens={[dairy, egg, wheat]}
             rows={[
               {orderSize: "9\" Pie", orderCost: "23"}
             ]}
@@ -263,9 +270,10 @@ const DessertService = () => {
         ...fruityLeches,
         details: (
           <DessertDetailsCard
-            dessertImage={leches}
+            dessertImage={lechesCart}
             name="Fruity Pebbles Tres Leches"
             description="Breakfast & dessert collide in this light cake soaked with a rich, 3 milk blend, topped with whipped cream and Fruity Pebbles cereal."
+            allergens={[dairy, egg, wheat, soy]}
             rows={[
               {orderSize: "9\" x 9\" Cake", orderCost: "25"}
             ]}
@@ -277,9 +285,10 @@ const DessertService = () => {
         ...chocoLeches,
         details: (
           <DessertDetailsCard
-            dessertImage={chocolateLeches}
+            dessertImage={chocolateLechesCart}
             name="Chocolate Hazelnut Tres Leches"
             description="Rich chocolate cake soaked in our signature 3 milk blend, topped with a light & airy Nutella frosting and toasted hazelnuts."
+            allergens={[dairy, egg, wheat, soy, nuts]}
             rows={[
               {orderSize: "9\" x 9\" Cake", orderCost: "25"}
             ]}
