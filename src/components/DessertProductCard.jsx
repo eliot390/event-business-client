@@ -11,7 +11,7 @@ const DessertProductCard = ({name, image, newStatus, holidayStatus, details, des
           <img src={image} className="w-4/5 rounded-lg my-4 object-contain transition duration-300 ease-in-out hover:scale-105" />
         </div>
         <div className="ml-2 mb-16">
-          <h3 className="text-2xl text-center font-bold text-gray-800">{name}</h3>
+          <h3 className="text-2xl text-center font-bold text-gray-700">{name}</h3>
           <p className="font-medium w-5/6">{description}</p>
         </div>
         <div className="absolute bottom-4 right-4 flex justify-end">
@@ -47,7 +47,7 @@ const DessertProductCard = ({name, image, newStatus, holidayStatus, details, des
               onClick={(e) => e.stopPropagation()}
             >
               <button
-                className="absolute top-1 right-2 lg:top-0 lg:right-1 lg:text-2xl text-gray-500 hover:text-gray-700 cursor-pointer"
+                className="absolute font-semibold text-xl top-1 right-2 lg:top-0 lg:right-4 lg:top-2 lg:text-2xl text-gray-500 hover:text-gray-700 cursor-pointer"
                 onClick={() => setIsOpen(null)}
               >
                 ✕

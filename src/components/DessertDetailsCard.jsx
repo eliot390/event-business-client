@@ -4,7 +4,7 @@ const OrderRow = ({orderSize, orderCost, selected, onSelect}) => {
   return (
     <div
       onClick={onSelect} 
-      className={`flex flex-col text-center border-2  rounded-sm py-1 w-1/3 cursor-pointer
+      className={`flex flex-col text-center border-2 rounded-sm py-1 w-1/3 cursor-pointer
         ${
           selected
             ? "bg-frozen-water border-frozen-water"
@@ -39,7 +39,7 @@ const DessertDetailsCard = ({dessertImage, name, description, allergens, onAdd, 
       <p className="mb-4 font-semibold">Allergens: 
         <span className="flex gap-2 mt-1">
           {allergens.map((img, index) => (
-            <img key={index} src={img} className="h-6 lg:h-8" />
+            <img key={index} src={img} className="h-5 lg:h-7" />
           ))}
         </span>
       </p>
