@@ -1,5 +1,6 @@
 
 import { useCallback, useMemo, useState } from 'react';
+import { useCart } from '../context/CartContext';
 import DessertDetailsCard from '../components/DessertDetailsCard';
 import DessertButtonGroup from '../components/DessertButtonGroup';
 import DessertProductCard from '../components/DessertProductCard';
@@ -26,7 +27,6 @@ import egg from '../assets/images/egg-c.png'
 import wheat from '../assets/images/wheat-c.png'
 import nuts from '../assets/images/nuts-c.png'
 import soy from '../assets/images/soy-c.png'
-import { useCart } from '../context/CartContext';
 
 const DessertService = () => {
   const [filter, setFilter] = useState("all");

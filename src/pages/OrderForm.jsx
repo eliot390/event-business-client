@@ -2,8 +2,6 @@ import { useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import StatusModal from '../components/StatusModal';
-import venmo from '../assets/images/venmo.jpg'
-import zelle from '../assets/images/zelle.jpg'
 
 const OrderForm = () => {
   const [name, setName] = useState("")
@@ -16,16 +14,6 @@ const OrderForm = () => {
   const [deliveryZip, setDeliveryZip] = useState("")
   const [orderDate, setOrderDate] = useState("")
   const [paymentMethod, setPaymentMethod] = useState("")
-  const paymentImg = {
-    Venmo: {
-      img: venmo,
-      info: "@Eliot-Pardo"
-     },
-    Zelle: {
-      img: zelle,
-      info: "818 439 1123"
-    }
-  }
 
   const API_URL = import.meta.env.VITE_API_URL
   const navigate = useNavigate();
