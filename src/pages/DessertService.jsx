@@ -7,7 +7,7 @@ import chocoChip from '../assets/images/desserts/choco-chip.jpg'
 import doubleChocolate from '../assets/images/desserts/choco-choco-chip.jpg'
 import bananaSplitCookie from '../assets/images/desserts/bananaSplit.jpg'
 import cornCookie from '../assets/images/desserts/cornCookie.jpg'
-import carrotCakeCookie from '../assets/images/desserts/carrot-cake-cookie.jpg'
+import classicSaltedChip from '../assets/images/desserts/classic-salted-chip.jpg'
 import atlanticPie from '../assets/images/desserts/atlantic.png'
 import coconutPie from '../assets/images/desserts/coconut.jpg'
 import leches from '../assets/images/desserts/leches.png'
@@ -15,7 +15,7 @@ import chocolateLeches from '../assets/images/desserts/choco-leches.jpg'
 import chocoChipCart from '../assets/images/desserts/choco-chip-sm.jpg'
 import doubleChocolateCart from '../assets/images/desserts/choco-choco-chip-sm.jpg'
 import bananaSplitCookieCart from '../assets/images/desserts/bananaSplit-sm.jpg'
-import carrotCakeCookieCart from '../assets/images/desserts/carrot-cake-cookie-sm.jpg'
+import classicSaltedChipCart from '../assets/images/desserts/classic-salted-chip-sm.jpg'
 import cornCookieCart from '../assets/images/desserts/cornCookie-sm.jpg'
 import atlanticPieCart from '../assets/images/desserts/atlantic-sm.png'
 import coconutPieCart from '../assets/images/desserts/coconut-sm.jpg'
@@ -50,7 +50,7 @@ const DessertService = () => {
     const chocolateChip = {
       key: "chocolateChip",
       type: "cookies",
-      name: "Classic Chocolate Chip",
+      name: "Extra Thicc Chocolate Chip",
       image: chocoChip,
       cartImg: chocoChipCart,
       newStatus: false
@@ -59,7 +59,7 @@ const DessertService = () => {
     const doubleChocoChip = {
       key: "doubleChocoChip",
       type: "cookies",
-      name: "Double Chocolate Chocolate Chip",
+      name: "Extra Thicc Double Chocolate Chocolate Chip",
       image: doubleChocolate,
       cartImg: doubleChocolateCart,
       newStatus: false
@@ -68,7 +68,7 @@ const DessertService = () => {
     const walnutchocoChip = {
       key: "walnutchocoChip",
       type: "cookies",
-      name: "Walnut Chocolate Chip",
+      name: "Extra Thicc Walnut Chocolate Chip",
       image: chocoChip,
       cartImg: chocoChipCart,
       newStaus: false
@@ -92,14 +92,14 @@ const DessertService = () => {
       newStatus: true
     };
 
-    const carrotCake = {
-      key: "carrotCake",
+    const saltedChocolateChip = {
+      key: "saltedChocolateChip",
       type: "cookies",
-      name: "Carrot Cake Cookies",
-      image: carrotCakeCookie,
-      cartImg: carrotCakeCookieCart,
-      newStatus: false,
-      holidayStatus: true
+      name: "Salted Chocolate Chip",
+      image: classicSaltedChip,
+      cartImg: classicSaltedChipCart,
+      newStatus: true,
+      holidayStatus: false
     };
 
     const atlantic = {
@@ -145,8 +145,8 @@ const DessertService = () => {
         details: (
           <DessertDetailsCard
             dessertImage={chocoChipCart}
-            name="Classic Chocolate Chip"
-            description="Perfectly crispy on the outside and satisfyingly thick and gooey in the center."
+            name="Extra Thicc Chocolate Chip"
+            description="Perfectly crispy on the outside and satisfyingly thick and tender in the center, these extra thicc cookies are packed with 2 two types of chocolate chips!"
             allergens={[dairy, egg, wheat, soy]}
             rows={[              
               {orderSize: "12 Pack", orderCost: "25"},
@@ -161,8 +161,8 @@ const DessertService = () => {
         details: (
           <DessertDetailsCard
             dessertImage={doubleChocolateCart}
-            name="Double Chocolate Chocolate Chip Cookie"
-            description="The ultimate chocolate cookie: dense, chewy and dangerously rich."
+            name="Extra Thicc Double Chocolate Chip"
+            description="Oh, you want more chocolate? This is ultimate chocolate cookie: dense, chewy and dangerously rich."
             allergens={[dairy, egg, wheat, soy]}
             rows={[              
               {orderSize: "12 Pack", orderCost: "25"},
@@ -177,7 +177,7 @@ const DessertService = () => {
         details: (
           <DessertDetailsCard
             dessertImage={chocoChipCart}
-            name="Walnut Chocolate Chip Cookie"
+            name="Extra Thicc Walnut Chocolate Chip"
             description="Crispy on the outside with a satisfyingly thick and moist center, packed with semi-sweet chocolate chips and chunks of walnuts."
             allergens={[dairy, egg, wheat, soy, nuts]}
             rows={[              
@@ -221,18 +221,18 @@ const DessertService = () => {
         ),
       },
       {
-        ...carrotCake,
+        ...saltedChocolateChip,
         details: (
           <DessertDetailsCard
-            dessertImage={carrotCakeCookieCart}
-            name="Carrot Cake Cookie"
-            description="Soft & tender cookies packed with raisins, pecans and carrots, topped with a cream cheese drizzle."
-            allergens={[dairy, egg, wheat, soy, nuts]}
+            dessertImage={classicSaltedChipCart}
+            name="Salted Chocolate Chip"
+            description="Crispy edges and a chewy center, these classic style cookies come loaded with chocolate chips, and topped with sea salt"
+            allergens={[dairy, egg, wheat, soy]}
             rows={[              
               {orderSize: "12 Pack", orderCost: "25"},
               {orderSize: "24 Pack", orderCost: "45"}
             ]}
-            onAdd={(selectedRow) => addToCart(carrotCake, selectedRow)}
+            onAdd={(selectedRow) => addToCart(saltedChocolateChip, selectedRow)}
           />
         ),
       },
