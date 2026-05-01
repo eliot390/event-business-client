@@ -52,7 +52,7 @@ const DessertService = () => {
     const chocolateChip = {
       key: "chocolateChip",
       type: "cookies",
-      name: "Extra Thicc Chocolate Chip",
+      name: "Extra Thicc Chocolate Chip Cookie",
       image: chocoChip,
       cartImg: chocoChipCart,
       newStatus: false
@@ -61,7 +61,7 @@ const DessertService = () => {
     const doubleChocoChip = {
       key: "doubleChocoChip",
       type: "cookies",
-      name: "Extra Thicc Double Chocolate Chocolate Chip",
+      name: "Extra Thicc Double Chocolate Chocolate Chip Cookie",
       image: doubleChocolate,
       cartImg: doubleChocolateCart,
       newStatus: false
@@ -70,7 +70,7 @@ const DessertService = () => {
     const walnutchocoChip = {
       key: "walnutchocoChip",
       type: "cookies",
-      name: "Extra Thicc Walnut Chocolate Chip",
+      name: "Extra Thicc Walnut Chocolate Chip Cookie",
       image: chocoChip,
       cartImg: chocoChipCart,
       newStaus: false
@@ -97,7 +97,7 @@ const DessertService = () => {
     const saltedChocolateChip = {
       key: "saltedChocolateChip",
       type: "cookies",
-      name: "Salted Chocolate Chip",
+      name: "Salted Chocolate Chip Cookie",
       image: classicSaltedChip,
       cartImg: classicSaltedChipCart,
       newStatus: true,
@@ -156,7 +156,7 @@ const DessertService = () => {
         details: (
           <DessertDetailsCard
             dessertImage={chocoChipCart}
-            name="Extra Thicc Chocolate Chip"
+            name="Extra Thicc Chocolate Chip Cookie"
             description="Perfectly crispy on the outside and satisfyingly thick and tender in the center, these extra thicc cookies are packed with 2 two types of chocolate chips!"
             allergens={[dairy, egg, wheat, soy]}
             rows={[              
@@ -172,7 +172,7 @@ const DessertService = () => {
         details: (
           <DessertDetailsCard
             dessertImage={doubleChocolateCart}
-            name="Extra Thicc Double Chocolate Chip"
+            name="Extra Thicc Double Chocolate Chip Cookie"
             description="Oh, you want more chocolate? This is ultimate chocolate cookie: dense, chewy and dangerously rich."
             allergens={[dairy, egg, wheat, soy]}
             rows={[              
@@ -188,7 +188,7 @@ const DessertService = () => {
         details: (
           <DessertDetailsCard
             dessertImage={chocoChipCart}
-            name="Extra Thicc Walnut Chocolate Chip"
+            name="Extra Thicc Walnut Chocolate Chip Cookie"
             description="Crispy on the outside with a satisfyingly thick and moist center, packed with semi-sweet chocolate chips and chunks of walnuts."
             allergens={[dairy, egg, wheat, soy, nuts]}
             rows={[              
@@ -236,7 +236,7 @@ const DessertService = () => {
         details: (
           <DessertDetailsCard
             dessertImage={classicSaltedChipCart}
-            name="Salted Chocolate Chip"
+            name="Salted Chocolate Chip Cookie"
             description="Crispy edges and a chewy center, these classic style cookies come loaded with chocolate chips, and topped with sea salt"
             allergens={[dairy, egg, wheat, soy]}
             rows={[              

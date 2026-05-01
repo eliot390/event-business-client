@@ -1,5 +1,5 @@
 import drink from '../assets/images/batchd.jpg'
-import dessert from '../assets/images/cookies.jpg'
+import dessert from '../assets/images/pie-sm.jpg'
 import { Link } from "react-router-dom"
 import { motion, stagger } from "motion/react"
 
@@ -61,9 +61,7 @@ const Services = () => {
         variants={fadeUp}
         className="w-7/8 lg:w-2/5 mb-4 p-4 bg-frozen-water/75 rounded-lg"
       >
-        <p className="text-gray-600 text-lg text-center">
-          Satisfy your sweet tooth with a fresh baked goodie, or unwind with a 
-          <span className='italic'>"mix-your-own"</span> cocktail. We have your cravings covered!
+        <p className="text-gray-600 text-lg font-semibold text-center">Sweet treats. Custom sips.<br/>Oven-fresh indulgence or a cocktail you call the shots on. We have your cravings covered.
         </p>
       </motion.div>
 
@@ -85,7 +83,7 @@ const Services = () => {
                 className="mx-auto w-7/8 rounded mt-4"
                 transition={{ duration: 0.35 }}
               />
-              <p className="text-gray-600 text-center text-sm lg:text-lg font-semibold py-4">Homemade desserts, perfect for any occasion.</p>
+              <p className="text-gray-600 text-center italic text-sm lg:text-lg font-semibold py-4">Homemade desserts</p>
             </motion.div>
           </Link>
         </motion.div>
@@ -104,7 +102,7 @@ const Services = () => {
                 className="mx-auto w-7/8 rounded mt-4"
                 transition={{ duration: 0.35 }}
               />
-              <p className="text-gray-600 text-center text-sm lg:text-lg font-semibold py-4">Handcrafted mixers, ready for your favorite cocktails.</p>
+              <p className="text-gray-600 text-center italic text-sm lg:text-lg font-semibold py-4">Handcrafted mixers</p>
             </motion.div>
           </Link>
         </motion.div>
