@@ -5,22 +5,24 @@ import DessertDetailsCard from '../components/DessertDetailsCard';
 import DessertButtonGroup from '../components/DessertButtonGroup';
 import DessertProductCard from '../components/DessertProductCard';
 import chocoChip from '../assets/images/desserts/choco-chip.jpg'
-import doubleChocolate from '../assets/images/desserts/choco-choco-chip.jpg'
-import bananaSplitCookie from '../assets/images/desserts/bananaSplit.jpg'
-import cornCookie from '../assets/images/desserts/cornCookie.jpg'
-import classicSaltedChip from '../assets/images/desserts/classic-salted-chip.jpg'
-import atlanticPie from '../assets/images/desserts/atlantic.png'
-import coconutPie from '../assets/images/desserts/coconut.jpg'
-import leches from '../assets/images/desserts/leches.png'
-import chocolateLeches from '../assets/images/desserts/choco-leches.jpg'
 import chocoChipCart from '../assets/images/desserts/choco-chip-sm.jpg'
+import doubleChocolate from '../assets/images/desserts/choco-choco-chip.jpg'
 import doubleChocolateCart from '../assets/images/desserts/choco-choco-chip-sm.jpg'
+import bananaSplitCookie from '../assets/images/desserts/bananaSplit.jpg'
 import bananaSplitCookieCart from '../assets/images/desserts/bananaSplit-sm.jpg'
-import classicSaltedChipCart from '../assets/images/desserts/classic-salted-chip-sm.jpg'
+import cornCookie from '../assets/images/desserts/cornCookie.jpg'
 import cornCookieCart from '../assets/images/desserts/cornCookie-sm.jpg'
+import classicSaltedChip from '../assets/images/desserts/classic-salted-chip.jpg'
+import classicSaltedChipCart from '../assets/images/desserts/classic-salted-chip-sm.jpg'
+import atlanticPie from '../assets/images/desserts/atlantic.png'
 import atlanticPieCart from '../assets/images/desserts/atlantic-sm.png'
+import bananasFosterPie from '../assets/images/desserts/bananas-foster.jpg'
+import bananasFosterPieCart from '../assets/images/desserts/bananas-foster-sm.jpg'
+import coconutPie from '../assets/images/desserts/coconut.jpg'
 import coconutPieCart from '../assets/images/desserts/coconut-sm.jpg'
+import leches from '../assets/images/desserts/leches.png'
 import lechesCart from '../assets/images/desserts/leches-sm.png'
+import chocolateLeches from '../assets/images/desserts/choco-leches.jpg'
 import chocolateLechesCart from '../assets/images/desserts/choco-leches-sm.jpg'
 import dairy from '../assets/images/milk-c.png'
 import egg from '../assets/images/egg-c.png'
@@ -108,6 +110,15 @@ const DessertService = () => {
       name: "Atlantic Beach Pie",
       image: atlanticPie,
       cartImg: atlanticPieCart,
+      newStatus: true
+    };
+
+    const bananasFoster = {
+      key: "banansFosterPie",
+      type: "pies",
+      name: "Bananas Foster Cream Pie",
+      image: bananasFosterPie,
+      cartImg: bananasFosterPieCart,
       newStatus: true
     };
 
@@ -248,6 +259,21 @@ const DessertService = () => {
               {orderSize: "9\" Pie", orderCost: "23"}
             ]}
             onAdd={(selectedRow) => addToCart(atlantic, selectedRow)}
+          />
+        ),
+      },
+      {
+        ...bananasFoster,
+        details: (
+          <DessertDetailsCard
+            dessertImage={bananasFosterPieCart}
+            name="Bananas Foster Cream Pie"
+            description="This is what happens when your banana cream pie gets lost on Bourbon St.! Luscious banana cream filling, topped with vanilla whipped cream, toasted walnuts and a boozy rum caramel sauce."
+            allergens={[dairy, egg, wheat, nuts]}
+            rows={[
+              {orderSize: "9\" Pie", orderCost: "23"}
+            ]}
+            onAdd={(selectedRow) => addToCart(bananasFoster, selectedRow)}
           />
         ),
       },
