@@ -14,6 +14,9 @@ const OrderForm = () => {
   const [deliveryZip, setDeliveryZip] = useState("")
   const [orderDate, setOrderDate] = useState("")
   const [paymentMethod, setPaymentMethod] = useState("")
+  const deliveryFee = 10
+  const isFreeDeliveryCity = deliveryCity?.trim().toLowerCase() === "burbank";
+  const effectiveDeliveryFee = isFreeDeliveryCity ? 0 : deliveryFee;
 
   const API_URL = import.meta.env.VITE_API_URL
   const navigate = useNavigate();
@@ -197,13 +200,13 @@ const OrderForm = () => {
                     onChange={(e) => setDeliveryMethod(e.target.value)} 
                     className="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-gray-900 focus:outline-3 focus:outline-sea-green sm:text-sm/6">
                     <option value="">Select Option</option>
-                    <option value="Pickup - Ganbatte">Pickup (Ganbatte Gym)</option>
                     <option value="Pickup - Burbank">Pickup (Burbank)</option>
                     <option value="Delivery">Delivery</option>
                   </select>
                   <svg viewBox="0 0 16 16" fill="currentColor" data-slot="icon" aria-hidden="true" className="pointer-events-none col-start-1 row-start-1 mr-2 size-5 self-center justify-self-end text-gray-500 sm:size-4">
                     <path d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" fill-rule="evenodd" />
                   </svg>
+                  {deliveryMethod === "Delivery" && (<p className='font-light text-xs text-black'>Deliveries have a $10 flat rate, plus additional milege charges.<br/>Burbank delivery is free.</p>)}
                 </div>
               </div>
 
@@ -279,17 +282,6 @@ const OrderForm = () => {
                 </div>
               </div>
 
-              {/* Conditional Field */}
-            {/*  {paymentImg[paymentMethod] && (
-                <div className="col-span-full text-center">
-                  <img 
-                    src={paymentImg[paymentMethod].img}
-                    className='mx-auto w-2/5 shadow rounded-lg'
-                  />
-                  <p className="text-gray-600">{paymentImg[paymentMethod].info}</p>
-                </div>
-              )} */}
-
               <div className="col-span-full">
                 <label htmlFor="street-address" className="block text-sm/6 font-medium text-gray-900">Additional Details</label>
                 <div className="lg:mt-2">
@@ -329,7 +321,7 @@ const OrderForm = () => {
           items.map((it) => (
             <div
               key={`${it.productKey}|${it.orderSize}`}
-              className="bg-white/60 rounded-xl mx-auto lg:mb-2 lg:mx-0 p-3 lg:px-3 lg:py-4 shadow w-9/10 ">
+              className="bg-white/60 rounded-xl mx-auto lg:mb-2 lg:mx-0 p-3 lg:px-3 lg:py-4 shadow">
               <div className="relative flex gap-2">
                 <div>                          
                   <img src={it.cartImg} className="max-sm:w-5/6 rounded-xl"/>
@@ -348,10 +340,23 @@ const OrderForm = () => {
           ))
         )}
         <div className="border-t-2 border-honey p-4 lg:pt-3 mt-4 lg:mt-12 ">
-          <div className="flex justify-end lg:justify-between text-xl font-bold text-sea-green">
-            <span className='pr-6'>Total:</span>
-            <span>${cartTotal.toFixed(2)}</span>
-          </div>
+          {deliveryMethod === "Delivery" ? ( 
+            <div>              
+              <div className="flex justify-end lg:justify-between text-xl font-bold text-sea-green">
+                <span className='pr-6'>Subtotal:</span><span>${cartTotal.toFixed(2)}</span>
+              </div>
+              <div className="flex justify-end lg:justify-between text-xl font-bold text-sea-green">
+                <span className='pr-6'>Delivery:</span><span>${effectiveDeliveryFee.toFixed(2)}</span>
+              </div>
+              <div className="flex justify-end lg:justify-between text-xl font-bold text-sea-green">
+                <span className='pr-6'>Order Total:</span><span>${(cartTotal+effectiveDeliveryFee).toFixed(2)}</span>
+              </div>
+            </div>
+          ) : (
+            <div className="flex justify-end lg:justify-between text-xl font-bold text-sea-green">
+              <span className='pr-6'>Order Total:</span><span>${cartTotal.toFixed(2)}</span>
+            </div> 
+          )}
         </div>
         </div>
       </div>
