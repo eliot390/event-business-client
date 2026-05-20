@@ -61,7 +61,7 @@ const Services = () => {
         variants={fadeUp}
         className="w-7/8 lg:w-2/5 mb-4 p-4 bg-frozen-water/75 rounded-lg"
       >
-        <p className="text-gray-600 text-lg font-semibold text-center">Sweet treats. Custom sips.<br/>Oven-fresh indulgence or a cocktail you call the shots on. We have your cravings covered.
+        <p className="text-gray-600 text-lg font-semibold text-center">🍪 Sweet treats. Custom sips 🍹<br/>Oven-fresh indulgence or a cocktail you call the shots on.<br/>We have your cravings covered!
         </p>
       </motion.div>
 

@@ -5,6 +5,7 @@ import { useCart } from "../context/CartContext";
 import logo from '../assets/images/full-logo.png';
 import cart from '../assets/images/shopping-cart.png'
 import trash from '../assets/images/bin.png'
+import ig from '../assets/images/instagram.png'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(null);
@@ -31,6 +32,9 @@ const Navbar = () => {
               <Link to="/collection/dessertservice" className={`xl:pr-4 hover:text-amber ${location.pathname === '/collection/dessertservice' ? 'text-amber' : ''}`}>desserts</Link>
               <Link to="/collection/barservice" className={`xl:pr-4 hover:text-amber ${location.pathname === '/collection/barservice' ? 'text-amber' : ''}`}>drinks</Link>
               <Link to="/faq" className={`hover:text-amber ${location.pathname === '/faq' ? 'text-amber' : ''}`}>order info</Link>
+              <Link to="https://www.instagram.com/flourandflask/?hl=en"
+                        target="_blank"
+                        rel="noopener noreferrer"><img src={ig} className="lg:h-6 lg:mt-1 lg:ml-5 h-4 mt-1 ml-1"/></Link>
             </div>
           </div>
 
