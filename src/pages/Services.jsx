@@ -1,7 +1,10 @@
-import drink from '../assets/images/batchd.jpg'
-import dessert from '../assets/images/pie-sm.jpg'
+import chocoChip from '../assets/images/desserts/choco-chip.jpg'
+import coconutPie from '../assets/images/desserts/coconut.jpg'
+import bananaSplitCookie from '../assets/images/desserts/bananaSplit.jpg'
+import leches from '../assets/images/desserts/leches.png'
 import { Link } from "react-router-dom"
-import { motion, stagger } from "motion/react"
+import { useEffect, useState, useRef } from 'react'
+import { motion, stagger, AnimatePresence, useScroll, useTransform } from "motion/react"
 
 const containerVariants = {
   hidden: {},
@@ -48,7 +51,41 @@ const cardVariants = {
   },
 }
 
+const slides = [
+  { image: chocoChip, alt: "Chocolate chip cookie" },
+  { image: coconutPie, alt: "Coconut pie" },
+  { image: bananaSplitCookie, alt: "Banana split cookie" },
+  { image: leches, alt: "Tres leches dessert" },
+];
+
 const Services = () => {
+  const [current, setCurrent] = useState(0);
+  const carouselRef = useRef(null);
+
+  useEffect(() => {
+    if (slides.length <= 1) return;
+
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % slides.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const carousel = carouselRef.current;
+    if (!carousel) return;
+
+    const slide = carousel.children[current];
+    if (!slide) return;
+
+    slide.scrollIntoView({
+    behavior: "smooth",
+    block: "nearest",
+    inline: "center",
+  });
+  }, [current]);
+
   return (
     <motion.section
       className="flex flex-col pt-30 justify-center items-center"
@@ -59,54 +96,35 @@ const Services = () => {
     >
       <motion.div
         variants={fadeUp}
-        className="w-7/8 lg:w-2/5 mb-4 p-4 bg-frozen-water/75 rounded-lg"
+        className="lg:w-4xl mb-4 p-6 bg-cream/85 border-sea-green border-solid border-3 rounded-xl"
       >
-        <p className="text-gray-600 text-lg font-semibold text-center">🍪 Sweet treats. Custom sips 🍹<br/>Oven-fresh indulgence or a cocktail you call the shots on.<br/>We have your cravings covered!
-        </p>
+        <p className="text-gray-600 text-lg font-semibold text-center ">Flour & Flask is a small batch, neighborhood dessert shop located in the heart of Burbank. 
+          <br/>From giant ooey gooey chocolate chip cookies to super indulgent pies, <br/>everything is baked fresh & ready to satisfy!</p>
       </motion.div>
 
+       {/* AUTO-FADE CAROUSEL */}
       <motion.div
-        variants={containerVariants}
-        className="grid grid-cols-1 max-sm:w-7/8 justify-items-center pb-4 lg:grid-cols-2 gap-6 lg:mb-5 lg:mt-5"
+        variants={cardVariants}
+        className="relative w-1/4 mt-8 overflow-hidden p-6 bg-cream/85 border-sea-green border-solid border-3 rounded-xl"
       >
-        <motion.div variants={cardVariants}>
-          <Link to="/collection/dessertservice">
-            <motion.div
-              whileHover={{ y: -12, scale: 1.0 }}
-              whileTap={{ scale: 0.99 }}
-              transition={{ type: "spring", stiffness: 260, damping: 20 }}
-              className="group bg-frozen-water/75 border-solid  border-honey rounded overflow-hidden"
-            >
-              <motion.img
-                src={dessert}
-                alt="Homemade desserts"
-                className="mx-auto w-7/8 rounded mt-4"
-                transition={{ duration: 0.35 }}
-              />
-              <p className="text-gray-600 text-center italic text-sm lg:text-lg font-semibold py-4">Homemade desserts</p>
-            </motion.div>
-          </Link>
-        </motion.div>
-
-        <motion.div variants={cardVariants}>
-          <Link to="/collection/barservice">
-            <motion.div
-              whileHover={{ y: -12, scale: 1.0 }}
-              whileTap={{ scale: 0.99 }}
-              transition={{ type: "spring", stiffness: 260, damping: 20 }}
-              className="group bg-frozen-water/75 border-solid  border-honey rounded overflow-hidden"
-            >
-              <motion.img
-                src={drink}
-                alt="Handcrafted cocktails"
-                className="mx-auto w-7/8 rounded mt-4"
-                transition={{ duration: 0.35 }}
-              />
-              <p className="text-gray-600 text-center italic text-sm lg:text-lg font-semibold py-4">Handcrafted mixers</p>
-            </motion.div>
-          </Link>
-        </motion.div>
-      </motion.div>
+        <div className="relative h-70">
+          <AnimatePresence initial={false}>
+            <motion.img
+              key={current}
+              src={slides[current].image}
+              alt={slides[current].alt}
+              className="absolute inset-0 w-full h-full object-cover rounded-lg"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{
+                duration: 2,
+                ease: "easeInOut",
+              }}
+            />
+          </AnimatePresence>
+        </div>
+      </motion.div>      
     </motion.section>
   )
 }

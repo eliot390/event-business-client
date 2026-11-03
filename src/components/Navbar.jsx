@@ -30,7 +30,7 @@ const Navbar = () => {
             </Link>
             <div className="flex space-x-2 mt-2 text-center text-sea-green uppercase tracking-tighter text-md lg:tracking-wide lg:text-2xl">            
               <Link to="/collection/dessertservice" className={`xl:pr-4 hover:text-amber ${location.pathname === '/collection/dessertservice' ? 'text-amber' : ''}`}>desserts</Link>
-              <Link to="/collection/barservice" className={`xl:pr-4 hover:text-amber ${location.pathname === '/collection/barservice' ? 'text-amber' : ''}`}>drinks</Link>
+              {/* <Link to="/collection/barservice" className={`xl:pr-4 hover:text-amber ${location.pathname === '/collection/barservice' ? 'text-amber' : ''}`}>drinks</Link> */}
               <Link to="/faq" className={`hover:text-amber ${location.pathname === '/faq' ? 'text-amber' : ''}`}>order info</Link>
               <Link to="https://www.instagram.com/flourandflask/?hl=en"
                         target="_blank"

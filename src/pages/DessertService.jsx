@@ -4,6 +4,7 @@ import { useCart } from '../context/CartContext';
 import DessertDetailsCard from '../components/DessertDetailsCard';
 import DessertButtonGroup from '../components/DessertButtonGroup';
 import DessertProductCard from '../components/DessertProductCard';
+
 import chocoChip from '../assets/images/desserts/choco-chip.jpg'
 import chocoChipCart from '../assets/images/desserts/choco-chip-sm.jpg'
 import doubleChocolate from '../assets/images/desserts/choco-choco-chip.jpg'
@@ -14,16 +15,27 @@ import cornCookie from '../assets/images/desserts/cornCookie.jpg'
 import cornCookieCart from '../assets/images/desserts/cornCookie-sm.jpg'
 import classicSaltedChip from '../assets/images/desserts/classic-salted-chip.jpg'
 import classicSaltedChipCart from '../assets/images/desserts/classic-salted-chip-sm.jpg'
+
 import atlanticPie from '../assets/images/desserts/atlantic.png'
 import atlanticPieCart from '../assets/images/desserts/atlantic-sm.png'
 import bananasFosterPie from '../assets/images/desserts/bananas-foster.jpg'
 import bananasFosterPieCart from '../assets/images/desserts/bananas-foster-sm.jpg'
 import coconutPie from '../assets/images/desserts/coconut.jpg'
 import coconutPieCart from '../assets/images/desserts/coconut-sm.jpg'
+import applePie from '../assets/images/desserts/apple.jpg'
+import applePieCart from '../assets/images/desserts/apple-sm.jpg'
+import pumpkinPie from '../assets/images/desserts/pumpkin.jpg'
+import pumpkinPieCart from '../assets/images/desserts/pumpkin-sm.jpg'
+import pumpkinPepitasPie from '../assets/images/desserts/pepitas.jpg'
+import pumpkinPepitasPieCart from '../assets/images/desserts/pepitas-sm.jpg'
+import pecanPie from '../assets/images/desserts/pecan.jpg'
+import pecanPieCart from '../assets/images/desserts/pecan-sm.jpg'
+
 import leches from '../assets/images/desserts/leches.png'
 import lechesCart from '../assets/images/desserts/leches-sm.png'
 import chocolateLeches from '../assets/images/desserts/choco-leches.jpg'
 import chocolateLechesCart from '../assets/images/desserts/choco-leches-sm.jpg'
+
 import dairy from '../assets/images/milk-c.png'
 import egg from '../assets/images/egg-c.png'
 import wheat from '../assets/images/wheat-c.png'
@@ -91,7 +103,7 @@ const DessertService = () => {
       name: "Banana Split Cookie",
       image: bananaSplitCookie,
       cartImg: bananaSplitCookieCart,
-      newStatus: true
+      newStatus: false
     };
 
     const saltedChocolateChip = {
@@ -100,9 +112,49 @@ const DessertService = () => {
       name: "Salted Chocolate Chip Cookie",
       image: classicSaltedChip,
       cartImg: classicSaltedChipCart,
-      newStatus: true,
+      newStatus: false,
       holidayStatus: false
     };
+
+    const pumpkin = {
+      key: "classicPumpkinPie",
+      type: "pies",
+      name: "Classic Pumpkin Pie",
+      image: pumpkinPie,
+      cartImg: pumpkinPieCart,
+      newStatus: false,
+      holidayStatus: true
+    };
+
+    const pumpkinPepita = {
+      key: "pumpkinPepitaPie",
+      type: "pies",
+      name: "Pepitas Pumpkin Pie",
+      image: pumpkinPepitasPie,
+      cartImg: pumpkinPepitasPieCart,
+      newStatus: false,
+      holidayStatus: true
+    };
+
+    const apple = {
+      key: "applePie",
+      type: "pies",
+      name: "Dutch Apple Pie",
+      image: applePie,
+      cartImg: applePieCart,
+      newStatus: false,
+      holidayStatus: true
+    };
+
+    const pecan = {
+      key: "pecanPie",
+      type: "pies",
+      name: "Brown Butter Bourbon Pecan Pie",
+      image: pecanPie,
+      cartImg: pecanPieCart,
+      newStatus: false,
+      holidayStatus: true
+    }
 
     const atlantic = {
       key: "atlanticPie",
@@ -110,7 +162,7 @@ const DessertService = () => {
       name: "Atlantic Beach Pie",
       image: atlanticPie,
       cartImg: atlanticPieCart,
-      newStatus: true
+      newStatus: false
     };
 
     const bananasFoster = {
@@ -119,7 +171,7 @@ const DessertService = () => {
       name: "Bananas Foster Cream Pie",
       image: bananasFosterPie,
       cartImg: bananasFosterPieCart,
-      newStatus: true
+      newStatus: false
     };
 
     const coconut = {
@@ -128,7 +180,7 @@ const DessertService = () => {
       name: "Coconut Pandan Cream Pie",
       image: coconutPie,
       cartImg: coconutPieCart,
-      newStatus: true
+      newStatus: false
     };
 
     const fruityLeches = {
@@ -137,7 +189,7 @@ const DessertService = () => {
       name: "Fruity Pebbles Tres Leches",
       image: leches,
       cartImg: lechesCart,
-      newStatus: true
+      newStatus: false
     };
 
     const chocoLeches = {
@@ -146,11 +198,116 @@ const DessertService = () => {
       name: "Chocolate Hazelnut Tres Leches",
       image: chocolateLeches,
       cartImg: chocolateLechesCart,
-      newStatus: true
+      newStatus: false
     };
 
     {/* Detail Card Info */}
     return [
+      {
+        ...apple,
+        details: (
+          <DessertDetailsCard
+            dessertImage={applePieCart}
+            name="Dutch Apple Pie"
+            description="Tender, slow cooked apples in a rich caramel sauce, topped with a crunchy oat & brown sugar crumble."
+            allergens={[dairy, egg, wheat]}
+            rows={[
+              {orderSize: "9\" Pie", orderCost: "23"}
+            ]}
+            onAdd={(selectedRow) => addToCart(apple, selectedRow)}
+          />
+        ),
+      },
+      {
+        ...pecan,
+        details: (
+          <DessertDetailsCard
+            dessertImage={pecanPieCart}
+            name="Brown Butter Bourbon Pecan Pie"
+            description="Brown butter and a splash of bourbon elevate toasted pecans in this autumn classic."
+            allergens={[dairy, egg, wheat]}
+            rows={[
+              {orderSize: "9\" Pie", orderCost: "23"}
+            ]}
+            onAdd={(selectedRow) => addToCart(pecan, selectedRow)}
+          />
+        ),
+      },
+      {
+        ...pumpkin,
+        details: (
+          <DessertDetailsCard
+            dessertImage={pumpkinPieCart}
+            name="Classic Pumpkin Pie"
+            description="A sweet-salty twist on a classic North Carolina lemon pie, made with a saltine cracker crust and a tart lime filling. Perfect for warm summer evening paired with a citrus forward cocktail or sparkling white wine!"
+            allergens={[dairy, egg, wheat]}
+            rows={[
+              {orderSize: "9\" Pie", orderCost: "23"}
+            ]}
+            onAdd={(selectedRow) => addToCart(pumpkin, selectedRow)}
+          />
+        ),
+      },
+      {
+        ...pumpkinPepita,
+        details: (
+          <DessertDetailsCard
+            dessertImage={pumpkinPepitasPieCart}
+            name="Candied Pepita Pumpkin Pie"
+            description="A modern twist on our classic pumpkin pie, topped with white chocolate ganache and candied pepitas."
+            allergens={[dairy, egg, wheat]}
+            rows={[
+              {orderSize: "9\" Pie", orderCost: "23"}
+            ]}
+            onAdd={(selectedRow) => addToCart(pumpkinPepita, selectedRow)}
+          />
+        ),
+      },
+      {
+        ...atlantic,
+        details: (
+          <DessertDetailsCard
+            dessertImage={atlanticPieCart}
+            name="Atlantic Beach Pie"
+            description="A sweet-salty twist on a classic North Carolina lemon pie, made with a saltine cracker crust and a tart lime filling. Perfect for warm summer evening paired with a citrus forward cocktail or sparkling white wine!"
+            allergens={[dairy, egg, wheat]}
+            rows={[
+              {orderSize: "9\" Pie", orderCost: "23"}
+            ]}
+            onAdd={(selectedRow) => addToCart(atlantic, selectedRow)}
+          />
+        ),
+      },
+      {
+        ...bananasFoster,
+        details: (
+          <DessertDetailsCard
+            dessertImage={bananasFosterPieCart}
+            name="Bananas Foster Cream Pie"
+            description="This is what happens when your banana cream pie gets lost on Bourbon St.! Luscious banana cream filling, topped with vanilla whipped cream, toasted walnuts and a boozy rum caramel sauce."
+            allergens={[dairy, egg, wheat, nuts]}
+            rows={[
+              {orderSize: "9\" Pie", orderCost: "23"}
+            ]}
+            onAdd={(selectedRow) => addToCart(bananasFoster, selectedRow)}
+          />
+        ),
+      },
+      {
+        ...coconut,
+        details: (
+          <DessertDetailsCard
+            dessertImage={coconutPieCart}
+            name="Coconut Pandan Cream Pie"
+            description="Thick & creamy coconut custard, made with a touch of aromatic pandan. Topped with whipped cream & toasted coconut."
+            allergens={[dairy, egg, wheat]}
+            rows={[
+              {orderSize: "9\" Pie", orderCost: "23"}
+            ]}
+            onAdd={(selectedRow) => addToCart(coconut, selectedRow)}
+          />
+        ),
+      },
       {
         ...chocolateChip,
         details: (
@@ -244,51 +401,6 @@ const DessertService = () => {
               {orderSize: "24 Pack", orderCost: "45"}
             ]}
             onAdd={(selectedRow) => addToCart(saltedChocolateChip, selectedRow)}
-          />
-        ),
-      },
-      {
-        ...atlantic,
-        details: (
-          <DessertDetailsCard
-            dessertImage={atlanticPieCart}
-            name="Atlantic Beach Pie"
-            description="A sweet-salty twist on a classic North Carolina lemon pie, made with a saltine cracker crust and a tart lime filling. Perfect for warm summer evening paired with a citrus forward cocktail or sparkling white wine!"
-            allergens={[dairy, egg, wheat]}
-            rows={[
-              {orderSize: "9\" Pie", orderCost: "23"}
-            ]}
-            onAdd={(selectedRow) => addToCart(atlantic, selectedRow)}
-          />
-        ),
-      },
-      {
-        ...bananasFoster,
-        details: (
-          <DessertDetailsCard
-            dessertImage={bananasFosterPieCart}
-            name="Bananas Foster Cream Pie"
-            description="This is what happens when your banana cream pie gets lost on Bourbon St.! Luscious banana cream filling, topped with vanilla whipped cream, toasted walnuts and a boozy rum caramel sauce."
-            allergens={[dairy, egg, wheat, nuts]}
-            rows={[
-              {orderSize: "9\" Pie", orderCost: "23"}
-            ]}
-            onAdd={(selectedRow) => addToCart(bananasFoster, selectedRow)}
-          />
-        ),
-      },
-      {
-        ...coconut,
-        details: (
-          <DessertDetailsCard
-            dessertImage={coconutPieCart}
-            name="Coconut Pandan Cream Pie"
-            description="Thick & creamy coconut custard, made with a touch of aromatic pandan. Topped with whipped cream & toasted coconut."
-            allergens={[dairy, egg, wheat]}
-            rows={[
-              {orderSize: "9\" Pie", orderCost: "23"}
-            ]}
-            onAdd={(selectedRow) => addToCart(coconut, selectedRow)}
           />
         ),
       },

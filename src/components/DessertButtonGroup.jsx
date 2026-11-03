@@ -10,9 +10,9 @@ import pieColorIcon from '../assets/images/desserts/btn-pie-clr.png'
 const DessertButtonGroup = ({ active, onChange }) => {
   const buttons = [
     { id: 'all', img: all, colorImg: allColor },
-    { id: 'cookies', img: cookieIcon, colorImg: cookieColorIcon },
     { id: 'pies', img: pieIcon, colorImg: pieColorIcon },
-    { id: 'tres leches', img: cakeIcon, colorImg: cakeColorIcon },
+    { id: 'cookies', img: cookieIcon, colorImg: cookieColorIcon },
+    { id: 'tres leches', img: cakeIcon, colorImg: cakeColorIcon }
   ]
 
   return (
