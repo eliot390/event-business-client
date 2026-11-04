@@ -2,9 +2,8 @@ import chocoChip from '../assets/images/desserts/choco-chip.jpg'
 import coconutPie from '../assets/images/desserts/coconut.jpg'
 import bananaSplitCookie from '../assets/images/desserts/bananaSplit.jpg'
 import leches from '../assets/images/desserts/leches.png'
-import { Link } from "react-router-dom"
 import { useEffect, useState, useRef } from 'react'
-import { motion, stagger, AnimatePresence, useScroll, useTransform } from "motion/react"
+import { motion, stagger, AnimatePresence } from "motion/react"
 
 const containerVariants = {
   hidden: {},
@@ -96,18 +95,18 @@ const Services = () => {
     >
       <motion.div
         variants={fadeUp}
-        className="lg:w-4xl mb-4 p-6 bg-cream/85 border-sea-green border-solid border-3 rounded-xl"
+        className="w-7/8 lg:w-4xl mb-4 p-1 lg:p-6 bg-cream/85 border-sea-green border-solid border-3 rounded-xl"
       >
-        <p className="text-gray-600 text-lg font-semibold text-center ">Flour & Flask is a small batch, neighborhood dessert shop located in the heart of Burbank. 
-          <br/>From giant ooey gooey chocolate chip cookies to super indulgent pies, <br/>everything is baked fresh & ready to satisfy!</p>
+        <p className="text-gray-600 lg:text-lg font-semibold text-center ">Flour & Flask is a small batch, neighborhood dessert shop located in the heart of Burbank. 
+          <br/>From giant ooey gooey chocolate chip cookies to super indulgent pies, everything is baked fresh & ready to satisfy!</p>
       </motion.div>
 
        {/* AUTO-FADE CAROUSEL */}
       <motion.div
         variants={cardVariants}
-        className="relative w-1/4 mt-8 overflow-hidden p-6 bg-cream/85 border-sea-green border-solid border-3 rounded-xl"
+        className="relative w-7/8 md:w-1/3 2xl:w-1/4 mt-8 overflow-hidden p-6 bg-cream/85 border-sea-green border-solid border-3 rounded-xl"
       >
-        <div className="relative h-70">
+        <div className="relative h-40 md:h-64">
           <AnimatePresence initial={false}>
             <motion.img
               key={current}

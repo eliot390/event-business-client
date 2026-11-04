@@ -212,7 +212,7 @@ const DessertService = () => {
             description="Tender, slow cooked apples in a rich caramel sauce, topped with a crunchy oat & brown sugar crumble."
             allergens={[dairy, egg, wheat]}
             rows={[
-              {orderSize: "9\" Pie", orderCost: "23"}
+              {orderSize: "9\" Pie", orderCost: "25"}
             ]}
             onAdd={(selectedRow) => addToCart(apple, selectedRow)}
           />
@@ -227,7 +227,7 @@ const DessertService = () => {
             description="Brown butter and a splash of bourbon elevate toasted pecans in this autumn classic."
             allergens={[dairy, egg, wheat]}
             rows={[
-              {orderSize: "9\" Pie", orderCost: "23"}
+              {orderSize: "9\" Pie", orderCost: "30"}
             ]}
             onAdd={(selectedRow) => addToCart(pecan, selectedRow)}
           />
@@ -239,10 +239,10 @@ const DessertService = () => {
           <DessertDetailsCard
             dessertImage={pumpkinPieCart}
             name="Classic Pumpkin Pie"
-            description="A sweet-salty twist on a classic North Carolina lemon pie, made with a saltine cracker crust and a tart lime filling. Perfect for warm summer evening paired with a citrus forward cocktail or sparkling white wine!"
+            description="Rich, creamy pumpkin pie with just the right amount of spice."
             allergens={[dairy, egg, wheat]}
             rows={[
-              {orderSize: "9\" Pie", orderCost: "23"}
+              {orderSize: "9\" Pie", orderCost: "25"}
             ]}
             onAdd={(selectedRow) => addToCart(pumpkin, selectedRow)}
           />
@@ -257,7 +257,7 @@ const DessertService = () => {
             description="A modern twist on our classic pumpkin pie, topped with white chocolate ganache and candied pepitas."
             allergens={[dairy, egg, wheat]}
             rows={[
-              {orderSize: "9\" Pie", orderCost: "23"}
+              {orderSize: "9\" Pie", orderCost: "30"}
             ]}
             onAdd={(selectedRow) => addToCart(pumpkinPepita, selectedRow)}
           />
@@ -272,7 +272,7 @@ const DessertService = () => {
             description="A sweet-salty twist on a classic North Carolina lemon pie, made with a saltine cracker crust and a tart lime filling. Perfect for warm summer evening paired with a citrus forward cocktail or sparkling white wine!"
             allergens={[dairy, egg, wheat]}
             rows={[
-              {orderSize: "9\" Pie", orderCost: "23"}
+              {orderSize: "9\" Pie", orderCost: "25"}
             ]}
             onAdd={(selectedRow) => addToCart(atlantic, selectedRow)}
           />
@@ -287,7 +287,7 @@ const DessertService = () => {
             description="This is what happens when your banana cream pie gets lost on Bourbon St.! Luscious banana cream filling, topped with vanilla whipped cream, toasted walnuts and a boozy rum caramel sauce."
             allergens={[dairy, egg, wheat, nuts]}
             rows={[
-              {orderSize: "9\" Pie", orderCost: "23"}
+              {orderSize: "9\" Pie", orderCost: "30"}
             ]}
             onAdd={(selectedRow) => addToCart(bananasFoster, selectedRow)}
           />
@@ -302,7 +302,7 @@ const DessertService = () => {
             description="Thick & creamy coconut custard, made with a touch of aromatic pandan. Topped with whipped cream & toasted coconut."
             allergens={[dairy, egg, wheat]}
             rows={[
-              {orderSize: "9\" Pie", orderCost: "23"}
+              {orderSize: "9\" Pie", orderCost: "25"}
             ]}
             onAdd={(selectedRow) => addToCart(coconut, selectedRow)}
           />
